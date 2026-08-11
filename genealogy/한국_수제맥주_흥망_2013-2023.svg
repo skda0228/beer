@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="96" viewBox="0 0 200 96" role="img" aria-label="두 개의 평행선이 위에서 아래로 나란히 내려오며 서로 만나지 않는 모양">
+<style>
+  :root{
+    --ground:#EFF2F5; --panel:#FFFFFF; --panel-2:#F7F9FB; --ink:#12161D; --ink-2:#48515F; --ink-3:#798393;
+    --rule-2:#E6EAEF;
+    --kirin:#1B7A4B; --sapporo:#A0721A; --asahi:#1F5FA8; --yebisu:#932F48;
+    --suntory:#57429E; --orion:#0A716E; --trunk:#454B57;
+    --hite:#12736A; --ob:#AE3244; --jinro:#A0721A; --lotte:#57429E; --craft:#1F5FA8; --jp:#798393;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#0E1116; --panel:#161A21; --panel-2:#1B2028; --ink:#E7EAF0; --ink-2:#A7AFBD; --ink-3:#767F8E;
+      --rule-2:#232932;
+      --kirin:#4FC183; --sapporo:#DFA845; --asahi:#63A3E8; --yebisu:#E17E96;
+      --suntory:#9E8AE0; --orion:#3EC0BA; --trunk:#AEB6C4;
+      --hite:#3FBDAF; --ob:#E8798C; --jinro:#DFA845; --lotte:#9E8AE0; --craft:#63A3E8; --jp:#7C8695;
+    }
+  }
+  .bg{fill:var(--panel)}
+  text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
+  .lane{fill:none;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+  .lane.thin{stroke-width:3}
+  .lane.trunk{stroke-width:8.5;stroke:var(--trunk)}
+  .lane.ghost{stroke-width:2.5;stroke-dasharray:2 7;opacity:.62}
+  .k{stroke:var(--kirin)} .s{stroke:var(--sapporo)} .a{stroke:var(--asahi)}
+  .y{stroke:var(--yebisu)} .u{stroke:var(--suntory)} .o{stroke:var(--orion)}
+  .fk{fill:var(--kirin)} .fs{fill:var(--sapporo)} .fa{fill:var(--asahi)}
+  .fy{fill:var(--yebisu)} .fu{fill:var(--suntory)} .fo{fill:var(--orion)}
+  .h{stroke:var(--hite)} .b{stroke:var(--ob)} .j{stroke:var(--jinro)}
+  .t{stroke:var(--lotte)} .g{stroke:var(--jp)}
+  .fh{fill:var(--hite)} .fb{fill:var(--ob)} .fj{fill:var(--jinro)}
+  .ft{fill:var(--lotte)} .fg{fill:var(--jp)} .fc{fill:var(--craft)}
+  .dot{stroke:var(--panel);stroke-width:2.5}
+  .yr{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;font-weight:700;fill:var(--ink-3)}
+  .yr.big{font-size:17px;fill:var(--ink)}
+  .lbl{font-size:12.5px;font-weight:600;fill:var(--ink)}
+  .lbl.sub{font-size:11px;font-weight:500;fill:var(--ink-3)}
+  .lbl.big{font-size:14px;font-weight:750}
+  .foot{font-size:13.5px;font-weight:750;fill:var(--ink)}
+  .gridline{stroke:var(--rule-2);stroke-width:1}
+  .band{fill:var(--trunk);opacity:.055}
+  .axnote{font-size:10.5px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
+  .bar{fill:var(--craft)}
+  .barlab{font-size:12px;font-weight:700;fill:var(--ink);font-family:ui-monospace,Menlo,monospace}
+</style>
+<rect class="bg" x="0" y="0" width="200" height="96"/>
+        <path d="M62 22 L62 86" fill="none" stroke="var(--hite)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M124 30 L124 86" fill="none" stroke="var(--ob)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M62 8 L62 22" fill="none" stroke="var(--jp)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <path d="M124 8 L124 30" fill="none" stroke="var(--jp)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <circle cx="62" cy="22" r="5.5" fill="var(--hite)"/>
+        <circle cx="124" cy="30" r="5.5" fill="var(--ob)"/>
+        <text x="142" y="58" class="lbl sub">90년<tspan x="142" dy="14">평행</tspan></text>
+      </svg>

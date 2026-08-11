@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="1496" viewBox="0 0 1160 1496" role="img"
+           aria-label="일본 맥주 6개 회사의 계보도. 기린은 1870년부터 2026년까지 한 번도 합병·분할 없이 독립 선으로 이어진다. 삿포로·에비스·아사히 세 선은 1906년 대일본맥주로 합쳐져 하나의 회색 줄기가 되었다가 1949년 GHQ 명령으로 삿포로와 아사히 두 선으로 갈라진다. 에비스는 1943년 상표가 소멸했다가 1971년 삿포로에서 갈라져 나와 부활한다. 산토리는 1899년 토리이 상점으로 존재했지만 맥주와 무관한 점선으로 표시되다가 1963년에야 실선으로 합류한다. 오리온은 1957년 오키나와에서 창업해 2019년 아사히 컨소시엄에 지분이 넘어간다.">
+<style>
+  :root{
+    --ground:#EFF2F5; --panel:#FFFFFF; --panel-2:#F7F9FB; --ink:#12161D; --ink-2:#48515F; --ink-3:#798393;
+    --rule-2:#E6EAEF;
+    --kirin:#1B7A4B; --sapporo:#A0721A; --asahi:#1F5FA8; --yebisu:#932F48;
+    --suntory:#57429E; --orion:#0A716E; --trunk:#454B57;
+    --hite:#12736A; --ob:#AE3244; --jinro:#A0721A; --lotte:#57429E; --craft:#1F5FA8; --jp:#798393;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#0E1116; --panel:#161A21; --panel-2:#1B2028; --ink:#E7EAF0; --ink-2:#A7AFBD; --ink-3:#767F8E;
+      --rule-2:#232932;
+      --kirin:#4FC183; --sapporo:#DFA845; --asahi:#63A3E8; --yebisu:#E17E96;
+      --suntory:#9E8AE0; --orion:#3EC0BA; --trunk:#AEB6C4;
+      --hite:#3FBDAF; --ob:#E8798C; --jinro:#DFA845; --lotte:#9E8AE0; --craft:#63A3E8; --jp:#7C8695;
+    }
+  }
+  .bg{fill:var(--panel)}
+  text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
+  .lane{fill:none;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+  .lane.thin{stroke-width:3}
+  .lane.trunk{stroke-width:8.5;stroke:var(--trunk)}
+  .lane.ghost{stroke-width:2.5;stroke-dasharray:2 7;opacity:.62}
+  .k{stroke:var(--kirin)} .s{stroke:var(--sapporo)} .a{stroke:var(--asahi)}
+  .y{stroke:var(--yebisu)} .u{stroke:var(--suntory)} .o{stroke:var(--orion)}
+  .fk{fill:var(--kirin)} .fs{fill:var(--sapporo)} .fa{fill:var(--asahi)}
+  .fy{fill:var(--yebisu)} .fu{fill:var(--suntory)} .fo{fill:var(--orion)}
+  .h{stroke:var(--hite)} .b{stroke:var(--ob)} .j{stroke:var(--jinro)}
+  .t{stroke:var(--lotte)} .g{stroke:var(--jp)}
+  .fh{fill:var(--hite)} .fb{fill:var(--ob)} .fj{fill:var(--jinro)}
+  .ft{fill:var(--lotte)} .fg{fill:var(--jp)} .fc{fill:var(--craft)}
+  .dot{stroke:var(--panel);stroke-width:2.5}
+  .yr{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;font-weight:700;fill:var(--ink-3)}
+  .yr.big{font-size:17px;fill:var(--ink)}
+  .lbl{font-size:12.5px;font-weight:600;fill:var(--ink)}
+  .lbl.sub{font-size:11px;font-weight:500;fill:var(--ink-3)}
+  .lbl.big{font-size:14px;font-weight:750}
+  .foot{font-size:13.5px;font-weight:750;fill:var(--ink)}
+  .gridline{stroke:var(--rule-2);stroke-width:1}
+  .band{fill:var(--trunk);opacity:.055}
+  .axnote{font-size:10.5px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
+  .bar{fill:var(--craft)}
+  .barlab{font-size:12px;font-weight:700;fill:var(--ink);font-family:ui-monospace,Menlo,monospace}
+</style>
+<rect class="bg" x="0" y="0" width="1160" height="1496"/>
+
+        <!-- 합병 구간 음영 -->
+        <rect class="band" x="378" y="600" width="364" height="196" rx="3"/>
+
+        <!-- ===== 기린 : 끊기지 않는 단일 선 ===== -->
+        <path class="lane k" d="M150 175 L150 1400"/>
+
+        <!-- ===== 삿포로 : 1876 → 합병 → 분할 → 현재 ===== -->
+        <path class="lane s" d="M430 262 L430 556 C430 590 560 570 560 600"/>
+        <path class="lane s" d="M560 796 C560 828 430 810 430 844 L430 1400"/>
+
+        <!-- ===== 에비스 : 1887 → 합병 → (소멸) → 1971 부활 ===== -->
+        <path class="lane y" d="M690 350 L690 556 C690 590 560 570 560 600"/>
+        <path class="lane y thin" d="M430 1102 C430 1136 690 1118 690 1152 L690 1400"/>
+
+        <!-- ===== 아사히 : 1889 → 합병 → 분할 → 현재 ===== -->
+        <path class="lane a" d="M560 424 L560 600"/>
+        <path class="lane a" d="M560 796 L560 1400"/>
+
+        <!-- ===== 대일본맥주 줄기 (1906–1949) ===== -->
+        <path class="lane trunk" d="M560 600 L560 796"/>
+
+        <!-- ===== 산토리 : 점선(비맥주) → 1963 실선 ===== -->
+        <path class="lane u ghost" d="M880 496 L880 962"/>
+        <path class="lane u" d="M880 962 L880 1400"/>
+
+        <!-- ===== 오리온 ===== -->
+        <path class="lane o" d="M1040 892 L1040 1400"/>
+
+        <!-- 2019 지분 인수 : 오리온 → 아사히 -->
+        <path d="M1032 1240 L575 1240" fill="none" stroke="var(--asahi)" stroke-width="1.8"
+              stroke-dasharray="1 6" stroke-linecap="round" marker-end="url(#arw)"/>
+        <defs>
+          <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5"
+                  markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 1 L9 5 L0 9 z" fill="var(--asahi)"/>
+          </marker>
+        </defs>
+
+        <!-- ══════════ 노드 + 라벨 ══════════ -->
+
+        <!-- 1870 기린 -->
+        <text class="yr" x="70" y="180" text-anchor="end">1870</text>
+        <circle class="dot fk" cx="150" cy="175" r="7"/>
+        <text class="lbl" x="150" y="146" text-anchor="middle">스프링 밸리 브루어리</text>
+        <text class="lbl sub" x="150" y="161" text-anchor="middle">요코하마 · 일본 최초 상업 양조장</text>
+
+        <!-- 1876 삿포로 -->
+        <text class="yr" x="70" y="267" text-anchor="end">1876</text>
+        <circle class="dot fs" cx="430" cy="262" r="7"/>
+        <text class="lbl" x="430" y="233" text-anchor="middle">개척사 맥주 양조소</text>
+        <text class="lbl sub" x="430" y="248" text-anchor="middle">홋카이도 · 관영</text>
+
+        <!-- 1887 에비스 -->
+        <text class="yr" x="70" y="355" text-anchor="end">1887</text>
+        <circle class="dot fy" cx="690" cy="350" r="7"/>
+        <text class="lbl" x="690" y="321" text-anchor="middle">일본맥주양조회사</text>
+        <text class="lbl sub" x="690" y="336" text-anchor="middle">1890 에비스 출시 · 미쓰이</text>
+
+        <!-- 1889 아사히 -->
+        <text class="yr" x="70" y="429" text-anchor="end">1889</text>
+        <circle class="dot fa" cx="560" cy="424" r="7"/>
+        <text class="lbl" x="580" y="411">오사카 맥주회사</text>
+        <text class="lbl sub" x="580" y="426">1892 아사히 출시</text>
+
+        <!-- 1899 산토리(비맥주) -->
+        <text class="yr" x="70" y="501" text-anchor="end">1899</text>
+        <circle cx="880" cy="496" r="5.5" fill="var(--panel)" stroke="var(--suntory)" stroke-width="2.5"/>
+        <text class="lbl" x="880" y="467" text-anchor="middle">토리이 상점</text>
+        <text class="lbl sub" x="880" y="482" text-anchor="middle">와인·위스키 — 맥주 아님</text>
+
+        <!-- 1906 합병 -->
+        <line class="gridline" x1="90" y1="600" x2="1120" y2="600"/>
+        <text class="yr big" x="70" y="605" text-anchor="end">1906</text>
+        <circle class="dot ft" cx="560" cy="600" r="9"/>
+        <text class="lbl big" x="618" y="634">대일본맥주 주식회사</text>
+        <text class="lbl sub" x="618" y="651">3사 합병 · 점유율 70% 초과 독점</text>
+        <!-- 기린 대비 주석 -->
+        <text class="lbl" x="172" y="590">1907 · 기린맥주(주)</text>
+        <text class="lbl sub" x="172" y="606">합병 거부, 미쓰비시 자본으로 독립</text>
+
+        <!-- 1943 에비스 상표 소멸 -->
+        <text class="yr" x="70" y="711" text-anchor="end">1943</text>
+        <rect x="552" y="698" width="16" height="16" rx="2" fill="var(--yebisu)" stroke="var(--panel)" stroke-width="2.5"/>
+        <text class="lbl" x="598" y="702">에비스 상표 강제 소멸</text>
+        <text class="lbl sub" x="598" y="718">전시 브랜드 통제령</text>
+
+        <!-- 1949 분할 -->
+        <line class="gridline" x1="90" y1="796" x2="1120" y2="796"/>
+        <text class="yr big" x="70" y="801" text-anchor="end">1949</text>
+        <circle class="dot ft" cx="560" cy="796" r="9"/>
+        <text class="lbl big" x="640" y="786">GHQ 강제 분할</text>
+        <text class="lbl sub" x="640" y="803">과도경제력집중배제법 · 2사로 인적 분할</text>
+
+        <!-- 1957 오리온 -->
+        <text class="yr" x="70" y="897" text-anchor="end">1957</text>
+        <circle class="dot fo" cx="1040" cy="892" r="7"/>
+        <text class="lbl" x="1040" y="863" text-anchor="middle">오리온</text>
+        <text class="lbl sub" x="1040" y="878" text-anchor="middle">오키나와 · 미군정기</text>
+
+        <!-- 1963 산토리 합류 -->
+        <text class="yr" x="70" y="967" text-anchor="end">1963</text>
+        <circle class="dot fu" cx="880" cy="962" r="7.5"/>
+        <text class="lbl" x="838" y="951" text-anchor="end">산토리 맥주 진출</text>
+        <text class="lbl sub" x="838" y="966" text-anchor="end">창업 64년 만 · 4대 체제 완성</text>
+
+        <!-- 1964 삿포로 개명 -->
+        <text class="yr" x="70" y="1029" text-anchor="end">1964</text>
+        <circle class="dot fs" cx="430" cy="1024" r="6"/>
+        <text class="lbl" x="398" y="1020" text-anchor="end">닛폰맥주 → 삿포로맥주</text>
+
+        <!-- 1971 에비스 부활 -->
+        <text class="yr" x="70" y="1107" text-anchor="end">1971</text>
+        <circle class="dot fy" cx="430" cy="1102" r="6"/>
+        <text class="lbl" x="716" y="1178">에비스 부활</text>
+        <text class="lbl sub" x="716" y="1194">28년 만에 삿포로의 프리미엄 라인으로</text>
+
+        <!-- 2019 오리온 인수 -->
+        <text class="yr" x="70" y="1245" text-anchor="end">2019</text>
+        <circle class="dot fo" cx="1040" cy="1240" r="6"/>
+        <text class="lbl sub" x="1024" y="1226" text-anchor="end">아사히 지분 인수</text>
+
+        <!-- 현재 -->
+        <line class="gridline" x1="90" y1="1352" x2="1120" y2="1352"/>
+        <text class="yr big" x="70" y="1357" text-anchor="end">2026</text>
+
+        <!-- 하단 회사명 -->
+        <text class="foot fk" x="150"  y="1428" text-anchor="middle">기린</text>
+        <text class="foot fs" x="430"  y="1428" text-anchor="middle">삿포로</text>
+        <text class="foot fa" x="560"  y="1428" text-anchor="middle">아사히</text>
+        <text class="foot fy" x="690"  y="1428" text-anchor="middle">에비스</text>
+        <text class="foot fu" x="880"  y="1428" text-anchor="middle">산토리</text>
+        <text class="foot fo" x="1040" y="1428" text-anchor="middle">오리온</text>
+
+        <text class="lbl sub" x="150"  y="1445" text-anchor="middle">독자 156년</text>
+        <text class="lbl sub" x="430"  y="1445" text-anchor="middle">합병→분할</text>
+        <text class="lbl sub" x="560"  y="1445" text-anchor="middle">합병→분할</text>
+        <text class="lbl sub" x="690"  y="1445" text-anchor="middle">삿포로 산하</text>
+        <text class="lbl sub" x="880"  y="1445" text-anchor="middle">후발 합류</text>
+        <text class="lbl sub" x="1040" y="1445" text-anchor="middle">아사히 산하</text>
+
+        <text class="axnote" x="90" y="1488">세로축은 사건 순서 — 연도 간격은 등간격이 아님</text>
+      </svg>
