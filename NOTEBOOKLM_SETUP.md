@@ -21,23 +21,42 @@
 
 ## 설치
 
-```bash
-npm install -g notebooklm-mcp@latest
-```
+`.mcp.json`이 `npx notebooklm-mcp@latest`를 쓰므로 **별도 설치가 필요 없습니다.**
+npx가 첫 실행 시 패키지를 받아 캐시하고, 이후 기동마다 `latest` 태그를 확인해 자동으로 최신을 따라갑니다.
 
-`.mcp.json`의 `command: "notebooklm-mcp"`는 전역 설치를 전제합니다.
-전역 설치 없이 쓰려면 `.mcp.json`을 아래로 바꾸세요:
+버전을 고정하고 싶다면 전역 설치 후 `.mcp.json`을 아래로 바꾸세요:
+
+```bash
+npm install -g notebooklm-mcp@2.0.0
+```
 
 ```json
 {
   "mcpServers": {
-    "notebooklm-mcp": {
-      "command": "npx",
-      "args": ["notebooklm-mcp@latest"]
-    }
+    "notebooklm": { "command": "notebooklm-mcp", "args": [] }
   }
 }
 ```
+
+## 적용 범위 (scope)
+
+`.mcp.json`은 **이 저장소에서만** 동작합니다. 다른 프로젝트에서도 쓰려면 user 스코프로 등록하세요:
+
+```bash
+claude mcp add --scope user notebooklm -- npx notebooklm-mcp@latest
+```
+
+| 스코프 | 저장 위치 | 적용 범위 |
+|---|---|---|
+| `local` (기본) | `~/.claude.json` → `projects[<cwd>].mcpServers` | 해당 디렉터리, 본인만 |
+| `project` | 저장소 루트 `.mcp.json` | 이 저장소를 체크아웃한 모든 사람 |
+| `user` | `~/.claude.json` → 최상위 `mcpServers` | **본인의 모든 프로젝트** |
+
+등록 확인: `claude mcp list`
+
+이 설정들은 모두 **Claude Code CLI 전용**입니다.
+claude.ai 웹·데스크톱 앱의 커넥터는 별개 체계이며, stdio 서버를 직접 등록할 수 없습니다
+(원격 HTTP 엔드포인트만 받습니다 — 아래 참고).
 
 ## 최초 인증 (로컬 머신에서만 가능)
 
@@ -69,6 +88,13 @@ Claude Code 웹·클라우드 세션(이 저장소가 클론된 환경)에서는
    실행 중인 세션에 설정을 추가해도 재시작 전까지는 도구가 나타나지 않습니다.
 
 따라서 **로컬 데스크톱 Claude Code에서 사용하세요.**
+
+## claude.ai 웹·데스크톱 앱에서 쓰려면
+
+claude.ai의 커넥터는 stdio가 아니라 **원격 HTTP MCP 엔드포인트**만 받습니다.
+`notebooklm-mcp` v2.0.0은 Streamable-HTTP 전송을 지원하므로 이론상 가능하지만,
+서버를 공개 주소에 노출해야 합니다 — 그 서버는 로그인된 Google 세션을 쥐고 있으므로
+인증 없이 공개하면 안 됩니다. 개인 용도라면 로컬 Claude Code CLI 사용을 권합니다.
 
 ## 보안 참고
 
