@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="96" viewBox="0 0 200 96" role="img" aria-label="두 개의 평행선이 위에서 아래로 나란히 내려오며 서로 만나지 않는 모양">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="502" viewBox="0 -46 1000 502" role="img"
+           aria-label="한국 수제맥주 시장 규모 막대그래프. 2013년 93억 원에서 2021년 1520억 원으로 16배 성장한 뒤 2023년 752억 원으로 반토막 났다.">
 <style>
   :root{
-    --ground:#EFF2F5; --panel:#FFFFFF; --panel-2:#F7F9FB; --ink:#12161D; --ink-2:#48515F; --ink-3:#798393;
+    --panel:#FFFFFF; --panel-2:#F7F9FB; --ink:#12161D; --ink-2:#48515F; --ink-3:#798393;
     --rule-2:#E6EAEF;
     --kirin:#1B7A4B; --sapporo:#A0721A; --asahi:#1F5FA8; --yebisu:#932F48;
     --suntory:#57429E; --orion:#0A716E; --trunk:#454B57;
@@ -9,7 +10,7 @@
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --ground:#0E1116; --panel:#161A21; --panel-2:#1B2028; --ink:#E7EAF0; --ink-2:#A7AFBD; --ink-3:#767F8E;
+      --panel:#161A21; --panel-2:#1B2028; --ink:#E7EAF0; --ink-2:#A7AFBD; --ink-3:#767F8E;
       --rule-2:#232932;
       --kirin:#4FC183; --sapporo:#DFA845; --asahi:#63A3E8; --yebisu:#E17E96;
       --suntory:#9E8AE0; --orion:#3EC0BA; --trunk:#AEB6C4;
@@ -41,14 +42,45 @@
   .band{fill:var(--trunk);opacity:.055}
   .axnote{font-size:10.5px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
   .bar{fill:var(--craft)}
+  .svglab{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:.18em;fill:var(--ink)}
   .barlab{font-size:12px;font-weight:700;fill:var(--ink);font-family:ui-monospace,Menlo,monospace}
 </style>
-<rect class="bg" x="0" y="0" width="200" height="96"/>
-        <path d="M62 22 L62 86" fill="none" stroke="var(--hite)" stroke-width="5" stroke-linecap="round"/>
-        <path d="M124 30 L124 86" fill="none" stroke="var(--ob)" stroke-width="5" stroke-linecap="round"/>
-        <path d="M62 8 L62 22" fill="none" stroke="var(--jp)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
-        <path d="M124 8 L124 30" fill="none" stroke="var(--jp)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
-        <circle cx="62" cy="22" r="5.5" fill="var(--hite)"/>
-        <circle cx="124" cy="30" r="5.5" fill="var(--ob)"/>
-        <text x="142" y="58" class="lbl sub">90년<tspan x="142" dy="14">평행</tspan></text>
+<rect class="bg" x="0" y="-46" width="1000" height="502"/>
+
+        <line class="gridline" x1="80" y1="330" x2="960" y2="330"/>
+
+        <!-- 2013 : 93억 -->
+        <rect class="bar" x="140" y="311" width="120" height="19" rx="2" opacity=".85"/>
+        <text class="barlab" x="200" y="303" text-anchor="middle">93억</text>
+        <text class="yr" x="200" y="352" text-anchor="middle">2013</text>
+        <text class="lbl sub" x="200" y="370" text-anchor="middle">제도 이전</text>
+
+        <!-- 2021 : 1520억 -->
+        <rect class="bar" x="440" y="70" width="120" height="260" rx="2"/>
+        <text class="barlab" x="500" y="60" text-anchor="middle">1,520억</text>
+        <text class="yr" x="500" y="352" text-anchor="middle">2021</text>
+        <text class="lbl sub" x="500" y="370" text-anchor="middle">정점 · 16배</text>
+
+        <!-- 2023 : 752억 -->
+        <rect class="bar" x="740" y="201" width="120" height="129" rx="2" opacity=".85"/>
+        <text class="barlab" x="800" y="193" text-anchor="middle">752억</text>
+        <text class="yr" x="800" y="352" text-anchor="middle">2023</text>
+        <text class="lbl sub" x="800" y="370" text-anchor="middle">반토막</text>
+
+        <!-- 상승 / 하강 표시 -->
+        <path d="M270 300 L430 90" fill="none" stroke="var(--craft)" stroke-width="2" stroke-dasharray="4 4" opacity=".55"/>
+        <path d="M570 80 L730 195" fill="none" stroke="var(--ob)" stroke-width="2" stroke-dasharray="4 4" opacity=".7"/>
+
+        <text class="lbl" x="300" y="180" fill="var(--craft)">2014 주세법 개정</text>
+        <text class="lbl sub" x="300" y="196">2020 종량세 · 2021 OEM 허용</text>
+        <text class="lbl sub" x="300" y="212">2020 곰표 밀맥주 — 3년 6,000만 캔</text>
+
+        <text class="lbl" x="600" y="128" fill="var(--ob)">2023 곰표 상표권 분쟁</text>
+        <text class="lbl sub" x="600" y="144">2025 세븐브로이 법정관리</text>
+        <text class="lbl sub" x="600" y="160">2026 어메이징브루잉 파산</text>
+
+        <text class="axnote" x="80" y="404">단위 억 원 · 국내 수제맥주 시장 규모 — 출처 자료에 있는 3개 연도만 표시</text>
+      
+        <text class="svglab" x="90" y="-16" style="font-size:11px">SK YOPPARATTE LAB</text>
+        <text class="svglab" x="920" y="446" text-anchor="end" style="font-size:11px">SK YOPPARATTE LAB</text>
       </svg>

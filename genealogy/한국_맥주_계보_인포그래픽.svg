@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1590" height="2250" viewBox="0 0 1590 2250" role="img" aria-label="한국 맥주 계보도. 1933년 조선맥주와 소화기린맥주가 서로 다른 일본 자본으로 설립되고, 1948년 소화기린은 동양맥주로 바뀌며 상표 OB가 등장한 뒤 1995년 사명까지 OB맥주가 된다. 두 선은 90년간 만나지 않는다. 1992년 진로쿠어스가 세워져 1994년 카스를 내지만 1999년 카스는 OB로, 2005년 진로 자신은 하이트로 넘어가며 두 선이 교차한다. 롯데는 2014년 클라우드로 진입한다."><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1590" height="2332" viewBox="0 -46 1590 2332" role="img" aria-label="한국 맥주 계보도. 1933년 조선맥주와 소화기린맥주가 서로 다른 일본 자본으로 설립되고, 1948년 소화기린은 동양맥주로 바뀌며 상표 OB가 등장한 뒤 1995년 사명까지 OB맥주가 된다. 두 선은 90년간 만나지 않는다. 1992년 진로쿠어스가 세워져 1994년 카스를 내지만 1999년 카스는 OB로, 2005년 진로 자신은 하이트로 넘어가며 두 선이 교차한다. 롯데는 2014년 클라우드로 진입한다."><style>
   :root{
     --ground:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D1F; --ink-2:#4A5157; --ink-3:#8A9098;
     --rule:#DDE0DC;
@@ -52,7 +52,13 @@
   .pr{font-weight:800;fill:var(--new)}
   .shn{font-size:12.7px;font-weight:600;fill:var(--ink-3)}
   .axn{font-size:13.3px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
-</style><rect x="0" y="0" width="1590" height="2250" fill="var(--panel)"/>
+  .lab{margin:0 0 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;
+    font-weight:800;letter-spacing:.2em;color:var(--ink)}
+  .labfoot{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem;letter-spacing:.14em;color:var(--ink-3)}
+  .labfoot b{font-weight:800;letter-spacing:.2em;color:var(--ink)}
+  .svglab{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:.18em;fill:var(--ink)}
+</style><rect x="0" y="-46" width="1590" height="2332" fill="var(--panel)"/>
 <defs>
 <linearGradient id="g99" x1="990" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
   <stop offset="0" stop-color="var(--jinro)"/><stop offset="0.45" stop-color="var(--jinro)"/><stop offset="1" stop-color="var(--ob)"/>
@@ -236,4 +242,7 @@
 <text class="axn" x="150" y="2154">굵은 선 = 맥주 계보 · 가는 선 = 비(非)맥주(소주 진로) — 주제 밖 맥락으로 표시</text>
 <text class="axn" x="150" y="2176">세로축은 사건 순서 — 연도 간격은 등간격이 아님 · 아이콘·제품 그림은 브랜드 로고가 아닌 자체 제작</text>
 <text class="axn" x="150" y="2198">점유율은 제조사 기준 근사치 · 진로는 소주 부문으로 하이트진로에 포함</text>
+
+<text class="svglab" x="150" y="-16" style="font-size:13px">SK YOPPARATTE LAB</text>
+<text class="svglab" x="1540" y="2276" text-anchor="end" style="font-size:13px">SK YOPPARATTE LAB</text>
 </svg>

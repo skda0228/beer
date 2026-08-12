@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="1496" viewBox="0 0 1160 1496" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="1578" viewBox="0 -46 1160 1578" role="img"
            aria-label="일본 맥주 6개 회사의 계보도. 기린은 1870년부터 2026년까지 한 번도 합병·분할 없이 독립 선으로 이어진다. 삿포로·에비스·아사히 세 선은 1906년 대일본맥주로 합쳐져 하나의 회색 줄기가 되었다가 1949년 GHQ 명령으로 삿포로와 아사히 두 선으로 갈라진다. 에비스는 1943년 상표가 소멸했다가 1971년 삿포로에서 갈라져 나와 부활한다. 산토리는 1899년 토리이 상점으로 존재했지만 맥주와 무관한 점선으로 표시되다가 1963년에야 실선으로 합류한다. 오리온은 1957년 오키나와에서 창업해 2019년 아사히 컨소시엄에 지분이 넘어간다.">
 <style>
   :root{
-    --ground:#EFF2F5; --panel:#FFFFFF; --panel-2:#F7F9FB; --ink:#12161D; --ink-2:#48515F; --ink-3:#798393;
+    --panel:#FFFFFF; --panel-2:#F7F9FB; --ink:#12161D; --ink-2:#48515F; --ink-3:#798393;
     --rule-2:#E6EAEF;
     --kirin:#1B7A4B; --sapporo:#A0721A; --asahi:#1F5FA8; --yebisu:#932F48;
     --suntory:#57429E; --orion:#0A716E; --trunk:#454B57;
@@ -10,7 +10,7 @@
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --ground:#0E1116; --panel:#161A21; --panel-2:#1B2028; --ink:#E7EAF0; --ink-2:#A7AFBD; --ink-3:#767F8E;
+      --panel:#161A21; --panel-2:#1B2028; --ink:#E7EAF0; --ink-2:#A7AFBD; --ink-3:#767F8E;
       --rule-2:#232932;
       --kirin:#4FC183; --sapporo:#DFA845; --asahi:#63A3E8; --yebisu:#E17E96;
       --suntory:#9E8AE0; --orion:#3EC0BA; --trunk:#AEB6C4;
@@ -42,9 +42,10 @@
   .band{fill:var(--trunk);opacity:.055}
   .axnote{font-size:10.5px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
   .bar{fill:var(--craft)}
+  .svglab{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:.18em;fill:var(--ink)}
   .barlab{font-size:12px;font-weight:700;fill:var(--ink);font-family:ui-monospace,Menlo,monospace}
 </style>
-<rect class="bg" x="0" y="0" width="1160" height="1496"/>
+<rect class="bg" x="0" y="-46" width="1160" height="1578"/>
 
         <!-- 합병 구간 음영 -->
         <rect class="band" x="378" y="600" width="364" height="196" rx="3"/>
@@ -187,4 +188,7 @@
         <text class="lbl sub" x="1040" y="1445" text-anchor="middle">아사히 산하</text>
 
         <text class="axnote" x="90" y="1488">세로축은 사건 순서 — 연도 간격은 등간격이 아님</text>
+      
+        <text class="svglab" x="90" y="-16" style="font-size:12px">SK YOPPARATTE LAB</text>
+        <text class="svglab" x="1070" y="1522" text-anchor="end" style="font-size:12px">SK YOPPARATTE LAB</text>
       </svg>

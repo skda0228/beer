@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="2084" viewBox="0 0 1340 2084" role="img" aria-label="일본 맥주 6개 회사 계보도. 기린은 1870년부터 끊기지 않는 독자 노선을 유지한다. 삿포로·에비스·아사히는 1906년 대일본맥주로 합병되어 회색 줄기가 되었다가 1949년 GHQ 명령으로 삿포로와 아사히 둘로 분할된다. 에비스는 1943년 상표가 소멸했다가 1971년 삿포로 산하로 부활한다. 산토리는 1963년, 오리온은 1957년에 합류하며 2019년 오리온은 아사히 산하로 들어간다. 여섯 계보는 각자의 대표 제품으로 이어진다."><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="2166" viewBox="0 -46 1340 2166" role="img" aria-label="일본 맥주 6개 회사 계보도. 기린은 1870년부터 끊기지 않는 독자 노선을 유지한다. 삿포로·에비스·아사히는 1906년 대일본맥주로 합병되어 회색 줄기가 되었다가 1949년 GHQ 명령으로 삿포로와 아사히 둘로 분할된다. 에비스는 1943년 상표가 소멸했다가 1971년 삿포로 산하로 부활한다. 산토리는 1963년, 오리온은 1957년에 합류하며 2019년 오리온은 아사히 산하로 들어간다. 여섯 계보는 각자의 대표 제품으로 이어진다."><style>
   :root{
     --ground:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D1F; --ink-2:#4A5157; --ink-3:#8A9098;
     --rule:#DDE0DC;
@@ -55,7 +55,13 @@
   .axn{font-size:12.1px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
   .tst{font-size:12.3px;font-weight:600;fill:var(--ink-3)}
   .tsh{font-size:11.5px;font-weight:700;fill:var(--ink-3);letter-spacing:.06em}
-</style><rect x="0" y="0" width="1340" height="2084" fill="var(--panel)"/>
+  .lab{margin:0 0 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;
+    font-weight:800;letter-spacing:.2em;color:var(--ink)}
+  .labfoot{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem;letter-spacing:.14em;color:var(--ink-3)}
+  .labfoot b{font-weight:800;letter-spacing:.2em;color:var(--ink)}
+  .svglab{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:.18em;fill:var(--ink)}
+</style><rect x="0" y="-46" width="1340" height="2166" fill="var(--panel)"/>
 <defs>
   <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M0 1 L9 5 L0 9 z" fill="var(--orion)"/>
@@ -289,4 +295,7 @@
 <text class="shp fo" x="980" y="2000.0" text-anchor="middle">1%</text>
 <text class="axn" x="150" y="2040.0">세로축은 사건 순서 — 연도 간격은 등간격이 아님 · 아이콘·제품 그림은 브랜드 로고가 아닌 자체 제작</text>
 <text class="axn" x="150" y="2060.0">점유율은 맥주계 음료(ビール類) 기준 근사치 · 에비스는 삿포로 실적에 포함 · 오리온은 아사히 산하지만 별도 법인</text>
+
+<text class="svglab" x="150" y="-16" style="font-size:13px">SK YOPPARATTE LAB</text>
+<text class="svglab" x="1310" y="2110" text-anchor="end" style="font-size:13px">SK YOPPARATTE LAB</text>
 </svg>
