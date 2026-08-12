@@ -11,12 +11,10 @@ Google Drive 「주류학개론 / 맥주」 폴더의 자료를 근거로 그린
 | `jp-infographic.html` | 일본 인포그래픽 단독 (대표 제품 · 맛의 결 · 점유율 포함) |
 | `kr-infographic.html` | 한국 인포그래픽 단독 |
 | `png/일본_한국_맥주_계보_통합.png` | 통합 페이지 전체 2× 래스터 |
-| `jp-beer-genealogy.html` | 일본 계보 전체 페이지 (계보도 + 패턴 카드 + 마일스톤) |
-| `kr-beer-genealogy.html` | 한국 계보 전체 페이지 (계보도 + 패턴 카드 + 크래프트 흥망 + 판도) |
-| `일본_맥주_계보도_1870-2026.svg` | 일본 계보도 단독 벡터 |
-| `한국_맥주_계보도_1933-2026.svg` | 한국 계보도 단독 벡터 |
+| `일본_맥주_계보_인포그래픽.svg` | 일본 계보도 단독 벡터 |
+| `한국_맥주_계보_인포그래픽.svg` | 한국 계보도 단독 벡터 |
 | `한국_수제맥주_흥망_2013-2023.svg` | 수제맥주 시장 규모 단독 벡터 |
-| `png/*.png` | 위 세 도표의 2× 래스터 (1400px 뷰포트, deviceScaleFactor 2) |
+| `png/*.png` | 위 도표들의 2× 래스터 (1400px 뷰포트, deviceScaleFactor 2) |
 
 전 문서가 **라이트 톤 고정**이다 — OS나 뷰어가 다크 모드여도 흰 바탕으로 나온다.
 다크 팔레트를 함께 두면 같은 그림이 기기마다 다른 색으로 보여, 인쇄물처럼 한 벌만 유지한다.
@@ -65,9 +63,14 @@ Drive의 `일본 맥주 산업 150년 역사1.png`(NotebookLM 생성)와 대조�
 ## 재생성
 
 ```bash
-# 스크린샷·PNG 내보내기는 Playwright(patchright) + 번들 Chromium 사용
-node export.mjs          # figure 요소를 2× PNG로
-python3 mksvg.py <html> <svg-index> <out.svg>   # HTML에서 단독 SVG 추출
+python3 mkig.py jp-infographic.html 일본_맥주_계보_인포그래픽.svg
+python3 mkig.py kr-infographic.html 한국_맥주_계보_인포그래픽.svg
+node export.mjs          # 2× PNG 세 장 (Playwright/patchright + 번들 Chromium)
 ```
 
 HTML을 고치면 SVG와 PNG를 함께 재생성해야 한다 — 세 형식이 같은 소스에서 나온다.
+`beer-genealogy.html`은 두 인포그래픽의 `<svg>`를 그대로 품고 있으므로, 낱장을 고치면
+통합본의 해당 `<svg>` 블록도 교체해야 한다.
+
+`한국_수제맥주_흥망_2013-2023.svg`는 예외다 — 출처였던 초판 페이지를 삭제해 재생성 경로가 없다.
+고칠 일이 생기면 SVG를 직접 편집하거나 새로 그린다.
