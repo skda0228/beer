@@ -52,10 +52,7 @@
   .pr{font-weight:800;fill:var(--new)}
   .shn{font-size:12.7px;font-weight:600;fill:var(--ink-3)}
   .axn{font-size:13.3px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
-
-.bgpanel{fill:var(--panel)}
-text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
-</style><rect class="bgpanel" x="0" y="0" width="1590" height="2250"/>
+</style><rect x="0" y="0" width="1590" height="2250" fill="var(--panel)"/>
 <defs>
 <linearGradient id="g99" x1="990" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
   <stop offset="0" stop-color="var(--jinro)"/><stop offset="0.45" stop-color="var(--jinro)"/><stop offset="1" stop-color="var(--ob)"/>
@@ -65,8 +62,12 @@ text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans K
 </linearGradient>
 </defs>
 <path class="rib g gh" d="M250 128 L250 200"/><path class="rib g gh" d="M640 128 L640 310"/>
-<text class="bd" x="250" y="112" text-anchor="middle">대일본맥주 (日)</text>
-<text class="bd" x="640" y="112" text-anchor="middle">기린맥주 (日)</text>
+<text class="bd" x="250" y="92" text-anchor="middle" style="font-weight:700">대일본맥주 (日)</text>
+<text class="bd" x="250" y="112" text-anchor="middle" style="font-size:13.5px">現 삿포로 · 아사히 계열</text>
+<text class="bd" x="640" y="92" text-anchor="middle" style="font-weight:700">기린맥주 (日)</text>
+<text class="bd" x="640" y="112" text-anchor="middle" style="font-size:13.5px">現 기린홀딩스</text>
+<text class="bd" x="700" y="150" style="font-size:13.5px">1933년 <tspan style="font-weight:700">설립 자본일 뿐</tspan> — 1945년 광복 후 적산기업으로 접수되며 자본 관계가 끊긴다.</text>
+<text class="bd" x="700" y="171" style="font-size:13.5px">오늘의 하이트진로·OB맥주는 이 두 일본 회사와 지분·경영상 <tspan style="font-weight:700">무관하다.</tspan></text>
 <path class="rib h" d="M250 200 L250 1920"/>
 <path class="rib b" d="M640 310 L640 1920"/>
 <path class="rib j gh" style="stroke-width:4;opacity:.5" d="M870 580 L870 670"/>
