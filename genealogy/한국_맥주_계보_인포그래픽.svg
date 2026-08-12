@@ -5,21 +5,7 @@
     --hite:#0F7A6E; --ob:#C0332F; --jinro:#B8860B; --lotte:#5B4B9E; --craft:#2274C4; --new:#DC2626; --jp:#8A9098; --trunk:#8A9098;
     --shadow:0 2px 4px rgba(26,29,31,.06), 0 12px 32px -16px rgba(26,29,31,.24);
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ground:#101315; --panel:#181C1F; --ink:#E9ECEE; --ink-2:#A9B0B6; --ink-3:#798087;
-      --rule:#2A2F33;
-      --hite:#3FC5B4; --ob:#EE7A72; --jinro:#E0B04A; --lotte:#9C8CE0; --craft:#5AA5EE; --new:#FF8A80; --jp:#798087; --trunk:#798087;
-      --shadow:0 2px 4px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.8);
-    }
-  }
-  :root[data-theme="dark"]{
-    --ground:#101315; --panel:#181C1F; --ink:#E9ECEE; --ink-2:#A9B0B6; --ink-3:#798087;
-    --rule:#2A2F33;
-    --hite:#3FC5B4; --ob:#EE7A72; --jinro:#E0B04A; --lotte:#9C8CE0; --craft:#5AA5EE; --new:#FF8A80; --jp:#798087; --trunk:#798087;
-    --shadow:0 2px 4px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.8);
-  }
-  *{box-sizing:border-box}
+      *{box-sizing:border-box}
   body{margin:0;background:var(--ground);color:var(--ink);
     font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
     line-height:1.6;-webkit-font-smoothing:antialiased}

@@ -8,14 +8,6 @@
     --suntory:#57429E; --orion:#0A716E; --trunk:#454B57;
     --hite:#12736A; --ob:#AE3244; --jinro:#A0721A; --lotte:#57429E; --craft:#1F5FA8; --jp:#798393;
   }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --panel:#161A21; --panel-2:#1B2028; --ink:#E7EAF0; --ink-2:#A7AFBD; --ink-3:#767F8E;
-      --rule-2:#232932;
-      --kirin:#4FC183; --sapporo:#DFA845; --asahi:#63A3E8; --yebisu:#E17E96;
-      --suntory:#9E8AE0; --orion:#3EC0BA; --trunk:#AEB6C4;
-      --hite:#3FBDAF; --ob:#E8798C; --jinro:#DFA845; --lotte:#9E8AE0; --craft:#63A3E8; --jp:#7C8695;
-    }
   }
   .bg{fill:var(--panel)}
   text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
