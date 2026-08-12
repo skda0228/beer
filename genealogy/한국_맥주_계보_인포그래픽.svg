@@ -55,6 +55,14 @@
 .bgpanel{fill:var(--panel)}
 text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
 </style><rect class="bgpanel" x="0" y="0" width="1590" height="2250"/>
+<defs>
+<linearGradient id="g99" x1="990" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="var(--jinro)"/><stop offset="0.45" stop-color="var(--jinro)"/><stop offset="1" stop-color="var(--ob)"/>
+</linearGradient>
+<linearGradient id="g05" x1="870" y1="0" x2="250" y2="0" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="var(--jinro)"/><stop offset="0.4" stop-color="var(--jinro)"/><stop offset="1" stop-color="var(--hite)"/>
+</linearGradient>
+</defs>
 <path class="rib g gh" d="M250 128 L250 200"/><path class="rib g gh" d="M640 128 L640 310"/>
 <text class="bd" x="250" y="112" text-anchor="middle">대일본맥주 (日)</text>
 <text class="bd" x="640" y="112" text-anchor="middle">기린맥주 (日)</text>
@@ -62,9 +70,9 @@ text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans K
 <path class="rib b" d="M640 310 L640 1920"/>
 <path class="rib j gh" d="M870 580 L870 670"/>
 <path class="rib j" d="M870 670 L870 1385"/>
-<path class="rib j" d="M870 1385 C870 1445 250 1415 250 1475"/>
+<path class="rib" style="stroke:url(#g05)" d="M870 1385 C870 1445 250 1415 250 1475"/>
 <path class="rib j thin" d="M870 670 C870 720 990 700 990 750 L990 1255"/>
-<path class="rib j thin" d="M990 1255 C990 1305 640 1275 640 1325"/>
+<path class="rib thin" style="stroke:url(#g99)" d="M990 1255 C990 1305 640 1275 640 1325"/>
 <path class="rib t" d="M1100 1565 L1100 1920"/>
 <line class="grid" x1="150" y1="200" x2="1540" y2="200"/><text class="yr" x="128" y="206" text-anchor="end">1933</text>
 <line class="grid" x1="150" y1="450" x2="1540" y2="450"/><text class="yr" x="128" y="456" text-anchor="end">1948</text>
@@ -155,17 +163,19 @@ text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans K
 <g transform="translate(990,1255)"><path d="M12 0 h-20 M-2 -8 l-10 8 10 8" fill="none" stroke="var(--jinro)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
 <path d="M1022 1255 H1195" stroke="var(--jinro)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
 <text class="hd fj" x="1210" y="1246" style="font-size:18.2px">1999 · OB, 진로쿠어스 인수</text>
-<text class="bd" x="1210" y="1270"><tspan class="pr">카스</tspan>가 오른쪽에서 왼쪽으로 건너가</text>
-<text class="bd" x="1210" y="1291">경쟁사 OB의 간판이 된다.</text>
+<text class="bd" x="1210" y="1270">진로 부도로 매물이 된 맥주 부문을 OB가 인수.</text>
+<text class="bd" x="1210" y="1291"><tspan class="pr">카스</tspan>는 이때부터 지금까지 OB 제품이다.</text>
 <circle class="disc" cx="640" cy="1325" r="20" stroke="var(--ob)"/>
+<text class="bd" x="676" y="1331" style="font-weight:700;fill:var(--ob)">← <tspan class="pr">카스</tspan> 편입 (현재까지 OB 제품)</text>
 
 <circle class="disc" cx="870" cy="1385" r="30" stroke="var(--jinro)"/>
 <g transform="translate(870,1385)"><path d="M12 0 h-20 M-2 -8 l-10 8 10 8" fill="none" stroke="var(--jinro)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
 <path d="M902 1385 H1195" stroke="var(--jinro)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
 <text class="hd fj" x="1210" y="1376" style="font-size:18.2px">2005 · 하이트, 진로 인수</text>
-<text class="bd" x="1210" y="1400">3조 4,100억 원. 카스를 낳은 회사가</text>
-<text class="bd" x="1210" y="1421">정반대 진영으로 흡수된다.</text>
+<text class="bd" x="1210" y="1400">3조 4,100억 원. 이번엔 <tspan class="pr">소주</tspan> 부문이</text>
+<text class="bd" x="1210" y="1421">반대편 하이트로 — 카스와 정반대 방향.</text>
 
+<text class="bd" x="300" y="1512" style="font-weight:700;fill:var(--hite)">← <tspan class="pr">진로</tspan>(소주) 편입 — 카스와 정반대 방향</text>
 <circle class="disc" cx="250" cy="1475" r="24" stroke="var(--hite)"/>
 <text class="hd" x="300" y="1470" style="font-size:18.2px">2011 · <tspan class="pr">하이트진로</tspan> 출범</text>
 
