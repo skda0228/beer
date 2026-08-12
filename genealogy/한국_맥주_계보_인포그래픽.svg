@@ -37,6 +37,7 @@
   .rib.thin{stroke-width:7}
   .rib.trunk{stroke:var(--trunk);stroke-width:19}
   .rib.gh{stroke-width:6;stroke-dasharray:3 11;opacity:.75}
+  .rib.soju{stroke-width:5.5;opacity:.6}
   .h{stroke:var(--hite)} .b{stroke:var(--ob)} .j{stroke:var(--jinro)}
   .t{stroke:var(--lotte)} .g{stroke:var(--jp)}
   .fh{fill:var(--hite)} .fb{fill:var(--ob)} .fj{fill:var(--jinro)}
@@ -68,9 +69,9 @@ text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans K
 <text class="bd" x="640" y="112" text-anchor="middle">기린맥주 (日)</text>
 <path class="rib h" d="M250 200 L250 1920"/>
 <path class="rib b" d="M640 310 L640 1920"/>
-<path class="rib j gh" d="M870 580 L870 670"/>
-<path class="rib j" d="M870 670 L870 1385"/>
-<path class="rib" style="stroke:url(#g05)" d="M870 1385 C870 1445 250 1415 250 1475"/>
+<path class="rib j gh" style="stroke-width:4;opacity:.5" d="M870 580 L870 670"/>
+<path class="rib j soju" d="M870 670 L870 1385"/>
+<path class="rib soju" style="stroke:url(#g05)" d="M870 1385 C870 1445 250 1415 250 1475"/>
 <path class="rib j thin" d="M870 670 C870 720 990 700 990 750 L990 1255"/>
 <path class="rib thin" style="stroke:url(#g99)" d="M990 1255 C990 1305 640 1275 640 1325"/>
 <path class="rib t" d="M1100 1565 L1100 1920"/>
@@ -116,7 +117,7 @@ text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans K
 <text class="bd" x="1210" y="594">OB 모기업 두산 계열 공장 사고.</text>
 <text class="bd" x="1210" y="615">전국 불매운동으로 번진다.</text>
 
-<circle class="disc" cx="870" cy="670" r="30" stroke="var(--jinro)"/>
+<circle class="disc" cx="870" cy="670" r="24" stroke="var(--jinro)" stroke-width="4"/>
 <g transform="translate(870,670)"><path d="M-14 -2 l7 -6 7 5 7 -5 7 6 -14 10 z" fill="var(--jinro)"/></g>
 <text class="bd" x="870" y="548" text-anchor="middle">진로그룹 (소주) — 맥주 아님</text>
 <path d="M1022 720 H1195" stroke="var(--jinro)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
@@ -151,7 +152,7 @@ text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans K
 <text class="bd" x="300" y="1050">조선맥주 점유율 <tspan class="pr">30%</tspan>(1993) → <tspan class="pr">43%</tspan>(1996).</text>
 <text class="bd" x="300" y="1071">1948년 이래 이어진 OB 1위 체제가 끝난다.</text>
 
-<rect x="858" y="1093" width="24" height="24" rx="4" fill="var(--jinro)" stroke="var(--panel)" stroke-width="4"/>
+<rect x="861" y="1096" width="18" height="18" rx="4" fill="var(--jinro)" stroke="var(--panel)" stroke-width="4"/>
 <text class="bd" x="846" y="1112" text-anchor="end">진로그룹 부도</text>
 
 <circle class="disc" cx="250" cy="1165" r="24" stroke="var(--hite)"/>
@@ -168,7 +169,7 @@ text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans K
 <circle class="disc" cx="640" cy="1325" r="20" stroke="var(--ob)"/>
 <text class="bd" x="676" y="1331" style="font-weight:700;fill:var(--ob)">← <tspan class="pr">카스</tspan> 편입 (현재까지 OB 제품)</text>
 
-<circle class="disc" cx="870" cy="1385" r="30" stroke="var(--jinro)"/>
+<circle class="disc" cx="870" cy="1385" r="24" stroke="var(--jinro)" stroke-width="4"/>
 <g transform="translate(870,1385)"><path d="M12 0 h-20 M-2 -8 l-10 8 10 8" fill="none" stroke="var(--jinro)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
 <path d="M902 1385 H1195" stroke="var(--jinro)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
 <text class="hd fj" x="1210" y="1376" style="font-size:18.2px">2005 · 하이트, 진로 인수</text>
@@ -230,6 +231,7 @@ text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans K
 <rect x="1093" y="2088" width="15" height="9" rx="4.5" fill="var(--lotte)"/>
 <text class="shp ft" x="1100" y="2126" text-anchor="middle">5%</text>
 <text class="shn" x="880" y="2106" text-anchor="middle">크래프트 170여 곳 · 합계 4%대</text>
+<text class="axn" x="150" y="2154">굵은 선 = 맥주 계보 · 가는 선 = 비(非)맥주(소주 진로) — 주제 밖 맥락으로 표시</text>
 <text class="axn" x="150" y="2176">세로축은 사건 순서 — 연도 간격은 등간격이 아님 · 아이콘·제품 그림은 브랜드 로고가 아닌 자체 제작</text>
 <text class="axn" x="150" y="2198">점유율은 제조사 기준 근사치 · 진로는 소주 부문으로 하이트진로에 포함</text>
 </svg>
