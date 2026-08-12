@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>맥주 계보 아카이브</title>
+<meta name="description" content="일본 150년, 한국 90년 맥주 계보도 — 합병과 분할, 평행과 교차를 선으로 추적한 인포그래픽 모음.">
+<style>
+  :root{
+    --ground:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D1F; --ink-2:#4A5157; --ink-3:#8A9098;
+    --rule:#DDE0DC;
+    --jp1:#D6323C; --jp2:#1E8449; --kr1:#0F7A6E; --kr2:#C0332F; --both:#7B4FA8;
+    --shadow:0 2px 4px rgba(26,29,31,.06), 0 12px 32px -16px rgba(26,29,31,.24);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#101315; --panel:#181C1F; --ink:#E9ECEE; --ink-2:#A9B0B6; --ink-3:#798087;
+      --rule:#2A2F33;
+      --jp1:#F06C74; --jp2:#3FC77E; --kr1:#3FC5B4; --kr2:#EE7A72; --both:#A98AE0;
+      --shadow:0 2px 4px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101315; --panel:#181C1F; --ink:#E9ECEE; --ink-2:#A9B0B6; --ink-3:#798087;
+    --rule:#2A2F33;
+    --jp1:#F06C74; --jp2:#3FC77E; --kr1:#3FC5B4; --kr2:#EE7A72; --both:#A98AE0;
+    --shadow:0 2px 4px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.8);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 88px}
+  header{padding:64px 0 34px;border-bottom:1px solid var(--rule)}
+  .kicker{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;font-weight:800;
+    letter-spacing:.18em;color:var(--ink-3);margin:0 0 14px}
+  h1{margin:0;font-size:clamp(2rem,5.4vw,3.2rem);font-weight:850;letter-spacing:-.045em;line-height:1.1;text-wrap:balance}
+  .sub{margin:18px 0 0;max-width:58ch;color:var(--ink-2);font-size:1.05rem;text-wrap:pretty}
+
+  h2{margin:56px 0 4px;font-size:.82rem;font-weight:800;letter-spacing:.16em;color:var(--ink-3)}
+
+  .cards{display:grid;gap:16px;margin-top:18px}
+  @media (min-width:760px){ .cards.two{grid-template-columns:1fr 1fr} }
+  .card{display:block;text-decoration:none;background:var(--panel);border:1px solid var(--rule);
+    border-radius:8px;box-shadow:var(--shadow);overflow:hidden;transition:transform .16s ease, box-shadow .16s ease}
+  .card:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.08), 0 20px 44px -18px rgba(0,0,0,.34)}
+  .stripe{height:5px;width:100%}
+  .card .body{padding:20px 22px 22px}
+  .card h3{margin:0;font-size:1.24rem;font-weight:840;letter-spacing:-.02em}
+  .card .yrs{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem;font-weight:700;
+    letter-spacing:.1em;color:var(--ink-3);margin:6px 0 10px}
+  .card p{margin:0;color:var(--ink-2);font-size:.93rem;text-wrap:pretty}
+  .card .go{display:inline-block;margin-top:14px;font-size:.86rem;font-weight:750;color:var(--ink)}
+  .feat h3{font-size:1.5rem}
+
+  .files{margin-top:18px;background:var(--panel);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+  .files a{display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+    padding:13px 20px;border-top:1px solid var(--rule);text-decoration:none;font-size:.92rem}
+  .files a:first-child{border-top:0}
+  .files a:hover{background:var(--ground)}
+  .files .nm{font-weight:650}
+  .files .meta{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;
+    letter-spacing:.08em;color:var(--ink-3);white-space:nowrap}
+
+  .note{margin-top:44px;padding:20px 22px;border:1px solid var(--rule);border-left:4px solid var(--ink-3);
+    border-radius:4px;background:var(--panel);color:var(--ink-2);font-size:.9rem;max-width:74ch}
+  .note b{color:var(--ink)}
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
+    color:var(--ink-3);font-size:.82rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">주류학개론 · 맥주</p>
+  <h1>맥주 계보 아카이브</h1>
+  <p class="sub">연표가 아니라 <b>혈통</b>을 그린다. 선이 모이면 합병, 갈라지면 분할이다.
+  일본 150년과 한국 90년의 맥주 회사들이 어떻게 태어나고 합쳐지고 쪼개졌는지를 한 장씩의 그림으로 추적했다.</p>
+</header>
+
+<h2>MAIN</h2>
+<div class="cards">
+  <a class="card feat" href="genealogy/beer-genealogy.html">
+    <div class="stripe" style="background:linear-gradient(90deg,var(--jp1),var(--jp2) 35%,var(--kr1) 68%,var(--kr2))"></div>
+    <div class="body">
+      <h3>일본 · 한국 통합 계보도</h3>
+      <p class="yrs">JAPAN 1870–2026 → KOREA 1933–2026</p>
+      <p>두 나라의 계보도를 한 문서에 일본 → 한국 순으로 이었다. 사이에는 1933년 한반도의 두 맥주 회사를
+      세운 것이 바로 일본 계보도 속 회사들이었다는 연결, 그리고 1945년 그 자본 관계가 끊긴 사실을 적었다.
+      <b>먼저 볼 것을 하나만 고른다면 이것.</b></p>
+      <span class="go">전체 보기 →</span>
+    </div>
+  </a>
+</div>
+
+<h2>낱장으로 보기</h2>
+<div class="cards two">
+  <a class="card" href="genealogy/jp-infographic.html">
+    <div class="stripe" style="background:linear-gradient(90deg,var(--jp2),var(--jp1))"></div>
+    <div class="body">
+      <h3>일본 — 통합과 분리</h3>
+      <p class="yrs">1870–2026</p>
+      <p>여섯 혈통의 탄생, 1906년 대일본맥주로의 거대 합병, 1949년 GHQ의 강제 분할, 후발 주자의 합류.
+      하단에 대표 제품과 <b>맛의 결</b>, 시장 점유율.</p>
+      <span class="go">보기 →</span>
+    </div>
+  </a>
+  <a class="card" href="genealogy/kr-infographic.html">
+    <div class="stripe" style="background:linear-gradient(90deg,var(--kr1),var(--kr2))"></div>
+    <div class="body">
+      <h3>한국 — 평행선과 엇갈린 교차</h3>
+      <p class="yrs">1933–2026</p>
+      <p>서로 다른 일본 자본에서 출발한 두 축은 90년간 만나지 않는다. 움직이는 것은 중간에 끼어든
+      제3의 선, <b>진로</b>뿐이다.</p>
+      <span class="go">보기 →</span>
+    </div>
+  </a>
+</div>
+
+<h2>부록 — 초판(철도 노선도 형식)</h2>
+<div class="cards two">
+  <a class="card" href="genealogy/jp-beer-genealogy.html">
+    <div class="stripe" style="background:var(--ink-3)"></div>
+    <div class="body">
+      <h3>일본 계보 전체 페이지</h3>
+      <p class="yrs">계보도 + 패턴 카드 + 원본 대조표</p>
+      <p>NotebookLM이 만든 원본 인포그래픽에서 무엇을 어떻게 고쳤는지 대조표로 남겼다.</p>
+      <span class="go">보기 →</span>
+    </div>
+  </a>
+  <a class="card" href="genealogy/kr-beer-genealogy.html">
+    <div class="stripe" style="background:var(--ink-3)"></div>
+    <div class="body">
+      <h3>한국 계보 전체 페이지</h3>
+      <p class="yrs">계보도 + 수제맥주 흥망 + 판도</p>
+      <p>2013–2023 수제맥주 시장의 급팽창과 붕괴를 별도 도표로 실었다.</p>
+      <span class="go">보기 →</span>
+    </div>
+  </a>
+</div>
+
+<h2>내려받기</h2>
+<div class="files">
+  <a href="genealogy/png/일본_한국_맥주_계보_통합.png"><span class="nm">일본·한국 통합 — 전체 페이지</span><span class="meta">PNG 2800×9012</span></a>
+  <a href="genealogy/일본_맥주_계보_인포그래픽.svg"><span class="nm">일본 계보도 — 벡터</span><span class="meta">SVG</span></a>
+  <a href="genealogy/png/일본_맥주_계보_인포그래픽.png"><span class="nm">일본 계보도 — 래스터</span><span class="meta">PNG 2×</span></a>
+  <a href="genealogy/한국_맥주_계보_인포그래픽.svg"><span class="nm">한국 계보도 — 벡터</span><span class="meta">SVG</span></a>
+  <a href="genealogy/png/한국_맥주_계보_인포그래픽.png"><span class="nm">한국 계보도 — 래스터</span><span class="meta">PNG 2×</span></a>
+  <a href="genealogy/한국_수제맥주_흥망_2013-2023.svg"><span class="nm">한국 수제맥주 흥망 2013–2023</span><span class="meta">SVG</span></a>
+</div>
+
+<div class="note">
+  <b>읽는 법.</b> 세로선 하나가 회사 하나의 혈통이다. 세로축은 <b>사건 순서</b>이며 연도 등간격이 아니다.
+  색이 사라져 회색 줄기가 되는 구간은 그 브랜드들이 개별 회사로 존재하지 않았다는 뜻이고,
+  점선 구간은 회사는 있었으나 맥주를 만들지 않았다는 뜻이다.
+  아이콘과 제품 그림은 브랜드 로고가 아닌 자체 제작이며, 점유율은 근사치다.
+</div>
+
+<footer>
+  Google Drive 「주류학개론 / 맥주」 자료를 근거로 작성 · 소스는
+  <a href="https://github.com/skda0228/beer">github.com/skda0228/beer</a>
+</footer>
+
+</div>
+</body>
+</html>
