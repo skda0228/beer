@@ -1,22 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="2140" viewBox="0 0 1500 2140" role="img" aria-label="한국 맥주 계보도. 1933년 8월 대일본맥주 자본으로 조선맥주가, 12월 기린 자본으로 소화기린맥주가 설립된다. 1948년 각각 조선맥주(상표 크라운)와 동양맥주(상표 OB)로 출범하고, 동양맥주는 1995년 사명을 OB맥주로 바꾼다. 두 선은 90년간 만나지 않는다. 1992년 진로쿠어스가 세워져 1994년 카스를 내지만, 1999년 카스는 OB로 넘어가고 2005년 진로 자신은 하이트에 인수되어 두 선이 교차한다. 롯데는 2014년 클라우드로 진입한다."><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1590" height="2250" viewBox="0 0 1590 2250" role="img" aria-label="한국 맥주 계보도. 1933년 조선맥주와 소화기린맥주가 서로 다른 일본 자본으로 설립되고, 1948년 소화기린은 동양맥주로 바뀌며 상표 OB가 등장한 뒤 1995년 사명까지 OB맥주가 된다. 두 선은 90년간 만나지 않는다. 1992년 진로쿠어스가 세워져 1994년 카스를 내지만 1999년 카스는 OB로, 2005년 진로 자신은 하이트로 넘어가며 두 선이 교차한다. 롯데는 2014년 클라우드로 진입한다."><style>
   :root{
     --ground:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D1F; --ink-2:#4A5157; --ink-3:#8A9098;
     --rule:#DDE0DC;
-    --hite:#0F7A6E; --ob:#C0332F; --jinro:#B8860B; --lotte:#5B4B9E; --craft:#2274C4; --jp:#8A9098; --trunk:#8A9098;
+    --hite:#0F7A6E; --ob:#C0332F; --jinro:#B8860B; --lotte:#5B4B9E; --craft:#2274C4; --new:#DC2626; --jp:#8A9098; --trunk:#8A9098;
     --shadow:0 2px 4px rgba(26,29,31,.06), 0 12px 32px -16px rgba(26,29,31,.24);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --ground:#101315; --panel:#181C1F; --ink:#E9ECEE; --ink-2:#A9B0B6; --ink-3:#798087;
       --rule:#2A2F33;
-      --hite:#3FC5B4; --ob:#EE7A72; --jinro:#E0B04A; --lotte:#9C8CE0; --craft:#5AA5EE; --jp:#798087; --trunk:#798087;
+      --hite:#3FC5B4; --ob:#EE7A72; --jinro:#E0B04A; --lotte:#9C8CE0; --craft:#5AA5EE; --new:#FF8A80; --jp:#798087; --trunk:#798087;
       --shadow:0 2px 4px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.8);
     }
   }
   :root[data-theme="dark"]{
     --ground:#101315; --panel:#181C1F; --ink:#E9ECEE; --ink-2:#A9B0B6; --ink-3:#798087;
     --rule:#2A2F33;
-    --hite:#3FC5B4; --ob:#EE7A72; --jinro:#E0B04A; --lotte:#9C8CE0; --craft:#5AA5EE; --jp:#798087; --trunk:#798087;
+    --hite:#3FC5B4; --ob:#EE7A72; --jinro:#E0B04A; --lotte:#9C8CE0; --craft:#5AA5EE; --new:#FF8A80; --jp:#798087; --trunk:#798087;
     --shadow:0 2px 4px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.8);
   }
   *{box-sizing:border-box}
@@ -44,200 +44,182 @@
   .disc{fill:var(--panel);stroke-width:5}
   .yr{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:19px;font-weight:800;fill:var(--ink);font-variant-numeric:tabular-nums}
   .grid{stroke:var(--rule);stroke-width:1.5;stroke-dasharray:2 7}
-  .hd{font-size:17.6px;font-weight:800;fill:var(--ink)}
-  .bd{font-size:13.75px;font-weight:500;fill:var(--ink-2)}
-  .nm{font-size:15.4px;font-weight:800}
-  .shp{font-size:15px;font-weight:800;font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
-  .pr{font-weight:800;fill:var(--ink)}
-  .shn{font-size:11.5px;font-weight:600;fill:var(--ink-3)}
-  .axn{font-size:12.1px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
+  .hd{font-size:19.4px;font-weight:800;fill:var(--ink)}
+  .bd{font-size:15.1px;font-weight:500;fill:var(--ink-2)}
+  .nm{font-size:16.9px;font-weight:800}
+  .shp{font-size:16.5px;font-weight:800;font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+  .pr{font-weight:800;fill:var(--new)}
+  .shn{font-size:12.7px;font-weight:600;fill:var(--ink-3)}
+  .axn{font-size:13.3px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
 
 .bgpanel{fill:var(--panel)}
 text{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
-</style><rect class="bgpanel" x="0" y="0" width="1500" height="2140"/>
-<defs><marker id="arj" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" fill="var(--jinro)"/></marker></defs>
-
-<path class="rib g gh" d="M250 128 L250 200"/>
-<path class="rib g gh" d="M640 128 L640 310"/>
+</style><rect class="bgpanel" x="0" y="0" width="1590" height="2250"/>
+<path class="rib g gh" d="M250 128 L250 200"/><path class="rib g gh" d="M640 128 L640 310"/>
 <text class="bd" x="250" y="112" text-anchor="middle">대일본맥주 (日)</text>
 <text class="bd" x="640" y="112" text-anchor="middle">기린맥주 (日)</text>
+<path class="rib h" d="M250 200 L250 1920"/>
+<path class="rib b" d="M640 310 L640 1920"/>
+<path class="rib j gh" d="M870 580 L870 670"/>
+<path class="rib j" d="M870 670 L870 1385"/>
+<path class="rib j" d="M870 1385 C870 1445 250 1415 250 1475"/>
+<path class="rib j thin" d="M870 670 C870 720 990 700 990 750 L990 1255"/>
+<path class="rib j thin" d="M990 1255 C990 1305 640 1275 640 1325"/>
+<path class="rib t" d="M1100 1565 L1100 1920"/>
+<line class="grid" x1="150" y1="200" x2="1540" y2="200"/><text class="yr" x="128" y="206" text-anchor="end">1933</text>
+<line class="grid" x1="150" y1="450" x2="1540" y2="450"/><text class="yr" x="128" y="456" text-anchor="end">1948</text>
+<line class="grid" x1="150" y1="580" x2="1540" y2="580"/><text class="yr" x="128" y="586" text-anchor="end">1991</text>
+<line class="grid" x1="150" y1="670" x2="1540" y2="670"/><text class="yr" x="128" y="676" text-anchor="end">1992</text>
+<line class="grid" x1="150" y1="760" x2="1540" y2="760"/><text class="yr" x="128" y="766" text-anchor="end">1993</text>
+<line class="grid" x1="150" y1="845" x2="1540" y2="845"/><text class="yr" x="128" y="851" text-anchor="end">1994</text>
+<line class="grid" x1="150" y1="920" x2="1540" y2="920"/><text class="yr" x="128" y="926" text-anchor="end">1995</text>
+<line class="grid" x1="150" y1="1000" x2="1540" y2="1000"/><text class="yr" x="128" y="1006" text-anchor="end">1996</text>
+<line class="grid" x1="150" y1="1105" x2="1540" y2="1105"/><text class="yr" x="128" y="1111" text-anchor="end">1997</text>
+<line class="grid" x1="150" y1="1165" x2="1540" y2="1165"/><text class="yr" x="128" y="1171" text-anchor="end">1998</text>
+<line class="grid" x1="150" y1="1255" x2="1540" y2="1255"/><text class="yr" x="128" y="1261" text-anchor="end">1999</text>
+<line class="grid" x1="150" y1="1385" x2="1540" y2="1385"/><text class="yr" x="128" y="1391" text-anchor="end">2005</text>
+<line class="grid" x1="150" y1="1475" x2="1540" y2="1475"/><text class="yr" x="128" y="1481" text-anchor="end">2011</text>
+<line class="grid" x1="150" y1="1565" x2="1540" y2="1565"/><text class="yr" x="128" y="1571" text-anchor="end">2014</text>
+<line class="grid" x1="150" y1="1655" x2="1540" y2="1655"/><text class="yr" x="128" y="1661" text-anchor="end">2019</text>
+<line class="grid" x1="150" y1="1730" x2="1540" y2="1730"/><text class="yr" x="128" y="1736" text-anchor="end">2021</text>
+<line class="grid" x1="150" y1="1810" x2="1540" y2="1810"/><text class="yr" x="128" y="1816" text-anchor="end">2023</text>
 
-<path class="rib h" d="M250 200 L250 1851"/>
-<path class="rib b" d="M640 310 L640 1851"/>
-<path class="rib j gh" d="M870 570 L870 660"/>
-<path class="rib j" d="M870 660 L870 1320"/>
-<path class="rib j" d="M870 1320 C870 1380 250 1350 250 1410"/>
-<path class="rib j thin" d="M870 660 C870 710 990 690 990 740 L990 1190"/>
-<path class="rib j thin" d="M990 1190 C990 1240 640 1210 640 1260"/>
-<path class="rib t" d="M1100 1500 L1100 1851"/>
-
-<line class="grid" x1="150" y1="200" x2="1450" y2="200"/><text class="yr" x="128" y="206" text-anchor="end">1933</text>
-<line class="grid" x1="150" y1="440" x2="1450" y2="440"/><text class="yr" x="128" y="446" text-anchor="end">1948</text>
-<line class="grid" x1="150" y1="570" x2="1450" y2="570"/><text class="yr" x="128" y="576" text-anchor="end">1991</text>
-<line class="grid" x1="150" y1="660" x2="1450" y2="660"/><text class="yr" x="128" y="666" text-anchor="end">1992</text>
-<line class="grid" x1="150" y1="750" x2="1450" y2="750"/><text class="yr" x="128" y="756" text-anchor="end">1993</text>
-<line class="grid" x1="150" y1="830" x2="1450" y2="830"/><text class="yr" x="128" y="836" text-anchor="end">1994</text>
-<line class="grid" x1="150" y1="900" x2="1450" y2="900"/><text class="yr" x="128" y="906" text-anchor="end">1995</text>
-<line class="grid" x1="150" y1="970" x2="1450" y2="970"/><text class="yr" x="128" y="976" text-anchor="end">1996</text>
-<line class="grid" x1="150" y1="1035" x2="1450" y2="1035"/><text class="yr" x="128" y="1041" text-anchor="end">1997</text>
-<line class="grid" x1="150" y1="1100" x2="1450" y2="1100"/><text class="yr" x="128" y="1106" text-anchor="end">1998</text>
-<line class="grid" x1="150" y1="1190" x2="1450" y2="1190"/><text class="yr" x="128" y="1196" text-anchor="end">1999</text>
-<line class="grid" x1="150" y1="1320" x2="1450" y2="1320"/><text class="yr" x="128" y="1326" text-anchor="end">2005</text>
-<line class="grid" x1="150" y1="1410" x2="1450" y2="1410"/><text class="yr" x="128" y="1416" text-anchor="end">2011</text>
-<line class="grid" x1="150" y1="1500" x2="1450" y2="1500"/><text class="yr" x="128" y="1506" text-anchor="end">2014</text>
-<line class="grid" x1="150" y1="1580" x2="1450" y2="1580"/><text class="yr" x="128" y="1586" text-anchor="end">2019</text>
-<line class="grid" x1="150" y1="1650" x2="1450" y2="1650"/><text class="yr" x="128" y="1656" text-anchor="end">2021</text>
-<line class="grid" x1="150" y1="1720" x2="1450" y2="1720"/><text class="yr" x="128" y="1726" text-anchor="end">2023</text>
-
-<!-- 1933.08 조선맥주 -->
 <circle class="disc" cx="250" cy="200" r="32" stroke="var(--hite)"/>
 <g transform="translate(250,200)"><path d="M0 -16 q11 13 11 20 a11 11 0 0 1 -22 0 q0 -7 11 -20 z" fill="var(--hite)"/></g>
-<text class="hd" x="300" y="186">1933.08 · <tspan class="pr">조선맥주</tspan>(주) 설립</text>
+<text class="hd" x="300" y="184">1933.08 · <tspan class="pr">조선맥주</tspan>(주)</text>
 <text class="bd" x="300" y="208">대일본맥주 자본 — 일본에서</text>
-<text class="bd" x="300" y="227">아사히·삿포로와 같은 뿌리.</text>
+<text class="bd" x="300" y="229">아사히·삿포로와 같은 뿌리.</text>
 
-<!-- 1933.12 소화기린 -->
 <circle class="disc" cx="640" cy="310" r="32" stroke="var(--ob)"/>
 <g transform="translate(640,310)"><path d="M-11 -16 h22 v32 h-22 z" fill="var(--ob)"/><rect x="-12" y="-18" width="24" height="4" rx="1.5" fill="var(--ob)"/></g>
-<text class="hd" x="690" y="298">1933.12 · <tspan class="pr">소화기린맥주</tspan>(주) 설립</text>
+<text class="hd" x="690" y="296">1933.12 · <tspan class="pr">소화기린맥주</tspan>(주)</text>
 <text class="bd" x="690" y="320">기린맥주 자본 — 넉 달 차이로 다른 계보에서 태어난다.</text>
 
-<!-- 1948 상호·상표 -->
-<circle class="disc" cx="250" cy="440" r="26" stroke="var(--hite)"/>
-<circle class="disc" cx="640" cy="440" r="26" stroke="var(--ob)"/>
-<text class="hd" x="300" y="430" style="font-size:16.5px">1948 · 조선맥주(주)</text>
-<text class="bd" x="300" y="452">상표 <tspan class="pr">크라운</tspan></text>
-<text class="hd" x="690" y="430" style="font-size:16.5px">1948 · <tspan class="pr">동양맥주</tspan>(주)로 상호 변경 — 상표 <tspan class="pr">OB</tspan> 사용 시작</text>
-<text class="bd" x="690" y="452">광복 후 미군정 적산관리를 거쳐 민간 이관. 소화기린이라는 이름은 여기서 사라진다.</text>
+<circle class="disc" cx="250" cy="450" r="26" stroke="var(--hite)"/>
+<circle class="disc" cx="640" cy="450" r="26" stroke="var(--ob)"/>
+<text class="hd" x="300" y="438" style="font-size:18.2px">1948 · 조선맥주(주)</text>
+<text class="bd" x="300" y="462">상표 <tspan class="pr">크라운</tspan></text>
+<text class="hd" x="690" y="438" style="font-size:18.2px">1948 · <tspan class="pr">동양맥주</tspan>(주)로 상호 변경 — 상표 <tspan class="pr">OB</tspan> 등장</text>
+<text class="bd" x="690" y="462">광복 후 적산관리를 거쳐 민간 이관. 소화기린이라는 이름은 여기서 사라진다.</text>
 
-<!-- 1991 페놀 -->
-<rect x="628" y="558" width="24" height="24" rx="4" fill="var(--ob)" stroke="var(--panel)" stroke-width="4"/>
-<path d="M652 570 H1200" stroke="var(--ob)" stroke-width="2.4" stroke-dasharray="3 6" fill="none"/>
-<text class="hd fb" x="1210" y="562" style="font-size:16.5px">1991 · 낙동강 페놀 유출</text>
-<text class="bd" x="1210" y="583">OB 모기업 두산 계열 공장 사고.</text>
-<text class="bd" x="1210" y="602">전국 불매운동으로 번진다.</text>
+<rect x="628" y="568" width="24" height="24" rx="4" fill="var(--ob)" stroke="var(--panel)" stroke-width="4"/>
+<path d="M656 580 H1195" stroke="var(--ob)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
+<text class="hd fb" x="1210" y="570" style="font-size:18.2px">1991 · 낙동강 페놀 유출</text>
+<text class="bd" x="1210" y="594">OB 모기업 두산 계열 공장 사고.</text>
+<text class="bd" x="1210" y="615">전국 불매운동으로 번진다.</text>
 
-<!-- 1992 진로쿠어스 -->
-<circle class="disc" cx="870" cy="660" r="30" stroke="var(--jinro)"/>
-<g transform="translate(870,660)"><path d="M-14 -2 l7 -6 7 5 7 -5 7 6 -14 10 z" fill="var(--jinro)"/></g>
-<text class="bd" x="870" y="542" text-anchor="middle">진로그룹 (소주) — 맥주 아님</text>
-<path d="M1020 710 H1200" stroke="var(--jinro)" stroke-width="2.4" stroke-dasharray="3 6" fill="none"/>
-<text class="hd fj" x="1210" y="656" style="font-size:16.5px">1992 · <tspan class="pr">진로쿠어스맥주</tspan> 설립</text>
-<text class="bd" x="1210" y="677">소주 1위 진로가 미국 쿠어스와</text>
-<text class="bd" x="1210" y="696">합작해 제3의 축으로 진입.</text>
+<circle class="disc" cx="870" cy="670" r="30" stroke="var(--jinro)"/>
+<g transform="translate(870,670)"><path d="M-14 -2 l7 -6 7 5 7 -5 7 6 -14 10 z" fill="var(--jinro)"/></g>
+<text class="bd" x="870" y="548" text-anchor="middle">진로그룹 (소주) — 맥주 아님</text>
+<path d="M1022 720 H1195" stroke="var(--jinro)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
+<text class="hd fj" x="1210" y="668" style="font-size:18.2px">1992 · <tspan class="pr">진로쿠어스맥주</tspan> 설립</text>
+<text class="bd" x="1210" y="692">소주 1위 진로가 미국 쿠어스와</text>
+<text class="bd" x="1210" y="713">합작해 제3의 축으로 진입.</text>
 
-<!-- 1993 하이트 -->
-<circle class="disc" cx="250" cy="750" r="30" stroke="var(--hite)"/>
-<g transform="translate(250,750)"><path d="M0 -15 q10 12 10 19 a10 10 0 0 1 -20 0 q0 -7 10 -19 z" fill="var(--hite)"/><path d="M-4 4 h8" stroke="var(--panel)" stroke-width="2.6" stroke-linecap="round"/></g>
-<text class="hd" x="300" y="738">1993 · <tspan class="pr">하이트</tspan> 출시</text>
-<text class="bd" x="300" y="760">"지하 150m 천연암반수" —</text>
-<text class="bd" x="300" y="779">페놀 사건의 반사 마케팅.</text>
+<circle class="disc" cx="250" cy="760" r="30" stroke="var(--hite)"/>
+<g transform="translate(250,760)"><path d="M0 -15 q10 12 10 19 a10 10 0 0 1 -20 0 q0 -7 10 -19 z" fill="var(--hite)"/><path d="M-4 4 h8" stroke="var(--panel)" stroke-width="2.6" stroke-linecap="round"/></g>
+<text class="hd" x="300" y="748">1993 · <tspan class="pr">하이트</tspan> 출시</text>
+<text class="bd" x="300" y="772">"지하 150m 천연암반수" —</text>
+<text class="bd" x="300" y="793">페놀 사건의 반사 마케팅.</text>
 
-<!-- 1994 카스 -->
-<circle class="disc" cx="990" cy="830" r="28" stroke="var(--jinro)"/>
-<g transform="translate(990,830)"><path d="M-9 -13 h18 v26 h-18 z" fill="var(--jinro)"/><rect x="-10" y="-15" width="20" height="3.5" rx="1.5" fill="var(--jinro)"/></g>
-<path d="M1020 830 H1200" stroke="var(--jinro)" stroke-width="2.4" stroke-dasharray="3 6" fill="none"/>
-<text class="hd fj" x="1210" y="820" style="font-size:16.5px">1994 · <tspan class="pr">카스</tspan> 출시</text>
-<text class="bd" x="1210" y="841">Cold filtering · Advanced technology ·</text>
-<text class="bd" x="1210" y="860">Smooth taste · Satisfying feeling의 두문자.</text>
+<circle class="disc" cx="990" cy="845" r="28" stroke="var(--jinro)"/>
+<g transform="translate(990,845)"><path d="M-9 -13 h18 v26 h-18 z" fill="var(--jinro)"/><rect x="-10" y="-15" width="20" height="3.5" rx="1.5" fill="var(--jinro)"/></g>
+<path d="M1020 845 H1195" stroke="var(--jinro)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
+<text class="hd fj" x="1210" y="836" style="font-size:18.2px">1994 · <tspan class="pr">카스</tspan> 출시</text>
+<text class="bd" x="1210" y="860">Cold filtering · Advanced technology ·</text>
+<text class="bd" x="1210" y="881">Smooth taste · Satisfying feeling의 두문자.</text>
 
-<!-- 1995 OB맥주 사명 -->
-<circle class="disc" cx="640" cy="900" r="26" stroke="var(--ob)"/>
-<g transform="translate(640,900)"><path d="M-10 -6 h20 v12 h-20 z" fill="var(--ob)"/></g>
-<text class="hd" x="690" y="892" style="font-size:16.5px">1995 · 사명을 <tspan class="pr">OB맥주</tspan>(주)로 변경</text>
-<text class="bd" x="690" y="913">47년간 상표였던 OB가 회사 이름이 된다.</text>
+<circle class="disc" cx="640" cy="920" r="26" stroke="var(--ob)"/>
+<g transform="translate(640,920)"><path d="M-10 -6 h20 v12 h-20 z" fill="var(--ob)"/></g>
+<path d="M668 920 H1195" stroke="var(--ob)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
+<text class="hd fb" x="1210" y="936" style="font-size:18.2px">1995 · 사명을 <tspan class="pr">OB맥주</tspan>(주)로 변경</text>
+<text class="bd" x="1210" y="960">47년간 상표였던 OB가 회사 이름이 된다.</text>
 
-<!-- 1996 역전 -->
-<circle class="disc" cx="250" cy="970" r="28" stroke="var(--hite)"/>
-<g transform="translate(250,970)"><path d="M0 -14 l11 13 h-6 v13 h-10 v-13 h-6 z" fill="var(--hite)"/></g>
-<text class="hd" x="300" y="960">1996 · 하이트, OB 추월</text>
-<text class="bd" x="300" y="982">40년 만의 1위 교체. 30%→43%.</text>
+<circle class="disc" cx="250" cy="1000" r="30" stroke="var(--hite)"/>
+<g transform="translate(250,1000)"><path d="M0 -15 l12 14 h-6.5 v14 h-11 v-14 h-6.5 z" fill="var(--hite)"/></g>
+<text class="hd" x="300" y="984">1996.07 · 40년 만의 1위 교체</text>
+<text class="bd" x="300" y="1008">페놀 사건으로 OB가 흔들린 틈에</text>
+<text class="bd" x="300" y="1029"><tspan class="pr">하이트</tspan>가 3년 만에 판을 뒤집는다.</text>
+<text class="bd" x="300" y="1050">조선맥주 점유율 <tspan class="pr">30%</tspan>(1993) → <tspan class="pr">43%</tspan>(1996).</text>
+<text class="bd" x="300" y="1071">1948년 이래 이어진 OB 1위 체제가 끝난다.</text>
 
-<!-- 1997 부도 -->
-<rect x="858" y="1023" width="24" height="24" rx="4" fill="var(--jinro)" stroke="var(--panel)" stroke-width="4"/>
-<text class="bd" x="846" y="1040" text-anchor="end">진로그룹 부도</text>
+<rect x="858" y="1093" width="24" height="24" rx="4" fill="var(--jinro)" stroke="var(--panel)" stroke-width="4"/>
+<text class="bd" x="846" y="1112" text-anchor="end">진로그룹 부도</text>
 
-<!-- 1998 -->
-<circle class="disc" cx="250" cy="1100" r="24" stroke="var(--hite)"/>
-<circle class="disc" cx="640" cy="1100" r="24" stroke="var(--ob)"/>
-<text class="bd" x="300" y="1096">사명을 <tspan class="pr">하이트맥주</tspan>(주)로 변경</text>
-<text class="bd" x="690" y="1096">벨기에 인터브루와 합작</text>
+<circle class="disc" cx="250" cy="1165" r="24" stroke="var(--hite)"/>
+<circle class="disc" cx="640" cy="1165" r="24" stroke="var(--ob)"/>
+<text class="bd" x="300" y="1160">사명을 <tspan class="pr">하이트맥주</tspan>(주)로 변경</text>
+<text class="bd" x="690" y="1160">인터브루와 합작</text>
 
-<!-- 1999 카스 → OB -->
-<circle class="disc" cx="990" cy="1190" r="30" stroke="var(--jinro)"/>
-<g transform="translate(990,1190)"><path d="M12 0 h-20 M-2 -8 l-10 8 10 8" fill="none" stroke="var(--jinro)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text class="hd fj" x="1210" y="1180" style="font-size:16.5px">1999 · OB, 진로쿠어스 인수</text>
-<text class="bd" x="1210" y="1201"><tspan class="pr">카스</tspan>가 오른쪽에서 왼쪽으로 건너가</text>
-<text class="bd" x="1210" y="1220">경쟁사 OB의 간판이 된다.</text>
-<circle class="disc" cx="640" cy="1260" r="20" stroke="var(--ob)"/>
+<circle class="disc" cx="990" cy="1255" r="30" stroke="var(--jinro)"/>
+<g transform="translate(990,1255)"><path d="M12 0 h-20 M-2 -8 l-10 8 10 8" fill="none" stroke="var(--jinro)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+<path d="M1022 1255 H1195" stroke="var(--jinro)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
+<text class="hd fj" x="1210" y="1246" style="font-size:18.2px">1999 · OB, 진로쿠어스 인수</text>
+<text class="bd" x="1210" y="1270"><tspan class="pr">카스</tspan>가 오른쪽에서 왼쪽으로 건너가</text>
+<text class="bd" x="1210" y="1291">경쟁사 OB의 간판이 된다.</text>
+<circle class="disc" cx="640" cy="1325" r="20" stroke="var(--ob)"/>
 
-<!-- 2005 진로 → 하이트 -->
-<circle class="disc" cx="870" cy="1320" r="30" stroke="var(--jinro)"/>
-<g transform="translate(870,1320)"><path d="M12 0 h-20 M-2 -8 l-10 8 10 8" fill="none" stroke="var(--jinro)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text class="hd fj" x="1210" y="1310" style="font-size:16.5px">2005 · 하이트, 진로 인수</text>
-<text class="bd" x="1210" y="1331">3조 4,100억 원. 카스를 낳은 회사가</text>
-<text class="bd" x="1210" y="1350">정반대 진영으로 흡수된다.</text>
+<circle class="disc" cx="870" cy="1385" r="30" stroke="var(--jinro)"/>
+<g transform="translate(870,1385)"><path d="M12 0 h-20 M-2 -8 l-10 8 10 8" fill="none" stroke="var(--jinro)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+<path d="M902 1385 H1195" stroke="var(--jinro)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
+<text class="hd fj" x="1210" y="1376" style="font-size:18.2px">2005 · 하이트, 진로 인수</text>
+<text class="bd" x="1210" y="1400">3조 4,100억 원. 카스를 낳은 회사가</text>
+<text class="bd" x="1210" y="1421">정반대 진영으로 흡수된다.</text>
 
-<!-- 2011 -->
-<circle class="disc" cx="250" cy="1410" r="24" stroke="var(--hite)"/>
-<text class="hd" x="300" y="1406" style="font-size:16.5px">2011 · <tspan class="pr">하이트진로</tspan> 출범</text>
+<circle class="disc" cx="250" cy="1475" r="24" stroke="var(--hite)"/>
+<text class="hd" x="300" y="1470" style="font-size:18.2px">2011 · <tspan class="pr">하이트진로</tspan> 출범</text>
 
-<!-- 2014 -->
-<circle class="disc" cx="640" cy="1500" r="24" stroke="var(--ob)"/>
-<circle class="disc" cx="1100" cy="1500" r="30" stroke="var(--lotte)"/>
-<g transform="translate(1100,1500)"><path d="M-9 -14 h18 v5 l3 6 v20 h-24 v-20 l3 -6 z" fill="var(--lotte)"/></g>
-<text class="bd" x="690" y="1496">주주가 AB InBev로 변경</text>
-<text class="hd ft" x="1210" y="1490" style="font-size:16.5px">2014 · <tspan class="pr">클라우드</tspan> 출시</text>
-<text class="bd" x="1210" y="1511">두 선이 81년을 달린 뒤 진입한 4번째 메이저.</text>
+<circle class="disc" cx="640" cy="1565" r="24" stroke="var(--ob)"/>
+<circle class="disc" cx="1100" cy="1565" r="30" stroke="var(--lotte)"/>
+<g transform="translate(1100,1565)"><path d="M-9 -14 h18 v5 l3 6 v20 h-24 v-20 l3 -6 z" fill="var(--lotte)"/></g>
+<text class="bd" x="690" y="1560">주주가 AB InBev로 변경</text>
+<path d="M1132 1565 H1195" stroke="var(--lotte)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
+<text class="hd ft" x="1210" y="1556" style="font-size:18.2px">2014 · <tspan class="pr">클라우드</tspan> 출시</text>
+<text class="bd" x="1210" y="1580">두 선이 81년을 달린 뒤 진입한</text>
+<text class="bd" x="1210" y="1601">4번째 메이저.</text>
 
-<!-- 2019 테라 -->
-<circle class="disc" cx="250" cy="1580" r="28" stroke="var(--hite)"/>
-<g transform="translate(250,1580)"><path d="M-8 -12 h16 v5 l2.5 6 v18 h-21 v-18 l2.5 -6 z" fill="var(--hite)"/></g>
-<text class="hd" x="300" y="1572">2019 · <tspan class="pr">테라</tspan> 출시</text>
-<text class="bd" x="300" y="1594">"청정라거". 노재팬 반사이익까지</text>
-<text class="bd" x="300" y="1613">얹혀 1년 만에 점유율 2배.</text>
+<circle class="disc" cx="250" cy="1655" r="28" stroke="var(--hite)"/>
+<g transform="translate(250,1655)"><path d="M-8 -12 h16 v5 l2.5 6 v18 h-21 v-18 l2.5 -6 z" fill="var(--hite)"/></g>
+<text class="hd" x="300" y="1644">2019 · <tspan class="pr">테라</tspan> 출시</text>
+<text class="bd" x="300" y="1668">"청정라거". 노재팬 반사이익까지</text>
+<text class="bd" x="300" y="1689">얹혀 1년 만에 점유율 2배.</text>
 
-<!-- 2021 한맥 -->
-<circle class="disc" cx="640" cy="1650" r="28" stroke="var(--ob)"/>
-<g transform="translate(640,1650)"><path d="M-9 -13 h18 v26 h-18 z" fill="var(--ob)"/><rect x="-10" y="-15" width="20" height="3.5" rx="1.5" fill="var(--ob)"/></g>
-<text class="hd" x="690" y="1642">2021 · <tspan class="pr">한맥</tspan> 출시</text>
-<text class="bd" x="690" y="1664">국산 쌀을 표방한 "대한민국 대표 라거".</text>
+<circle class="disc" cx="640" cy="1730" r="28" stroke="var(--ob)"/>
+<g transform="translate(640,1730)"><path d="M-9 -13 h18 v26 h-18 z" fill="var(--ob)"/><rect x="-10" y="-15" width="20" height="3.5" rx="1.5" fill="var(--ob)"/></g>
+<text class="hd" x="690" y="1722">2021 · <tspan class="pr">한맥</tspan> 출시</text>
+<text class="bd" x="690" y="1746">국산 쌀을 표방한 "대한민국 대표 라거".</text>
 
-<!-- 2023 -->
-<circle class="disc" cx="250" cy="1720" r="26" stroke="var(--hite)"/>
-<circle class="disc" cx="1100" cy="1720" r="26" stroke="var(--lotte)"/>
-<text class="hd" x="300" y="1712" style="font-size:16.5px">2023 · <tspan class="pr">켈리</tspan> 출시</text>
-<text class="bd" x="300" y="1734">덴마크산 맥아 100%. 36일 만에</text>
-<text class="bd" x="300" y="1753">100만 상자 — 국내 최단 기록.</text>
-<text class="hd ft" x="1210" y="1712" style="font-size:16.5px">2023 · <tspan class="pr">크러시</tspan> 출시</text>
-<text class="bd" x="1210" y="1733">5년 사이 클라우드→피츠→크러시→</text>
-<text class="bd" x="1210" y="1752">클라우드. 정체성 방황의 역사.</text>
+<circle class="disc" cx="250" cy="1810" r="26" stroke="var(--hite)"/>
+<circle class="disc" cx="1100" cy="1810" r="26" stroke="var(--lotte)"/>
+<text class="hd" x="300" y="1800" style="font-size:18.2px">2023 · <tspan class="pr">켈리</tspan> 출시</text>
+<text class="bd" x="300" y="1824">덴마크산 맥아 100%. 36일 만에</text>
+<text class="bd" x="300" y="1845">100만 상자 — 국내 최단 기록.</text>
+<path d="M1132 1810 H1195" stroke="var(--lotte)" stroke-width="2.6" stroke-dasharray="3 6" fill="none"/>
+<text class="hd ft" x="1210" y="1800" style="font-size:18.2px">2023 · <tspan class="pr">크러시</tspan> 출시</text>
+<text class="bd" x="1210" y="1824">5년 사이 클라우드→피츠→크러시→</text>
+<text class="bd" x="1210" y="1845">클라우드. 정체성 방황의 역사.</text>
 
-<!-- 대표 제품 -->
-<circle class="disc" cx="250" cy="1882" r="33" stroke="var(--hite)"/>
-<g transform="translate(250,1882)"><path d="M-9 -18 h18 v6 l3 7 v22 h-24 v-22 l3 -7 z" fill="var(--hite)"/><path d="M-6 0 h12" stroke="var(--panel)" stroke-width="3.2" stroke-linecap="round"/></g>
-<circle class="disc" cx="640" cy="1882" r="33" stroke="var(--ob)"/>
-<g transform="translate(640,1882)"><path d="M-11 -17 h22 v34 h-22 z" fill="var(--ob)"/><rect x="-12" y="-19" width="24" height="4" rx="1.5" fill="var(--ob)"/><path d="M-7 2 h14" stroke="var(--panel)" stroke-width="3.2" stroke-linecap="round"/></g>
-<circle class="disc" cx="1100" cy="1882" r="33" stroke="var(--lotte)"/>
-<g transform="translate(1100,1882)"><path d="M-9 -18 h18 v6 l3 7 v22 h-24 v-22 l3 -7 z" fill="var(--lotte)"/><circle cx="0" cy="4" r="5" fill="var(--panel)"/></g>
-
-<text class="nm fh" x="250" y="1950" text-anchor="middle">하이트진로</text>
-<text class="bd" x="250" y="1970" text-anchor="middle">테라 · 켈리 · 하이트</text>
-<text class="nm fb" x="640" y="1950" text-anchor="middle">OB맥주</text>
-<text class="bd" x="640" y="1970" text-anchor="middle">카스 · 한맥</text>
-<text class="nm ft" x="1100" y="1950" text-anchor="middle">롯데칠성</text>
-<text class="bd" x="1100" y="1970" text-anchor="middle">클라우드</text>
-
-<line x1="150" y1="1994" x2="1450" y2="1994" stroke="var(--rule)" stroke-width="1.5"/>
-<text class="shn" x="128" y="2026" text-anchor="end">점유율</text>
-<rect x="205" y="2010" width="90" height="9" rx="4.5" fill="var(--hite)"/>
-<text class="shp fh" x="250" y="2046" text-anchor="middle">30%</text>
-<rect x="550" y="2010" width="180" height="9" rx="4.5" fill="var(--ob)"/>
-<text class="shp fb" x="640" y="2046" text-anchor="middle">60%</text>
-<rect x="1093" y="2010" width="15" height="9" rx="4.5" fill="var(--lotte)"/>
-<text class="shp ft" x="1100" y="2046" text-anchor="middle">5%</text>
-<text class="shn" x="870" y="2028" text-anchor="middle">크래프트 170여 곳 · 합계 4%대</text>
-
-<text class="axn" x="150" y="2090">세로축은 사건 순서 — 연도 간격은 등간격이 아님 · 아이콘·제품 그림은 브랜드 로고가 아닌 자체 제작</text>
-<text class="axn" x="150" y="2110">점유율은 제조사 기준 근사치 · 진로는 소주 부문으로 하이트진로에 포함</text>
+<circle class="disc" cx="250" cy="1952" r="33" stroke="var(--hite)"/>
+<g transform="translate(250,1952)"><path d="M-9 -18 h18 v6 l3 7 v22 h-24 v-22 l3 -7 z" fill="var(--hite)"/><path d="M-6 0 h12" stroke="var(--panel)" stroke-width="3.2" stroke-linecap="round"/></g>
+<circle class="disc" cx="640" cy="1952" r="33" stroke="var(--ob)"/>
+<g transform="translate(640,1952)"><path d="M-11 -17 h22 v34 h-22 z" fill="var(--ob)"/><rect x="-12" y="-19" width="24" height="4" rx="1.5" fill="var(--ob)"/><path d="M-7 2 h14" stroke="var(--panel)" stroke-width="3.2" stroke-linecap="round"/></g>
+<circle class="disc" cx="1100" cy="1952" r="33" stroke="var(--lotte)"/>
+<g transform="translate(1100,1952)"><path d="M-9 -18 h18 v6 l3 7 v22 h-24 v-22 l3 -7 z" fill="var(--lotte)"/><circle cx="0" cy="4" r="5" fill="var(--panel)"/></g>
+<text class="nm fh" x="250" y="2022" text-anchor="middle">하이트진로</text>
+<text class="bd" x="250" y="2044" text-anchor="middle">테라 · 켈리 · 하이트</text>
+<text class="nm fb" x="640" y="2022" text-anchor="middle">OB맥주</text>
+<text class="bd" x="640" y="2044" text-anchor="middle">카스 · 한맥</text>
+<text class="nm ft" x="1100" y="2022" text-anchor="middle">롯데칠성</text>
+<text class="bd" x="1100" y="2044" text-anchor="middle">클라우드</text>
+<line x1="150" y1="2070" x2="1540" y2="2070" stroke="var(--rule)" stroke-width="1.5"/>
+<text class="shn" x="128" y="2104" text-anchor="end">점유율</text>
+<rect x="205" y="2088" width="90" height="9" rx="4.5" fill="var(--hite)"/>
+<text class="shp fh" x="250" y="2126" text-anchor="middle">30%</text>
+<rect x="550" y="2088" width="180" height="9" rx="4.5" fill="var(--ob)"/>
+<text class="shp fb" x="640" y="2126" text-anchor="middle">60%</text>
+<rect x="1093" y="2088" width="15" height="9" rx="4.5" fill="var(--lotte)"/>
+<text class="shp ft" x="1100" y="2126" text-anchor="middle">5%</text>
+<text class="shn" x="880" y="2106" text-anchor="middle">크래프트 170여 곳 · 합계 4%대</text>
+<text class="axn" x="150" y="2176">세로축은 사건 순서 — 연도 간격은 등간격이 아님 · 아이콘·제품 그림은 브랜드 로고가 아닌 자체 제작</text>
+<text class="axn" x="150" y="2198">점유율은 제조사 기준 근사치 · 진로는 소주 부문으로 하이트진로에 포함</text>
 </svg>
