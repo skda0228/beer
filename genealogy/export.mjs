@@ -1,5 +1,5 @@
 // 2× PNG 내보내기 — Playwright(patchright) + 번들 Chromium
-import { chromium } from '/opt/node22/lib/node_modules/notebooklm-mcp/node_modules/patchright/index.mjs';
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 const br = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 const cwd = 'file://' + process.cwd() + '/';
 
