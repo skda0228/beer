@@ -11,6 +11,7 @@
 | 일본 단독 | [`genealogy/jp-infographic.html`](genealogy/jp-infographic.html) |
 | 한국 단독 | [`genealogy/kr-infographic.html`](genealogy/kr-infographic.html) |
 | 자세한 설명 | [`genealogy/README.md`](genealogy/README.md) |
+| 수입맥주 원산지 (국내 라이선스 vs 직수입, 2026.11) | [`origin/korea-import-beer.html`](origin/korea-import-beer.html) |
 
 ## GitHub Pages 켜기 (최초 1회)
 

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>수입맥주, 실제로 어디서 만드나 — 국내 라이선스 생산 vs 직수입</title>
+<meta name="description" content="국내 유통 수입맥주 브랜드를 국내 라이선스 생산·본국 직수입·제3국 생산으로 분류하고, 근거와 확인 수준을 함께 표기했다. 2026년 11월 기준.">
+<style>
+  :root{
+    --ground:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D1F; --ink-2:#4A5157; --ink-3:#8A9098;
+    --rule:#DDE0DC;
+    --kr:#0F7A6E; --imp:#2274C4; --third:#B8860B; --warn:#C0332F; --ok:#1E8449; --mid:#8A6D1F;
+    --shadow:0 2px 4px rgba(26,29,31,.06), 0 12px 32px -16px rgba(26,29,31,.24);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+    line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 88px}
+  header{padding:56px 0 30px;border-bottom:1px solid var(--rule)}
+  .lab{margin:0 0 10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;
+    font-weight:800;letter-spacing:.2em;color:var(--ink)}
+  .kicker{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;font-weight:800;
+    letter-spacing:.18em;color:var(--ink-3);margin:0 0 14px}
+  .back{font-size:.86rem;font-weight:700;text-decoration:none;color:var(--ink-3)}
+  .back:hover{color:var(--ink)}
+  h1{margin:8px 0 0;font-size:clamp(1.8rem,4.8vw,2.8rem);font-weight:850;letter-spacing:-.04em;line-height:1.15;text-wrap:balance}
+  .sub{margin:16px 0 0;max-width:62ch;color:var(--ink-2);font-size:1.02rem;text-wrap:pretty}
+  h2{margin:56px 0 6px;font-size:.82rem;font-weight:800;letter-spacing:.16em;color:var(--ink-3)}
+  h3{margin:0 0 6px;font-size:1.16rem;font-weight:840;letter-spacing:-.02em}
+  p{text-wrap:pretty}
+  .lead{margin:4px 0 0;color:var(--ink-2);max-width:72ch}
+
+  .panel{background:var(--panel);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--shadow);overflow:hidden;margin-top:16px}
+  .panel .stripe{height:5px}
+  .panel .body{padding:20px 22px 22px}
+
+  /* 기린 타임라인 */
+  .tl{list-style:none;margin:14px 0 0;padding:0;border-left:3px solid var(--kr)}
+  .tl li{position:relative;padding:0 0 14px 20px}
+  .tl li::before{content:"";position:absolute;left:-8px;top:7px;width:13px;height:13px;border-radius:50%;
+    background:var(--panel);border:3px solid var(--kr)}
+  .tl li.now::before{background:var(--kr)}
+  .tl .d{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;font-weight:800;letter-spacing:.06em;color:var(--kr)}
+  .tl .t{display:block;color:var(--ink-2);font-size:.93rem}
+  .answer{margin:16px 0 0;padding:14px 16px;background:#EEF6F4;border-radius:6px;font-size:.95rem}
+  .answer b{color:var(--kr)}
+
+  /* 분류 카드 */
+  .grid{display:grid;gap:14px;margin-top:16px}
+  @media (min-width:760px){ .grid.two{grid-template-columns:1fr 1fr} }
+  .brand{background:var(--panel);border:1px solid var(--rule);border-left:5px solid var(--kr);border-radius:6px;padding:16px 18px}
+  .brand.imp{border-left-color:var(--imp)}
+  .brand.third{border-left-color:var(--third)}
+  .brand .who{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;font-weight:700;letter-spacing:.08em;color:var(--ink-3)}
+  .brand ul{margin:8px 0 0;padding-left:18px;color:var(--ink-2);font-size:.92rem}
+  .brand li{margin:2px 0}
+
+  /* 표 */
+  .tbl{overflow-x:auto;margin-top:16px;background:var(--panel);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:720px;font-size:.88rem}
+  th,td{text-align:left;vertical-align:top;padding:10px 14px;border-top:1px solid var(--rule)}
+  thead th{border-top:0;background:#FAFAF8;font-size:.74rem;letter-spacing:.1em;color:var(--ink-3);font-weight:800}
+  td b{color:var(--ink)}
+  td{color:var(--ink-2)}
+  .tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.74rem;font-weight:800;white-space:nowrap}
+  .t-kr{background:#E3F1EE;color:var(--kr)} .t-imp{background:#E4EEF9;color:var(--imp)}
+  .t-third{background:#F6EEDA;color:var(--mid)} .t-mix{background:#EFEAF6;color:#5B4B9E}
+  .v-ok{background:#E5F3EA;color:var(--ok)} .v-fix{background:#FBE7E6;color:var(--warn)}
+  .v-unk{background:#F1F1EE;color:var(--ink-3)} .v-part{background:#F6EEDA;color:var(--mid)}
+
+  .note{margin-top:22px;padding:18px 20px;border:1px solid var(--rule);border-left:4px solid var(--ink-3);
+    border-radius:4px;background:var(--panel);color:var(--ink-2);font-size:.9rem;max-width:78ch}
+  .note b{color:var(--ink)}
+  .note.alert{border-left-color:var(--warn)}
+  ol.src{font-size:.82rem;color:var(--ink-2);padding-left:20px}
+  ol.src li{margin:3px 0;word-break:break-all}
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);color:var(--ink-3);font-size:.82rem}
+  .labname{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:.2em;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="../index.html">← 맥주 아카이브</a>
+  <p class="lab" style="margin-top:22px">SK YOPPARATTE LAB</p>
+  <p class="kicker">주류학개론 · 맥주 · 2026.11 기준</p>
+  <h1>수입맥주, 실제로 어디서 만드나</h1>
+  <p class="sub">매대의 '수입맥주'는 세 갈래다. <b>국내 공장에서 라이선스로 빚는 것</b>,
+  <b>본국 양조장에서 들여오는 것</b>, 그리고 <b>본국이 아닌 제3국 공장에서 만들어 들여오는 것</b>.
+  같은 브랜드라도 캔·병·생맥주에 따라 갈래가 갈리기도 한다. 항목마다 근거의 확인 수준을 함께 적었다.</p>
+</header>
+
+<h2>지금 가장 큰 변화 — 기린 이치방 시보리</h2>
+<div class="panel">
+  <div class="stripe" style="background:var(--kr)"></div>
+  <div class="body">
+    <h3>국내 생산은 10월에 시작했다. 11월 지금은 매대에 두 가지가 섞여 있다</h3>
+    <ul class="tl">
+      <li><span class="d">2004 · 2011–12</span><span class="t">하이트진로가 병맥주 수입을 시작했고(2004), 독점 계약을 맺은 뒤(2011) 2012년부터 캔·생맥주까지 유통했다.</span></li>
+      <li><span class="d">2026.07</span><span class="t">기린과 기술제휴협정을 위한 업무협약(MOU)을 맺었다.</span></li>
+      <li><span class="d">2026.10 첫째 주</span><span class="t"><b>전주공장 생산 캔의 출고가 시작됐다.</b> 기린 고유 공법과 기린 효모를 제공받아 쓴다.</span></li>
+      <li><span class="d">2026.10.08 · 10.12</span><span class="t">용인 통합연구소에서 기자간담회를 열었고(10.8), 12일에 공식 발표했다. 기린과 자본 관계가 없는 수입·유통사로는 아시아 첫 라이선스 생산이다.</span></li>
+      <li class="now"><span class="d">2026.11 (현재)</span><span class="t">매장마다 기존 수입 재고가 소진되는 순서대로 국내 생산품으로 바뀌고 있다. 그래서 같은 매대에 일본산과 전주산이 섞여 있을 수 있다.</span></li>
+      <li><span class="d">2027 목표</span><span class="t">전체 판매량의 75%를 국내에서 생산할 계획이다. 초도 생산 목표는 약 150만ℓ다.</span></li>
+    </ul>
+    <p class="answer"><b>정리:</b> "이번 달(11월)부터"가 아니라 <b>10월 첫째 주 출고</b>부터다. 다만 실제로 손에 쥐는 시점은
+    매장 재고에 따라 11월 이후가 될 수 있다. 국내 생산 대상은 <b>캔뿐</b>이다. 병과 생맥주는 계속 일본에서 수입하는 것으로 보이는데,
+    회사가 이를 직접 밝힌 것은 아니고 "캔부터 국내 생산"이라는 발표에서 추론한 것이다.
+    구별하려면 캔 뒷면 표시사항에서 <b>제조원 하이트진로(주) 전주공장</b>과 <b>원산지 일본</b> 중 어느 쪽이 적혀 있는지 보면 된다.</p>
+  </div>
+</div>
+
+<h2>① 국내 라이선스 생산 — 확인된 것</h2>
+<p class="lead">본사의 레시피·효모·품질 기준을 받아 국내 공장에서 빚는 맥주다. 2020년 맥주 주세가 종가세에서 <b>종량세</b>로 바뀌면서
+수입보다 국내 생산이 유리해졌고, 그때부터 전환이 본격화했다.</p>
+<div class="grid">
+  <div class="brand">
+    <h3>버드와이저 <span class="who">· 오비맥주 · 미국 브랜드</span></h3>
+    <ul>
+      <li>1987년부터 오비맥주가 라이선스 생산해 왔다.</li>
+      <li>2017년 7월부터는 주세 때문에 캔을 미국에서 수입했다. 종량세 도입 전후로 <b>355·500ml 캔, 500ml 병, 생맥주</b>를 다시 국내 생산으로 돌렸다.</li>
+      <li>2026년 상반기 한국산 맥주 수출이 늘었는데, 하이트진로는 중국에서 생산·수출하던 버드와이저 물량이 국내 생산으로 옮겨온 영향일 수 있다고 봤다. 경쟁사의 추정이다.</li>
+      <li>740ml 같은 대용량 캔의 제조국은 이번에 확인하지 못했다. 라벨을 봐야 한다.</li>
+    </ul>
+  </div>
+  <div class="brand">
+    <h3>호가든 <span class="who">· 오비맥주 광주공장 · 벨기에 브랜드</span></h3>
+    <ul>
+      <li>호가든 본사가 처음으로 인증한 해외 양조장이 오비맥주 광주공장이다.</li>
+      <li>원래 국내에서 생산하다가 2017년 캔 등을 수입으로 돌렸다. 2019~2020년에 <b>330ml 병, 330·500ml 캔, 20L 생맥주</b>를 다시 국내 생산으로 바꿨다.</li>
+      <li>그린 그레이프처럼 한국에서 기획하고 개발한 한정판은 국내에서만 만든다.</li>
+      <li>로제·그랑 크뤼·포비든 프룻은 2015년 출시 당시 수입품이었다. 지금도 수입인지는 확인하지 못했다.</li>
+    </ul>
+  </div>
+  <div class="brand">
+    <h3>기린 이치방 시보리 캔 <span class="who">· 하이트진로 전주공장 · 일본 브랜드</span></h3>
+    <ul>
+      <li>2026년 10월부터 생산하고 있다. 자세한 일정은 위 타임라인에 정리했다.</li>
+    </ul>
+  </div>
+</div>
+<div class="note">
+  <b>역수입 사례 — 블루걸.</b> 홍콩 1위 맥주 블루걸은 오비맥주가 1988년부터 ODM으로 만들어 수출해 온 브랜드다.
+  최근 같은 500ml 캔이 국내에도 출시됐다. '외국 브랜드처럼 보이지만 처음부터 한국산'인 경우다.
+</div>
+
+<h2>② 해외 완제품 수입</h2>
+<p class="lead">표시사항에 <b>원산지</b>가 적힌 맥주다. 다만 원산지가 곧 브랜드의 본국이라는 뜻은 아니다. 그런 경우는 ③에 따로 모았다.</p>
+<div class="grid two">
+  <div class="brand imp"><h3>아사히 수퍼드라이 <span class="who">· 롯데아사히주류</span></h3>
+    <ul><li>일본에서 수입한다. 국내에 들어오는 생맥주캔(조키캔)은 하카타 공장 생산분이라고 알려져 있다.</li>
+    <li>옛 기사에 롯데아사히가 '생산·판매'한다는 표현이 있지만, 실제로는 수입품이다.</li></ul></div>
+  <div class="brand imp"><h3>삿포로 · 에비스 <span class="who">· 엠즈베버리지(매일유업 계열)</span></h3>
+    <ul><li>일반 캔은 일본에서 수입한다. 650ml 실버컵은 ③에 따로 적었다.</li></ul></div>
+  <div class="brand imp"><h3>칭따오 <span class="who">· 비어케이</span></h3>
+    <ul><li>중국에서 수입한다. 2023년 현지 공장 위생 논란 이후 매출이 급감했다가 2025년에 흑자로 돌아섰다.</li></ul></div>
+  <div class="brand imp"><h3>기네스 <span class="who">· 디아지오코리아</span></h3>
+    <ul><li>아일랜드 맥주로 수입한다. 디아지오코리아는 2023년에 홉하우스13과 기네스 엑스트라 스타우트의 국내 판매를 끝냈다.</li></ul></div>
+  <div class="brand imp"><h3>하이네켄 <span class="who">· 하이네켄코리아</span></h3>
+    <ul><li>국내 편의점 캔의 원산지가 네덜란드로 표기된 사례가 있다. 베트남 생산분이 들어오는지는 확인하지 못했다.</li></ul></div>
+  <div class="brand imp"><h3>스텔라 아르투아 <span class="who">· 오비맥주</span></h3>
+    <ul><li>2025년 11월 보도에서도 '오비맥주가 수입·유통하는 브랜드'로 소개됐다.</li>
+    <li>국내 생산은 2020년에 검토한다는 보도만 있었고, 실제로 전환했다는 근거는 찾지 못했다.</li></ul></div>
+  <div class="brand imp"><h3>오비맥주 수입 포트폴리오</h3>
+    <ul><li>코로나, 미켈롭 울트라, 산토리 프리미엄 몰츠, 구스아일랜드, 하얼빈, 레페 등이 있다.</li>
+    <li>미켈롭 울트라는 2024년 골프장 한정 판매로 시작해 같은 해 이마트로 판로를 넓혔다.</li></ul></div>
+  <div class="brand imp"><h3>칼스버그 · 밀러 · 블루문 <span class="who">· 골든블루</span></h3>
+    <ul><li>칼스버그는 2018년부터 골든블루가 수입한다.</li><li>밀러와 블루문은 2021년 11월 골든블루 인터내셔널이 몰슨쿠어스와 독점 계약을 맺었다. 그 전에는 롯데가 수입했다.</li></ul></div>
+  <div class="brand imp"><h3>크로넨버그 1664 <span class="who">· 하이트진로</span></h3>
+    <ul><li>2013년부터 블랑을 수입했다. 이후 프렌치 라거와 로제가 추가됐다. 생산지는 ③에 적었다.</li></ul></div>
+  <div class="brand imp"><h3>파울라너 · 에딩거</h3>
+    <ul><li><b>파울라너</b>: 2026년 1월 1일부터 국내 공식 유통사가 하이트진로에서 <b>하이네켄코리아</b>로 바뀌었다.</li>
+    <li><b>에딩거</b>: 아영FBC가 수입한다(2023년 기준).</li></ul></div>
+</div>
+<div class="note alert">
+  <b>철수 예정 — 필스너 우르켈 · 코젤.</b> 아사히그룹 계열 수입사 <b>에이이브랜드코리아</b>가
+  다음 달 31일을 끝으로 두 브랜드의 국내 판매를 종료한다고 2026년 11월 6일 보도됐다. 보도 날짜로 보면 2026년 12월 31일이다.
+  편의점에서는 재고 정리 할인이 진행 중이다.
+</div>
+
+<h2>③ 본국이 아닌 제3국 공장에서 생산 — 회색지대</h2>
+<div class="grid two">
+  <div class="brand third"><h3>1664 블랑 <span class="who">· 프랑스 브랜드</span></h3>
+    <ul><li>한국 수입 통계에서는 1664 블랑이 생산되는 나라로 <b>폴란드</b>가 잡힌다.</li>
+    <li>베트남·중국 생산분이 국내에 들어온다는 근거는 찾지 못했다.</li></ul></div>
+  <div class="brand third"><h3>삿포로 실버컵 650ml <span class="who">· 일본 브랜드</span></h3>
+    <ul><li>삿포로 베트남 공장(롱안성 득호아)이 650ml 캔을 생산한다. 싱가포르, 호주, 미국 판매분의 원산지가 베트남으로 확인된다.</li>
+    <li>국내 유통분도 그럴 가능성이 높다. 다만 이번에 국내 라벨로 직접 확인하지는 못했다.</li></ul></div>
+  <div class="brand third"><h3>ODM 저가 수입맥주</h3>
+    <ul><li>제주맥주 대표는 "외산 맥주들이 중국에서 ODM 방식으로 생산돼 국내에 싸게 공급되고 있다"고 말했다(2026년 2월). 특정 브랜드를 지목하지는 않았다.</li></ul></div>
+  <div class="brand third"><h3>스텔라의 본국 이탈</h3>
+    <ul><li>AB인베브는 2021년 미국 판매용 스텔라 생산을 미국 공장으로 옮겼다. 영국 판매분도 원산지가 영국으로 표기된다.</li>
+    <li>한국행 물량이 어디서 오는지는 라벨로 확인해야 한다.</li></ul></div>
+</div>
+
+<h2>첨부 문서 검증 결과</h2>
+<p class="lead">기존 정리본의 항목을 하나씩 대조했다.
+<span class="tag v-ok">확인</span> 보도나 공식 자료로 뒷받침되는 항목,
+<span class="tag v-part">부분 확인</span> 일부만 확인된 항목,
+<span class="tag v-unk">미확인</span> 근거를 찾지 못한 항목,
+<span class="tag v-fix">정정</span> 근거와 어긋나는 항목이다.</p>
+<div class="tbl"><table>
+<thead><tr><th>기존 정리본의 주장</th><th>판정</th><th>근거 · 메모</th></tr></thead>
+<tbody>
+<tr><td><b>기린</b> 캔 국내 생산, 국내 유통량 75% 목표</td><td><span class="tag v-ok">확인</span></td><td>10월 첫째 주에 출고를 시작했다. 75%는 <b>2027년</b> 목표치다.</td></tr>
+<tr><td><b>버드와이저</b> 330병·355·500캔 국내 생산</td><td><span class="tag v-part">부분 확인</span></td><td>355·500 캔, 500 병, 생맥주는 국내 생산으로 확인된다. '330ml 병'은 근거를 찾지 못했다.</td></tr>
+<tr><td>버드와이저 473·740ml 미국 직수입</td><td><span class="tag v-unk">미확인</span></td><td>2017~2019년에 캔을 미국에서 수입한 이력은 있다. 현재 제조국은 라벨을 봐야 한다.</td></tr>
+<tr><td><b>호가든</b> 오리지널 국내, 로제 등 직수입</td><td><span class="tag v-part">부분 확인</span></td><td>오리지널 국내 생산은 확인된다. 로제 등 특수 라인업이 지금도 수입인지는 확인하지 못했다.</td></tr>
+<tr><td><b>스텔라</b> 2022년부터 500캔 광주공장 생산</td><td><span class="tag v-fix">정정</span></td><td>전환했다는 보도를 찾지 못했다. 2025년 11월에도 '수입·유통 브랜드'로 소개됐다. 2020년의 '검토' 보도만 있다.</td></tr>
+<tr><td>스텔라 740ml 미국 공장분</td><td><span class="tag v-unk">미확인</span></td><td>미국 내 생산 이전(2021)은 사실이다. 그 물량이 한국에 오는지는 확인하지 못했다.</td></tr>
+<tr><td><b>구스 아일랜드</b> IPA·세션 IPA 국내 생산</td><td><span class="tag v-unk">미확인</span></td><td>오비맥주 자회사가 운영하는 '구스아일랜드 브루하우스 서울'이 2019년 구스 IPA 캔을, 2020년 덕덕구스 세션 IPA(매장 레시피)를 출시했다. 생산지 표기는 확인하지 못했다.</td></tr>
+<tr><td><b>벡스</b> 라이선스·수입 병행</td><td><span class="tag v-unk">미확인</span></td><td>국내 생산 근거를 찾지 못했다.</td></tr>
+<tr><td><b>1664 블랑</b> 폴란드·베트남·중국 생산, 하이트진로 유통</td><td><span class="tag v-part">부분 확인</span></td><td>폴란드와 하이트진로 유통(2013~)은 확인된다. 베트남·중국은 근거가 없다.</td></tr>
+<tr><td><b>블루문</b> 베트남산 주력, 골든블루 유통</td><td><span class="tag v-part">부분 확인</span></td><td>골든블루 인터내셔널 유통(2021.11~)은 확인된다. 베트남 생산은 근거가 없다.</td></tr>
+<tr><td><b>삿포로</b> 650ml 실버컵 베트남산</td><td><span class="tag v-part">부분 확인</span></td><td>베트남 공장의 650ml 생산은 확인된다. 국내 유통분의 라벨은 확인하지 못했다.</td></tr>
+<tr><td><b>하이네켄 · 타이거 · 산미구엘</b> 베트남 거점분</td><td><span class="tag v-unk">미확인</span></td><td>하이네켄은 국내 캔의 원산지가 네덜란드로 표기된 사례가 있다.</td></tr>
+<tr><td><b>아사히</b> 일본 본토 직수입</td><td><span class="tag v-ok">확인</span></td><td>생맥주캔은 하카타 공장 생산분이라고 알려져 있다.</td></tr>
+<tr><td><b>필스너 우르켈 · 코젤</b> 수입사 비어케이</td><td><span class="tag v-fix">정정</span></td><td>수입사는 <b>에이이브랜드코리아</b>(아사히 계열)다. <b>2026년 12월 31일에 국내 판매를 종료할 예정</b>이다.</td></tr>
+<tr><td><b>파울라너</b> 하이트진로</td><td><span class="tag v-fix">정정</span></td><td>2026년 1월 1일부터 <b>하이네켄코리아</b>가 유통한다.</td></tr>
+<tr><td><b>에딩거</b> 비어케이</td><td><span class="tag v-fix">정정</span></td><td>수입사는 <b>아영FBC</b>다(2023년 기준).</td></tr>
+<tr><td><b>칭따오</b> 비어케이, 중국 직수입</td><td><span class="tag v-ok">확인</span></td><td>—</td></tr>
+<tr><td>바코드 '50 = 영국/아일랜드'</td><td><span class="tag v-fix">정정</span></td><td>GS1 코드로 50은 영국, 아일랜드는 <b>539</b>다. 또 바코드는 제품을 등록한 나라를 나타낼 뿐 제조국이 아니다. 판단은 한글 표시사항으로 해야 한다.</td></tr>
+</tbody></table></div>
+
+<h2>내 손의 캔이 어디산인지 확인하는 법</h2>
+<div class="note" style="margin-top:16px">
+  <b>1) 한글 표시사항.</b> 국내 생산품에는 원산지 대신 <b>제조원 ○○(주) ○○공장</b>이 적혀 있다(예: 오비맥주 광주공장, 하이트진로 전주공장).
+  수입품에는 <b>원산지: 국가명</b>과 해외 제조업소가 적혀 있다.<br>
+  <b>2) 바코드는 참고만.</b> 앞자리 880은 한국에 등록된 상품이라는 뜻이다. 본사 바코드를 그대로 쓰는 OEM 제품도 있어서 제조국 판단 근거로는 약하다.<br>
+  <b>3) 같은 브랜드도 포장별로 다르다.</b> 캔, 병, 대용량 캔, 생맥주(케그)의 출처가 다를 수 있다. 지금 당장 비교해 볼 만한 것이 기린 캔의 일본산과 전주산이다.
+</div>
+
+<h2>출처</h2>
+<ol class="src">
+  <li>SBS Biz, 「日기린맥주 국내서 만든다…하이트진로 "판매량 75%, 직접 생산"」 2026.10.12 — https://biz.sbs.co.kr/amp/article/20000339300</li>
+  <li>ZDNet Korea, 「日 기린 맥주도 '한국산'」 2026.10.12 — https://zdnet.co.kr/view?no=20261008190351</li>
+  <li>MTN, 「하이트진로, 日기린 '이치방 시보리' 국내 생산」 2026.10.12 — https://news.mtn.co.kr/news-detail/2026101209042481545</li>
+  <li>이코노미스트, 「일본 맥주인데 '메이드 인 코리아'」 2026.10 — https://economist.co.kr/article/view/ecn202610080055</li>
+  <li>전자신문, 「오비맥주, '호가든' 330㎖ 병 국내 생산 전환」 2020.03 — https://www.etnews.com/20200325000098</li>
+  <li>뉴데일리, 호가든 20L 생맥주 국내 생산 전환 2020.07 — https://biz.newdaily.co.kr/site/data/html/2020/07/07/2020070700095.amp.html</li>
+  <li>한국경제, 「소주 주춤, 맥주 수출 23% 급증…뜻밖의 변수는 '버드와이저'」 2026.11 — https://www.hankyung.com/article/202611058457i</li>
+  <li>나무위키, 「버드와이저」 — https://namu.wiki/w/버드와이저</li>
+  <li>위키트리, 스텔라 아르투아 '퓨어 골드 바' 2026.11 — https://www.wikitree.co.kr/articles/1173316</li>
+  <li>위키트리, 필스너 우르켈·코젤 국내 판매 종료 2026.11.06 — https://www.wikitree.co.kr/articles/1172417</li>
+  <li>PR Newswire/더팀스, 파울라너 한국 유통사 하이네켄코리아로 변경 2025.11.25 — https://www.theteams.kr/news/detail/5061</li>
+  <li>뉴스핌, 골든블루 밀러·블루문 독점 판매 2021.11 — https://newspim.com/news/view/20211123000716</li>
+  <li>메트로신문, 하이트진로 1664블랑 생맥주 판로 확대 2019.05 — https://www.metroseoul.co.kr/article/2019053000074</li>
+  <li>아시아경제, 국가별 맥주 수입액(폴란드·1664 블랑) 2023.03 — https://www.asiae.co.kr/en/article/2023030916563440934</li>
+  <li>Wikipedia, Sapporo Breweries (Vietnam brewery) · FairPrice 650ml 원산지 표기 — https://www.fairprice.com.sg/product/sapporo-premium-black-can-beer-650ml-13271971</li>
+  <li>Brewbound, A-B to transfer production of Stella Artois to US 2021 — https://www.brewbound.com/news/anheuser-busch-to-transfer-production-of-stella-artois-to-us-first-bottles-to-hit-market-by-early-summer/</li>
+  <li>시사오늘, 제주맥주 ODM 전략 인터뷰 2026.02 — https://www.sidae.com/article/2026020910010025931</li>
+  <li>인사이트, 오비맥주 홍콩 '블루걸' 국내 출시 — https://www.insight.co.kr/news/397552</li>
+  <li>아시아경제, 아영FBC 에딩거 캠페인 2023.05 — https://www.asiae.co.kr/en/article/2023052610425479289</li>
+  <li>MTN, 오비맥주 구스아일랜드 가맹사업 2022.05 — https://news.mtn.co.kr/news-detail/2022052417041369875</li>
+  <li>디에디트, 아사히 생맥주캔 리뷰 2023.06 — https://the-edit.co.kr/53298</li>
+</ol>
+
+<footer>
+  <span class="labname">SK YOPPARATTE LAB</span> 제작 · 2026.11.16 작성<br>
+  생산지는 계약과 세제에 따라 수시로 바뀐다. 최종 판단은 언제나 손에 든 제품의 한글 표시사항으로 한다.
+</footer>
+
+</div>
+</body>
+</html>
