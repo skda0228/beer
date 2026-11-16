@@ -27,7 +27,10 @@
   .back:hover{color:var(--ink)}
   h1{margin:8px 0 0;font-size:clamp(1.8rem,4.8vw,2.8rem);font-weight:850;letter-spacing:-.04em;line-height:1.15;text-wrap:balance}
   .sub{margin:16px 0 0;max-width:62ch;color:var(--ink-2);font-size:1.02rem;text-wrap:pretty}
-  h2{margin:56px 0 6px;font-size:.82rem;font-weight:800;letter-spacing:.16em;color:var(--ink-3)}
+  h2{margin:64px 0 8px;padding-left:14px;border-left:6px solid var(--ink);
+    font-size:clamp(1.35rem,3.2vw,1.7rem);font-weight:850;letter-spacing:-.03em;line-height:1.25;color:var(--ink)}
+  h2 .num{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.62em;font-weight:800;letter-spacing:.12em;
+    color:var(--ink-3);display:block;margin-bottom:2px}
   h3{margin:0 0 6px;font-size:1.16rem;font-weight:840;letter-spacing:-.02em}
   p{text-wrap:pretty}
   .lead{margin:4px 0 0;color:var(--ink-2);max-width:72ch}
@@ -52,6 +55,14 @@
   @media (min-width:760px){ .grid.two{grid-template-columns:1fr 1fr} }
   .brand{background:var(--panel);border:1px solid var(--rule);border-left:5px solid var(--kr);border-radius:6px;padding:16px 18px}
   .brand.imp{border-left-color:var(--imp)}
+  .ov{display:grid;gap:14px;margin-top:16px}
+  @media (min-width:760px){ .ov{grid-template-columns:repeat(3,1fr)} }
+  .ovc{background:var(--panel);border:1px solid var(--rule);border-top:6px solid var(--kr);border-radius:8px;box-shadow:var(--shadow);padding:18px 18px 16px}
+  .ovc.imp{border-top-color:var(--imp)} .ovc.third{border-top-color:var(--third)}
+  .ovc h3{font-size:1.12rem}
+  .ovc .how{margin:0 0 10px;color:var(--ink-3);font-size:.84rem}
+  .ovc ul{margin:0;padding-left:18px;font-size:.92rem;color:var(--ink-2)}
+  .ovc li{margin:3px 0}
   .brand.third{border-left-color:var(--third)}
   .brand .who{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;font-weight:700;letter-spacing:.08em;color:var(--ink-3)}
   .brand ul{margin:8px 0 0;padding-left:18px;color:var(--ink-2);font-size:.92rem}
@@ -93,27 +104,19 @@
   같은 브랜드라도 캔·병·생맥주에 따라 갈래가 갈리기도 한다. 항목마다 근거의 확인 수준을 함께 적었다.</p>
 </header>
 
-<h2>지금 가장 큰 변화 — 기린 이치방 시보리</h2>
-<div class="panel">
-  <div class="stripe" style="background:var(--kr)"></div>
-  <div class="body">
-    <h3>국내 생산은 10월에 시작했다. 11월 지금은 매대에 두 가지가 섞여 있다</h3>
-    <ul class="tl">
-      <li><span class="d">2004 · 2011–12</span><span class="t">하이트진로가 병맥주 수입을 시작했고(2004), 독점 계약을 맺은 뒤(2011) 2012년부터 캔·생맥주까지 유통했다.</span></li>
-      <li><span class="d">2026.07</span><span class="t">기린과 기술제휴협정을 위한 업무협약(MOU)을 맺었다.</span></li>
-      <li><span class="d">2026.10 첫째 주</span><span class="t"><b>전주공장 생산 캔의 출고가 시작됐다.</b> 기린 고유 공법과 기린 효모를 제공받아 쓴다.</span></li>
-      <li><span class="d">2026.10.08 · 10.12</span><span class="t">용인 통합연구소에서 기자간담회를 열었고(10.8), 12일에 공식 발표했다. 기린과 자본 관계가 없는 수입·유통사로는 아시아 첫 라이선스 생산이다.</span></li>
-      <li class="now"><span class="d">2026.11 (현재)</span><span class="t">매장마다 기존 수입 재고가 소진되는 순서대로 국내 생산품으로 바뀌고 있다. 그래서 같은 매대에 일본산과 전주산이 섞여 있을 수 있다.</span></li>
-      <li><span class="d">2027 목표</span><span class="t">전체 판매량의 75%를 국내에서 생산할 계획이다. 초도 생산 목표는 약 150만ℓ다.</span></li>
-    </ul>
-    <p class="answer"><b>정리:</b> "이번 달(11월)부터"가 아니라 <b>10월 첫째 주 출고</b>부터다. 다만 실제로 손에 쥐는 시점은
-    매장 재고에 따라 11월 이후가 될 수 있다. 국내 생산 대상은 <b>캔뿐</b>이다. 병과 생맥주는 계속 일본에서 수입하는 것으로 보이는데,
-    회사가 이를 직접 밝힌 것은 아니고 "캔부터 국내 생산"이라는 발표에서 추론한 것이다.
-    구별하려면 캔 뒷면 표시사항에서 <b>제조원 하이트진로(주) 전주공장</b>과 <b>원산지 일본</b> 중 어느 쪽이 적혀 있는지 보면 된다.</p>
-  </div>
+<h2><span class="num">00 · 총론</span>세 갈래로 나누면</h2>
+<p class="lead">기준은 <b>실제로 양조한 공장이 어디인가</b>다. 2020년 맥주 주세가 종가세에서 종량세로 바뀐 뒤 국내 생산 쪽으로 옮겨 오는 흐름이 이어지고 있다.</p>
+<div class="ov">
+  <div class="ovc"><h3>① 국내 라이선스 생산</h3><p class="how">표시사항: 제조원 ○○공장</p>
+    <ul><li><b>버드와이저</b> — 오비맥주</li><li><b>호가든</b> — 오비맥주 광주</li><li><b>기린 이치방 시보리 캔</b> — 하이트진로 전주 (2026.10~)</li><li>블루걸 — 처음부터 한국산(역수입)</li></ul></div>
+  <div class="ovc imp"><h3>② 해외 완제품 수입</h3><p class="how">표시사항: 원산지 국가명</p>
+    <ul><li>아사히 · 삿포로 · 에비스</li><li>칭따오 · 하얼빈 · 기네스 · 하이네켄</li><li>스텔라 · 코로나 · 미켈롭 울트라 · 산토리</li><li>칼스버그 · 밀러 · 블루문 · 1664</li><li>파울라너 · 에딩거 · <s>필스너 우르켈 · 코젤</s>(연말 철수)</li></ul></div>
+  <div class="ovc third"><h3>③ 제3국 생산 수입</h3><p class="how">수입품이지만 브랜드 본국산이 아님</p>
+    <ul><li><b>1664 블랑</b> — 폴란드</li><li><b>삿포로 650ml</b> — 베트남 공장 생산(국내분은 라벨 확인)</li><li>중국 ODM 저가 수입맥주</li></ul></div>
 </div>
 
-<h2>① 국내 라이선스 생산 — 확인된 것</h2>
+
+<h2><span class="num">01</span>국내 라이선스 생산 — 확인된 것</h2>
 <p class="lead">본사의 레시피·효모·품질 기준을 받아 국내 공장에서 빚는 맥주다. 2020년 맥주 주세가 종가세에서 <b>종량세</b>로 바뀌면서
 수입보다 국내 생산이 유리해졌고, 그때부터 전환이 본격화했다.</p>
 <div class="grid">
@@ -138,7 +141,7 @@
   <div class="brand">
     <h3>기린 이치방 시보리 캔 <span class="who">· 하이트진로 전주공장 · 일본 브랜드</span></h3>
     <ul>
-      <li>2026년 10월부터 생산하고 있다. 자세한 일정은 위 타임라인에 정리했다.</li>
+      <li>2026년 10월 첫째 주부터 출고하고 있다. 자세한 일정은 <a href="#kirin">04 · 집중</a>에 정리했다.</li>
     </ul>
   </div>
 </div>
@@ -147,7 +150,7 @@
   최근 같은 500ml 캔이 국내에도 출시됐다. '외국 브랜드처럼 보이지만 처음부터 한국산'인 경우다.
 </div>
 
-<h2>② 해외 완제품 수입</h2>
+<h2><span class="num">02</span>해외 완제품 수입</h2>
 <p class="lead">표시사항에 <b>원산지</b>가 적힌 맥주다. 다만 원산지가 곧 브랜드의 본국이라는 뜻은 아니다. 그런 경우는 ③에 따로 모았다.</p>
 <div class="grid two">
   <div class="brand imp"><h3>아사히 수퍼드라이 <span class="who">· 롯데아사히주류</span></h3>
@@ -181,7 +184,7 @@
   편의점에서는 재고 정리 할인이 진행 중이다.
 </div>
 
-<h2>③ 본국이 아닌 제3국 공장에서 생산 — 회색지대</h2>
+<h2><span class="num">03</span>본국이 아닌 제3국 공장에서 생산 — 회색지대</h2>
 <div class="grid two">
   <div class="brand third"><h3>1664 블랑 <span class="who">· 프랑스 브랜드</span></h3>
     <ul><li>한국 수입 통계에서는 1664 블랑이 생산되는 나라로 <b>폴란드</b>가 잡힌다.</li>
@@ -196,7 +199,27 @@
     <li>한국행 물량이 어디서 오는지는 라벨로 확인해야 한다.</li></ul></div>
 </div>
 
-<h2>첨부 문서 검증 결과</h2>
+<h2 id="kirin"><span class="num">04 · 집중</span>기린 이치방 시보리 — 2026년의 가장 큰 변화</h2>
+<div class="panel">
+  <div class="stripe" style="background:var(--kr)"></div>
+  <div class="body">
+    <h3>국내 생산은 10월에 시작했다. 11월 지금은 매대에 두 가지가 섞여 있다</h3>
+    <ul class="tl">
+      <li><span class="d">2004 · 2011–12</span><span class="t">하이트진로가 병맥주 수입을 시작했고(2004), 독점 계약을 맺은 뒤(2011) 2012년부터 캔·생맥주까지 유통했다.</span></li>
+      <li><span class="d">2026.07</span><span class="t">기린과 기술제휴협정을 위한 업무협약(MOU)을 맺었다.</span></li>
+      <li><span class="d">2026.10 첫째 주</span><span class="t"><b>전주공장 생산 캔의 출고가 시작됐다.</b> 기린 고유 공법과 기린 효모를 제공받아 쓴다.</span></li>
+      <li><span class="d">2026.10.08 · 10.12</span><span class="t">용인 통합연구소에서 기자간담회를 열었고(10.8), 12일에 공식 발표했다. 기린과 자본 관계가 없는 수입·유통사로는 아시아 첫 라이선스 생산이다.</span></li>
+      <li class="now"><span class="d">2026.11 (현재)</span><span class="t">매장마다 기존 수입 재고가 소진되는 순서대로 국내 생산품으로 바뀌고 있다. 그래서 같은 매대에 일본산과 전주산이 섞여 있을 수 있다.</span></li>
+      <li><span class="d">2027 목표</span><span class="t">전체 판매량의 75%를 국내에서 생산할 계획이다. 초도 생산 목표는 약 150만ℓ다.</span></li>
+    </ul>
+    <p class="answer"><b>정리:</b> "이번 달(11월)부터"가 아니라 <b>10월 첫째 주 출고</b>부터다. 다만 실제로 손에 쥐는 시점은
+    매장 재고에 따라 11월 이후가 될 수 있다. 국내 생산 대상은 <b>캔뿐</b>이다. 병과 생맥주는 계속 일본에서 수입하는 것으로 보이는데,
+    회사가 이를 직접 밝힌 것은 아니고 "캔부터 국내 생산"이라는 발표에서 추론한 것이다.
+    구별하려면 캔 뒷면 표시사항에서 <b>제조원 하이트진로(주) 전주공장</b>과 <b>원산지 일본</b> 중 어느 쪽이 적혀 있는지 보면 된다.</p>
+  </div>
+</div>
+
+<h2><span class="num">05</span>기존 정리본 검증 결과</h2>
 <p class="lead">기존 정리본의 항목을 하나씩 대조했다.
 <span class="tag v-ok">확인</span> 보도나 공식 자료로 뒷받침되는 항목,
 <span class="tag v-part">부분 확인</span> 일부만 확인된 항목,
@@ -225,7 +248,7 @@
 <tr><td>바코드 '50 = 영국/아일랜드'</td><td><span class="tag v-fix">정정</span></td><td>GS1 코드로 50은 영국, 아일랜드는 <b>539</b>다. 또 바코드는 제품을 등록한 나라를 나타낼 뿐 제조국이 아니다. 판단은 한글 표시사항으로 해야 한다.</td></tr>
 </tbody></table></div>
 
-<h2>내 손의 캔이 어디산인지 확인하는 법</h2>
+<h2><span class="num">06</span>내 손의 캔이 어디산인지 확인하는 법</h2>
 <div class="note" style="margin-top:16px">
   <b>1) 한글 표시사항.</b> 국내 생산품에는 원산지 대신 <b>제조원 ○○(주) ○○공장</b>이 적혀 있다(예: 오비맥주 광주공장, 하이트진로 전주공장).
   수입품에는 <b>원산지: 국가명</b>과 해외 제조업소가 적혀 있다.<br>
@@ -233,7 +256,7 @@
   <b>3) 같은 브랜드도 포장별로 다르다.</b> 캔, 병, 대용량 캔, 생맥주(케그)의 출처가 다를 수 있다. 지금 당장 비교해 볼 만한 것이 기린 캔의 일본산과 전주산이다.
 </div>
 
-<h2>출처</h2>
+<h2><span class="num">07</span>출처</h2>
 <ol class="src">
   <li>SBS Biz, 「日기린맥주 국내서 만든다…하이트진로 "판매량 75%, 직접 생산"」 2026.10.12 — https://biz.sbs.co.kr/amp/article/20000339300</li>
   <li>ZDNet Korea, 「日 기린 맥주도 '한국산'」 2026.10.12 — https://zdnet.co.kr/view?no=20261008190351</li>
