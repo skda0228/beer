@@ -58,6 +58,15 @@
   .note b{color:var(--ink)}
   footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
     color:var(--ink-3);font-size:.82rem}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;
+    font-size:.95rem;font-weight:800;text-decoration:none;border:2px solid var(--ink);
+    background:var(--panel);color:var(--ink);transition:transform .14s ease, background .14s ease}
+  .btn:hover{transform:translateY(-1px);background:var(--ground)}
+  .btn.primary{background:var(--ink);color:#fff}
+  .btn.primary:hover{background:#000}
+  .btn .tagn{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.08em;
+    padding:2px 7px;border-radius:999px;background:#C0332F;color:#fff}
 </style>
 </head>
 <body>
@@ -69,6 +78,10 @@
   <h1>맥주 계보 아카이브</h1>
   <p class="sub">연표가 아니라 <b>혈통</b>을 그린다. 선이 모이면 합병, 갈라지면 분할이다.
   일본 150년과 한국 90년의 맥주 회사들이 어떻게 태어나고 합쳐지고 쪼개졌는지를 한 장씩의 그림으로 추적했다.</p>
+  <div class="btns">
+    <a class="btn" href="genealogy/beer-genealogy.html">맥주 계보도 →</a>
+    <a class="btn primary" href="origin/korea-import-beer.html">수입맥주 원산지 → <span class="tagn">NEW</span></a>
+  </div>
 </header>
 
 <h2>MAIN</h2>

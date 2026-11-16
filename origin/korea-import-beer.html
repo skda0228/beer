@@ -89,13 +89,24 @@
   ol.src li{margin:3px 0;word-break:break-all}
   footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);color:var(--ink-3);font-size:.82rem}
   .labname{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:.2em;color:var(--ink)}
+  .homebtn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;
+    font-size:.92rem;font-weight:800;text-decoration:none;border:2px solid var(--ink);
+    background:var(--panel);color:var(--ink);transition:transform .14s ease, background .14s ease}
+  .homebtn:hover{transform:translateY(-1px);background:var(--ground)}
+  .homebtn.dark{background:var(--ink);color:#fff}
+  .fab{position:fixed;right:16px;bottom:18px;z-index:50;display:inline-flex;align-items:center;gap:6px;
+    padding:12px 16px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;
+    font-size:.88rem;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.28)}
+  .fab:hover{background:#000}
+  .bottomnav{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px}
 </style>
 </head>
-<body>
+<body id="top">
+<a class="fab" href="../index.html" aria-label="맥주 아카이브로 돌아가기">← 아카이브</a>
 <div class="wrap">
 
 <header>
-  <a class="back" href="../index.html">← 맥주 아카이브</a>
+  <a class="homebtn" href="../index.html">← 맥주 아카이브로 돌아가기</a>
   <p class="lab" style="margin-top:22px">SK YOPPARATTE LAB</p>
   <p class="kicker">주류학개론 · 맥주 · 2026.11 기준</p>
   <h1>수입맥주, 실제로 어디서 만드나</h1>
@@ -280,6 +291,11 @@
   <li>MTN, 오비맥주 구스아일랜드 가맹사업 2022.05 — https://news.mtn.co.kr/news-detail/2022052417041369875</li>
   <li>디에디트, 아사히 생맥주캔 리뷰 2023.06 — https://the-edit.co.kr/53298</li>
 </ol>
+
+<div class="bottomnav">
+  <a class="homebtn dark" href="../index.html">← 맥주 아카이브로 돌아가기</a>
+  <a class="homebtn" href="#top">↑ 맨 위로</a>
+</div>
 
 <footer>
   <span class="labname">SK YOPPARATTE LAB</span> 제작 · 2026.11.16 작성<br>
