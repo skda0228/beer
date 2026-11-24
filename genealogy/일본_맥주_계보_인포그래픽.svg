@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="2435" viewBox="0 -46 1340 2435" role="img" aria-label="일본 맥주 6개 회사 계보도. 기린은 1870년부터 끊기지 않는 독자 노선을 유지한다. 삿포로·에비스·아사히는 1906년 대일본맥주로 합병되어 회색 줄기가 되었다가 1949년 GHQ 명령으로 삿포로와 아사히 둘로 분할된다. 에비스는 1943년 상표가 소멸했다가 1971년 삿포로 산하로 부활한다. 산토리는 1963년, 오리온은 1957년에 합류한다. 오리온은 2019년 노무라홀딩스·칼라일 그룹에 매각되고 2025년 상장해 독립 법인으로 남는다. 여섯 계보는 각자의 대표 제품으로 이어진다."><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="2305" viewBox="0 84 1340 2305" role="img" aria-label="일본 맥주 6개 회사 계보도. 기린은 1870년부터 끊기지 않는 독자 노선을 유지한다. 삿포로·에비스·아사히는 1906년 대일본맥주로 합병되어 회색 줄기가 되었다가 1949년 GHQ 명령으로 삿포로와 아사히 둘로 분할된다. 에비스는 1943년 상표가 소멸했다가 1971년 삿포로 산하로 부활한다. 산토리는 1963년, 오리온은 1957년에 합류한다. 오리온은 2019년 노무라홀딩스·칼라일 그룹에 매각되고 2025년 상장해 독립 법인으로 남는다. 여섯 계보는 각자의 대표 제품으로 이어진다."><style>
   :root{
     --ground:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D1F; --ink-2:#4A5157; --ink-3:#8A9098;
     --rule:#DDE0DC;
@@ -45,7 +45,7 @@
     font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem;letter-spacing:.14em;color:var(--ink-3)}
   .labfoot b{font-weight:800;letter-spacing:.2em;color:var(--ink)}
   .svglab{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:.18em;fill:var(--ink)}
-</style><rect x="0" y="-46" width="1340" height="2435" fill="var(--panel)"/>
+</style><rect x="0" y="84" width="1340" height="2305" fill="var(--panel)"/>
 
 <!-- ═══ 리본 ═══ -->
 <!-- 기린 : 끊기지 않는 단일선 -->
@@ -137,8 +137,10 @@
 <!-- ═══ 1907 기린 독자노선 ═══ -->
 <circle cx="230" cy="740" r="13" fill="var(--panel)" stroke="var(--kirin)" stroke-width="5"/>
 <text class="hd" x="272" y="748" style="font-size:16.5px">1907 · 기린맥주(주) 독립</text>
-<text class="bd" x="272" y="769">합병 카르텔에 참여하지 않고 미쓰비시 자본으로 새 출발.</text>
-<text class="bd" x="272" y="787">156년간 단 한 번도 합병·분할되지 않은 유일한 계보.</text>
+<text class="bd" x="272" y="769">합병 카르텔에 참여하지 않고</text>
+<text class="bd" x="272" y="787">미쓰비시 자본으로 새 출발.</text>
+<text class="bd" x="272" y="805">156년간 한 번도 합병·분할되지</text>
+<text class="bd" x="272" y="823">않은 유일한 계보.</text>
 
 <!-- ═══ 1943 에비스 소멸 ═══ -->
 <rect x="548" y="848" width="24" height="24" rx="4" fill="var(--yebisu)" stroke="var(--panel)" stroke-width="4"/>
@@ -316,6 +318,6 @@
 <text class="axn" x="150" y="2329">점유율은 맥주계 음료(ビール類) 기준 2025년 중반 근사치 · 에비스는 삿포로 실적에 포함</text>
 <text class="axn" x="150" y="2349">2025년 말 아사히 사이버 공격에 따른 일시적 변동 제외 · 오리온은 독립 법인(아사히와 자본·유통 제휴, 2025년 상장)</text>
 
-<text class="svglab" x="150" y="-16" style="font-size:13px">SK YOPPARATTE LAB</text>
+<text class="svglab" x="150" y="114" style="font-size:13px">SK YOPPARATTE LAB</text>
 <text class="svglab" x="1310" y="2379" text-anchor="end" style="font-size:13px">SK YOPPARATTE LAB</text>
 </svg>
