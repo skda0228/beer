@@ -14,12 +14,11 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+# 업로드와 배포를 다른 job으로 나눈다. 한 job 안에서 업로드 직후 바로 배포하면
+# 아티팩트 조회가 0건으로 돌아와 실패하는 일이 반복됐다.
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -33,6 +32,13 @@ jobs:
         with:
           path: '.'
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
