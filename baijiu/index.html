@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>백주 향형 스펙트럼 · 장향 → 청향</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF6;
+    --ink:#1B1912;
+    --mid:#6A6357;
+    --low:#9A9280;
+    --line:rgba(27,25,18,.12);
+    --jiang:#9A3B18;
+    --off:#574A8C;
+    --serif:"Noto Serif KR","Nanum Myeongjo","Songti SC",serif;
+    --sans:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --pad:16px; --railx:28px; --cont:66px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;
+    background-image:
+      radial-gradient(70% 40% at 0% 0%, rgba(154,59,24,.10), transparent 70%),
+      radial-gradient(70% 45% at 100% 100%, rgba(47,115,80,.10), transparent 70%);
+    background-attachment:fixed;background-repeat:no-repeat}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+  .page{position:relative;z-index:1;max-width:600px;margin:0 auto}
+
+  .bar{position:sticky;top:0;z-index:30;background:rgba(251,250,246,.94);backdrop-filter:blur(10px);
+       border-bottom:1px solid var(--line)}
+  .bar .track{height:4px;background:linear-gradient(90deg,#3A1A0C,#9A3B18,#C4831F,#C9BE5A,#6FA97A,#BFD9C4)}
+  .bar .track i{display:block;height:4px;background:var(--bg);width:100%;
+                transform-origin:right center;transition:transform .12s linear}
+  .bar .now{display:flex;justify-content:space-between;align-items:baseline;padding:8px var(--pad) 9px;
+    max-width:600px;margin:0 auto}
+  .bar .now b{font-size:14px;font-weight:700;letter-spacing:.14em}
+  .bar .now b i{font-style:normal;font-family:var(--serif);font-weight:700;margin-left:7px;opacity:.55}
+  .bar .now span{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--low);
+    text-align:right;padding-left:10px}
+
+  .head{padding:26px var(--pad) 0}
+  .credit{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.34em;
+          color:var(--low);text-transform:uppercase;margin:0 0 16px}
+  h1{font-family:var(--serif);font-weight:900;margin:0;font-size:clamp(29px,8.4vw,42px);line-height:1.16}
+  h1 small{display:block;font-family:var(--mono);font-weight:600;color:var(--low);
+    font-size:10px;letter-spacing:.3em;margin:0 0 9px}
+  .lede{margin:15px 0 0;font-size:13.5px;line-height:1.72;color:var(--mid)}
+  .lede b{color:var(--jiang);font-weight:700}
+
+  /* 라인업 */
+  .lineup{margin:24px 0 0;padding:0 var(--pad)}
+  .lineup .row{display:flex;align-items:flex-end;gap:1px}
+  .lineup .row svg{flex:1 1 0;min-width:0;display:block}
+  .lineup .base{height:7px;border-radius:4px;margin-top:2px;
+    background:linear-gradient(90deg,#33170A,#9A3B18 16%,#C4831F 40%,#C0B04A 58%,#5FA377 80%,#B7D8C2);
+    box-shadow:0 -8px 14px -10px rgba(27,25,18,.55)}
+  .lineup .cap{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.12em;color:var(--low);margin-top:8px}
+
+  .axis{position:relative;padding:0 var(--pad)}
+  .railline{position:absolute;left:var(--railx);top:0;bottom:50px;width:7px;border-radius:4px;z-index:0;
+    background:linear-gradient(180deg,
+      #33170A 0%, #6B2711 6%, #9A3B18 13%, #B65E1B 22%,
+      #C4831F 32%, #C09324 42%, #BDB44C 55%, #96B370 65%,
+      #5FA377 75%, #A9CFB4 88%, #D6E8DB 100%);
+    box-shadow:0 0 0 1px rgba(27,25,18,.10)}
+  .railhead{position:absolute;left:calc(var(--railx) + 3.5px);bottom:16px;transform:translateX(-50%);
+    width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;
+    border-top:28px solid #8CBF9F;z-index:0}
+
+  .zband{position:relative;z-index:2;margin:30px 0 0;border-radius:7px;overflow:hidden;
+    border:1px solid color-mix(in srgb, var(--c) 32%, transparent);
+    border-top:4px solid var(--c);
+    background:color-mix(in srgb, var(--c) 8%, #FFFFFF);
+    box-shadow:0 6px 18px -14px rgba(27,25,18,.5)}
+  .zband .zt{display:flex;align-items:baseline;gap:9px;padding:14px 15px 0;color:var(--c)}
+  .zband .zt b{font-size:23px;font-weight:700;letter-spacing:.03em}
+  .zband .zt em{font-style:normal;font-family:var(--serif);font-weight:700;font-size:16px;opacity:.6}
+  .zband .zt u{text-decoration:none;margin-left:auto;font-family:var(--mono);font-size:10px;
+    letter-spacing:.1em;opacity:.7}
+  .zband .zs{padding:9px 15px 0;font-family:var(--mono);font-size:10.5px;color:var(--mid);line-height:1.7}
+  .zband .zf{margin:12px 0 0;padding:12px 15px 14px;
+    border-top:1px solid color-mix(in srgb, var(--c) 22%, transparent);
+    font-family:var(--serif);font-weight:700;font-size:14.5px;line-height:1.55;color:var(--c)}
+  .zband .zf em{display:block;font-style:normal;font-family:var(--sans);font-weight:400;font-size:11.5px;
+    color:var(--mid);margin-top:8px;line-height:1.6}
+
+  .items{position:relative;z-index:1;padding-left:var(--cont)}
+  .it{position:relative;display:grid;grid-template-columns:46px minmax(0,1fr) auto;column-gap:12px;
+      padding:15px 0;border-bottom:1px solid var(--line)}
+  .items .it:last-child{border-bottom:0}
+  .it .knob{position:absolute;
+    left:calc((var(--pad) + var(--cont)) * -1 + var(--railx) - 4px);top:22px;
+    width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--c);z-index:3}
+  .it .bot{grid-column:1;grid-row:1 / span 3;align-self:start;line-height:0}
+  .it .bot svg{width:46px;display:block}
+  .it .nm{grid-column:2;grid-row:1;min-width:0}
+  .it .nm b{display:block;font-size:16px;font-weight:700;line-height:1.32;letter-spacing:-.01em}
+  .it .nm em{display:block;font-style:normal;font-family:var(--serif);font-weight:500;
+    font-size:12.5px;color:var(--mid);margin-top:2px}
+  .it .pr{grid-column:3;grid-row:1;text-align:right;font-family:var(--mono);font-weight:600;
+    font-size:13.5px;white-space:nowrap}
+  .it .pr s{display:block;text-decoration:none;font-size:9px;font-weight:500;color:var(--low);margin-top:3px}
+  .it .pr.est{color:var(--mid)}
+  .it .sp{grid-column:2 / 4;grid-row:2;font-family:var(--mono);font-size:10.5px;color:var(--c);
+    margin-top:7px;font-weight:600}
+  .it .nt{grid-column:2 / 4;grid-row:3;font-size:12.5px;color:var(--mid);line-height:1.6;margin-top:5px}
+  .it .tag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;
+    padding:2px 6px;border-radius:3px;margin-left:6px;vertical-align:2px;white-space:nowrap;
+    background:color-mix(in srgb, var(--c) 14%, #FFF);color:var(--c)}
+
+  .offaxis{--c:#574A8C;margin:30px var(--pad) 0;
+    border:1px solid color-mix(in srgb, var(--off) 28%, transparent);
+    border-top:4px solid var(--off);border-radius:7px;
+    background:color-mix(in srgb, var(--off) 6%, #FFFFFF);padding:0 15px}
+  .offaxis h2{font-size:20px;font-weight:700;margin:15px 0 0;color:var(--off)}
+  .offaxis h2 em{font-style:normal;font-family:var(--serif);font-size:14px;opacity:.6;margin-left:7px}
+  .offaxis .sub{font-size:12.5px;color:var(--mid);margin:9px 0 2px;line-height:1.62}
+  .offaxis .items{padding-left:0}
+  .offaxis .it{border-color:color-mix(in srgb, var(--off) 18%, transparent)}
+  .offaxis .it .knob{display:none}
+
+  footer{margin:26px var(--pad) 0;padding:20px 0 56px;font-family:var(--mono);font-size:10px;
+    color:var(--low);line-height:2;border-top:1px solid var(--line)}
+  footer .sk{display:block;color:var(--ink);font-weight:600;letter-spacing:.24em;margin-bottom:9px}
+
+  /* ── 아카이브 연결 · PC 2단 · 실제 병 사진 ── */
+  .home{display:inline-block;margin:0 0 18px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.12em;
+    color:var(--mid);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.6)}
+  .home:hover,.home:focus-visible{color:var(--ink);border-color:var(--ink);outline:none}
+  .how{margin:20px var(--pad) 0;padding:13px 15px;border:1px solid var(--line);border-radius:7px;background:rgba(255,255,255,.6);
+    font-size:12px;line-height:1.7;color:var(--mid)}
+  .how b{color:var(--ink)}
+  .how code{font-family:var(--mono);font-size:10.5px;color:var(--ink);background:rgba(27,25,18,.06);border-radius:3px;padding:1px 5px}
+  .seg{display:none;margin:18px var(--pad) 0;border:1px solid var(--ink);border-radius:999px;overflow:hidden;width:max-content;max-width:100%}
+  .has-photos .seg{display:inline-flex}
+  .seg button{font:inherit;font-size:12.5px;font-weight:700;border:0;background:transparent;color:var(--ink);padding:8px 16px;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+  .seg button:focus-visible{outline:2px solid var(--jiang);outline-offset:-2px}
+  .gb{display:inline-block;margin-top:5px;font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.06em;
+    color:var(--c);border:1px solid color-mix(in srgb, var(--c) 40%, transparent);border-radius:3px;padding:1px 6px;background:#fff}
+  .it .bot{cursor:zoom-in;border:0;background:none;padding:0;text-align:left}
+  .it .bot:focus-visible{outline:2px solid var(--c);outline-offset:3px;border-radius:4px}
+  .it .bot .ph{display:none;width:72px;height:72px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px}
+  .photo .it.hasph{grid-template-columns:72px minmax(0,1fr) auto}
+  .photo .it.hasph .bot svg{display:none}
+  .photo .it.hasph .bot .ph{display:block}
+  .offaxis .more{margin:4px 0 16px;padding-top:12px;border-top:1px solid color-mix(in srgb, var(--off) 18%, transparent);
+    font-size:12px;line-height:1.7;color:var(--mid)}
+  .offaxis .more b{color:var(--off)}
+  dialog.zoom{border:0;border-radius:12px;padding:0;max-width:min(92vw,420px);width:100%;background:var(--bg);color:var(--ink);
+    box-shadow:0 30px 80px -20px rgba(27,25,18,.6)}
+  dialog.zoom::backdrop{background:rgba(27,25,18,.55)}
+  .zoom .pic{background:#fff;display:grid;place-items:center;min-height:240px;border-bottom:1px solid var(--line)}
+  .zoom .pic img{display:block;width:100%;max-height:60vh;object-fit:contain}
+  .zoom .pic svg{width:120px;margin:22px 0}
+  .zoom .tx{padding:16px 18px 18px}
+  .zoom .tx b{display:block;font-size:19px;font-weight:700}
+  .zoom .tx em{display:block;font-style:normal;font-family:var(--serif);color:var(--mid);font-size:13.5px;margin-top:2px}
+  .zoom .tx .sp{font-family:var(--mono);font-size:11px;font-weight:600;margin-top:10px}
+  .zoom .tx p{margin:8px 0 0;font-size:13px;line-height:1.65;color:var(--mid)}
+  .zoom .tx .src{font-family:var(--mono);font-size:9.5px;color:var(--low);margin-top:12px}
+  .zoom .tx .src a{color:inherit}
+  .zoom .x{position:absolute;top:8px;right:8px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+    background:rgba(255,255,255,.92);font-size:18px;line-height:1;cursor:pointer;color:var(--ink)}
+  @media (min-width:1000px){
+    :root{--pad:0px}
+    .page{max-width:1180px;padding:0 28px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0 64px;align-items:start}
+    .side{position:sticky;top:44px;padding-bottom:28px}
+    .bar .now{max-width:1180px;padding-left:28px;padding-right:28px}
+    .head{padding-top:34px}
+    h1{font-size:48px}
+    .lede{font-size:15px}
+    .how{font-size:13px}
+    .it .nm b{font-size:17px}
+    .it .nt{font-size:13.5px}
+    .axis{padding-top:4px}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="track"><i id="mask"></i></div>
+  <div class="now"><b id="nowhz">장향<i>醬香</i></b><span id="nowdrv">누룩 60–65℃ · 돌 발효조</span></div>
+</div>
+
+<div class="page">
+ <aside class="side">
+  <div class="head">
+    <a class="home" href="../index.html">← 맥주 계보 아카이브</a>
+    <p class="credit">SK YOPPARATTE LAB · 주류학개론 · 백주</p>
+    <h1><small>위 → 아래</small>장향에서 청향까지<br>백주 향형 스펙트럼</h1>
+    <p class="lede">아래로 갈수록 <b>누룩 온도가 내려가고, 발효조가 흙에서 멀어지고, 향기 성분이 단순해진다.</b> 향형은 취향이 아니라 이 세 변수의 함수다. 같은 구획 안에서는 위쪽이 더 진하다.</p>
+  </div>
+
+  <div class="lineup">
+    <div class="row" id="lineup"></div>
+    <div class="base"></div>
+    <div class="cap"><span>진하고 복잡</span><span>맑고 단순</span></div>
+  </div>
+
+  <div class="seg" role="group" aria-label="병 그림 보기 방식">
+    <button type="button" id="m-ill" aria-pressed="true">일러스트</button>
+    <button type="button" id="m-ph" aria-pressed="false">실제 병 사진</button>
+  </div>
+
+  <div class="how">
+    <b>뒷라벨로 향형 확인하기.</b> 병 뒷면의 「执行标准(실행표준)」 번호가 향형을 알려 준다.
+    장향 <code>GB/T 26760</code>, 농향 <code>GB/T 10781.1</code>, 청향 <code>GB/T 10781.2</code>.
+    구획마다 해당 번호를 붙여 두었다. 병 그림을 누르면 크게 볼 수 있다.
+  </div>
+ </aside>
+
+ <div class="main">
+
+  <div class="axis">
+    <div class="railline"></div>
+    <div class="railhead"></div>
+    <div id="app"></div>
+  </div>
+
+  <div class="offaxis" id="off"></div>
+
+  <footer>
+    <span class="sk">SK YOPPARATTE LAB</span>
+    도매 = 주상 간 도매 참고가 · 소매는 통상 +100~300元 · ≈ 는 추정치<br>
+    확정치: 마오타이 1,700 / 우량예 840 / 국교1573 835 / 수정검 385<br>
+    가격은 모두 2026.07 중순 조사값 · 이후 시세 변동은 반영하지 않았다<br>
+    용량은 따로 적지 않으면 500ml · 도수는 대표 규격 기준<br>
+    배열 기준 = 중국 국가표준 향형 분류 + 누룩 온도 · 발효조 재질 · 핵심 향기 성분<br>
+    병 그림은 실제 병형·라벨 색을 참고해 직접 그린 벡터 일러스트다<span id="phnote"></span><br>
+    <a href="../index.html" style="color:inherit">← 맥주 계보 아카이브로 돌아가기</a>
+  </footer>
+ </div>
+</div>
+
+<dialog class="zoom" id="zoom" aria-label="병 크게 보기">
+  <button class="x" type="button" id="zx" aria-label="닫기">×</button>
+  <div class="pic" id="zpic"></div>
+  <div class="tx" id="ztx"></div>
+</dialog>
+
+<script>
+/* ═════════ 병 렌더러 ═════════ */
+function sh(hex,p){
+  var n=parseInt(hex.slice(1),16),r=n>>16,g=(n>>8)&255,b=n&255;
+  function f(v){return Math.max(0,Math.min(255,Math.round(p<0?v*(1+p):v+(255-v)*p)));}
+  return '#'+((1<<24)+(f(r)<<16)+(f(g)<<8)+f(b)).toString(16).slice(1);
+}
+var SH={
+ squat:{d:"M18,9 h8 v13 c10,4 13,11 13,22 v48 c0,5 -3.5,8 -9,8 h-16 c-5.5,0 -9,-3 -9,-8 v-48 c0,-11 3,-18 13,-22 z",
+        cap:[17.2,9.6,11], ly:60, lh:28, nb:25, w:[6,38], sy:34},
+ tall:{d:"M18.5,7 h7 v21 c8,4.5 11,10 11,19 v51 c0,4 -3,6.5 -7,6.5 h-15 c-4,0 -7,-2.5 -7,-6.5 v-51 c0,-9 3,-14.5 11,-19 z",
+        cap:[17.5,9,11], ly:62, lh:26, nb:30, w:[9,35], sy:36},
+ crystal:{d:"M14,9 h16 v15 l8,9 v58 c0,4 -3,6.5 -6.5,6.5 h-19 c-3.5,0 -6.5,-2.5 -6.5,-6.5 v-58 l8,-9 z",
+        cap:[13.2,17.6,11], ly:58, lh:30, nb:0, w:[6,38], sy:36},
+ sack:{d:"M16,11 c0,0 -1.5,6.5 -6,10.5 -5.5,5 -7,12.5 -5,21 l-2.5,45 c-1,6.5 3.5,11 10,11 h19 c6.5,0 11,-4.5 10,-11 l-2.5,-45 c2,-8.5 0.5,-16 -5,-21 -4.5,-4 -6,-10.5 -6,-10.5 z",
+        cap:[17,10,11], ly:62, lh:26, nb:0, w:[3,41], sy:40},
+ flask:{d:"M19,6 h6 v23 c7,3.5 10,9 10,16 v51 c0,3.5 -2.5,5.5 -5.5,5.5 h-15 c-3,0 -5.5,-2 -5.5,-5.5 v-51 c0,-7 3,-12.5 10,-16 z",
+        cap:[18.4,7.2,10], ly:68, lh:24, nb:0, w:[9,35], sy:38}
+};
+var uid=0;
+function bottle(o,w){
+  var S=SH[o.s]||SH.tall, k='b'+(++uid);
+  var base=o.b, dark=sh(base,-0.42), mid=sh(base,-0.12), lite=sh(base,0.55);
+  var lb=o.l, lbD=sh(lb,-0.3), lbL=sh(lb,0.2);
+  var cp=o.c, cpD=sh(cp,-0.38), cpL=sh(cp,0.35);
+  var t=o.t||'rgba(255,255,255,.9)';
+  var x0=S.w[0], x1=S.w[1], bw=x1-x0;
+  var s='<svg viewBox="0 0 44 112" width="'+w+'" preserveAspectRatio="xMidYMax meet" aria-hidden="true">';
+  s+='<defs>'+
+    '<linearGradient id="'+k+'b" x1="0" x2="1">'+
+      '<stop offset="0" stop-color="'+dark+'"/><stop offset=".14" stop-color="'+mid+'"/>'+
+      '<stop offset=".36" stop-color="'+lite+'"/><stop offset=".62" stop-color="'+base+'"/>'+
+      '<stop offset=".88" stop-color="'+mid+'"/><stop offset="1" stop-color="'+dark+'"/>'+
+    '</linearGradient>'+
+    '<linearGradient id="'+k+'l" x1="0" x2="1">'+
+      '<stop offset="0" stop-color="'+lbD+'"/><stop offset=".3" stop-color="'+lbL+'"/>'+
+      '<stop offset=".7" stop-color="'+lb+'"/><stop offset="1" stop-color="'+lbD+'"/>'+
+    '</linearGradient>'+
+    '<linearGradient id="'+k+'c" x1="0" x2="1">'+
+      '<stop offset="0" stop-color="'+cpD+'"/><stop offset=".32" stop-color="'+cpL+'"/>'+
+      '<stop offset=".72" stop-color="'+cp+'"/><stop offset="1" stop-color="'+cpD+'"/>'+
+    '</linearGradient>'+
+    '<linearGradient id="'+k+'s" x1="0" y1="0" x2="0" y2="1">'+
+      '<stop offset="0" stop-color="rgba(0,0,0,.30)"/><stop offset="1" stop-color="rgba(0,0,0,0)"/>'+
+    '</linearGradient>'+
+    '<clipPath id="'+k+'p"><path d="'+S.d+'"/></clipPath>'+
+  '</defs>';
+  /* 접지 그림자 */
+  s+='<ellipse cx="22" cy="105.5" rx="'+(bw*0.46)+'" ry="2.6" fill="rgba(27,25,18,.20)"/>';
+  /* 몸통 */
+  s+='<path d="'+S.d+'" fill="url(#'+k+'b)" stroke="rgba(27,25,18,.34)" stroke-width=".8"/>';
+  s+='<g clip-path="url(#'+k+'p)">';
+    /* 어깨 음영 */
+    s+='<rect x="0" y="'+(S.sy-14)+'" width="44" height="16" fill="url(#'+k+'s)" opacity=".55"/>';
+    /* 유리병 액면 */
+    if(o.g){
+      s+='<rect x="0" y="'+(S.sy+2)+'" width="44" height="70" fill="#fff" opacity=".16"/>';
+      s+='<rect x="0" y="'+(S.sy+2)+'" width="44" height="1" fill="#fff" opacity=".55"/>';
+    }
+    /* 하이라이트 */
+    s+='<rect x="'+(x0+bw*0.13)+'" y="'+(S.sy-2)+'" width="'+(bw*0.16)+'" height="'+(96-S.sy)+'" rx="'+(bw*0.08)+'" fill="#fff" opacity=".30"/>';
+    s+='<rect x="'+(x0+bw*0.24)+'" y="'+(S.sy-2)+'" width="'+(bw*0.055)+'" height="'+(94-S.sy)+'" rx="1" fill="#fff" opacity=".55"/>';
+    /* 우측 림 라이트 */
+    s+='<rect x="'+(x1-bw*0.11)+'" y="'+(S.sy-4)+'" width="'+(bw*0.05)+'" height="'+(96-S.sy)+'" rx="1" fill="#fff" opacity=".26"/>';
+    /* 라벨 */
+    s+='<rect x="0" y="'+S.ly+'" width="44" height="'+S.lh+'" fill="url(#'+k+'l)"/>';
+    s+='<rect x="0" y="'+S.ly+'" width="44" height="1.1" fill="rgba(255,255,255,.5)"/>';
+    s+='<rect x="0" y="'+(S.ly+S.lh-1.1)+'" width="44" height="1.1" fill="rgba(0,0,0,.22)"/>';
+    /* 라벨 문양 */
+    if(o.em==='circle') s+='<circle cx="22" cy="'+(S.ly+7.5)+'" r="4.1" fill="none" stroke="'+t+'" stroke-width="1.1"/>';
+    if(o.em==='diamond') s+='<rect x="18.2" y="'+(S.ly+3.6)+'" width="7.6" height="7.6" fill="none" stroke="'+t+'" stroke-width="1.1" transform="rotate(45 22 '+(S.ly+7.4)+')"/>';
+    if(o.em==='shield') s+='<path d="M22,'+(S.ly+3.2)+' l4.4,1.8 v3.4 c0,2.6 -2,4.4 -4.4,5.4 -2.4,-1 -4.4,-2.8 -4.4,-5.4 v-3.4 z" fill="none" stroke="'+t+'" stroke-width="1.1"/>';
+    /* 라벨 텍스트 */
+    var ty=S.ly+(o.em?15:8);
+    s+='<rect x="'+(22-bw*0.28)+'" y="'+ty+'" width="'+(bw*0.56)+'" height="2.6" rx="1.3" fill="'+t+'"/>';
+    s+='<rect x="'+(22-bw*0.17)+'" y="'+(ty+4.4)+'" width="'+(bw*0.34)+'" height="2" rx="1" fill="'+t+'" opacity=".72"/>';
+    if(S.lh>26) s+='<rect x="'+(22-bw*0.10)+'" y="'+(ty+8.2)+'" width="'+(bw*0.20)+'" height="1.6" rx=".8" fill="'+t+'" opacity=".5"/>';
+    /* 목 밴드 */
+    if(o.nb&&S.nb) s+='<rect x="0" y="'+S.nb+'" width="44" height="5.5" fill="url(#'+k+'l)"/>'+
+                      '<rect x="0" y="'+S.nb+'" width="44" height="1" fill="rgba(255,255,255,.45)"/>';
+    /* 바닥 반사 */
+    s+='<rect x="0" y="92" width="44" height="6" fill="rgba(255,255,255,.22)"/>';
+  s+='</g>';
+  /* 뚜껑 */
+  s+='<rect x="'+S.cap[0]+'" y="2" width="'+S.cap[1]+'" height="'+S.cap[2]+'" rx="1.6" fill="url(#'+k+'c)" stroke="rgba(27,25,18,.3)" stroke-width=".7"/>';
+  s+='<rect x="'+(S.cap[0]+0.9)+'" y="3" width="'+(S.cap[1]*0.22)+'" height="'+(S.cap[2]-2)+'" rx=".8" fill="#fff" opacity=".33"/>';
+  s+='<rect x="'+S.cap[0]+'" y="'+(2+S.cap[2]-2.6)+'" width="'+S.cap[1]+'" height="1" fill="rgba(0,0,0,.25)"/>';
+  s+='</svg>';
+  return s;
+}
+
+/* ═════════ 데이터 ═════════ */
+var Z=[
+{kr:'장향',hz:'醬香',c:'#9A3B18',
+ gb:'GB/T 26760',
+ spec:'누룩 60–65℃ · 돌벽·흙바닥 발효조<br>1년에 원료 2번 · 찌기 9번 · 발효 8번 · 술 받기 7번<br>원액 3년 이상 숙성, 출고까지 최소 5년',
+ fl:'간장 · 된장 · 볶은 콩 · 마른 버섯 · 먹',
+ ch:'향을 대표하는 성분 하나로 정의되지 않는다 · 빈 잔에 향이 수십 분 남는다',
+ it:[
+ {id:'maotai',n:'마오타이 비천',h:'飛天茅台',sp:'53° · 구이저우 런화이',p:'¥1,700',pt:'도매',tag:'축 최상단',
+  b:{s:'squat',b:'#F4EFE0',c:'#B02A24',l:'#B02A24',em:'circle',nb:1},
+  d:'장향의 기준이 되는 술. 런화이의 좁은 강가 지역을 벗어나면 같은 맛이 나오지 않는다고 알려져 있다'},
+ {id:'qinghualang',n:'청화랑',h:'青花郎',sp:'53° · 쓰촨 구린',p:'≈¥700',pt:'도매',
+  b:{s:'tall',b:'#EDF2F8',c:'#1C4A80',l:'#1C4A80',em:'circle'},
+  d:'마오타이와 같은 강(츠수이허)을 쓰지만 강 건너 쓰촨 쪽에서 만든다. 천보동이라는 자연 동굴에서 숙성한다'},
+ {id:'junpin',n:'군품 시주',h:'君品習酒',sp:'53° · 구이저우 시수이',p:'≈¥750',pt:'도매',est:1,
+  b:{s:'squat',b:'#8A2620',c:'#C9A227',l:'#C9A227',t:'rgba(45,20,10,.8)',em:'shield',nb:1},
+  d:'한때 마오타이 그룹 소속이었다가 2022년에 분리됐다. 마오타이보다 단맛이 앞서고 자극이 덜하다'},
+ {id:'guotai',n:'궈타이 국표',h:'國台國標',sp:'53° · 구이저우 런화이',p:'≈¥400',pt:'소매',est:1,
+  b:{s:'squat',b:'#F8F4EA',c:'#C9A227',l:'#AE3529',em:'circle'},
+  d:'런화이에서 가장 큰 민간 양조장. 마오타이와 같은 방식을 그대로 따라 만든다'},
+ {id:'zhen15',n:'전주 진십오',h:'珍酒珍十五',sp:'53° · 구이저우 쭌이',p:'≈¥400',pt:'소매',est:1,
+  b:{s:'squat',b:'#F0E9DA',c:'#A32A21',l:'#A32A21',em:'diamond'},
+  d:'1975년 중국 정부가 마오타이를 다른 지역에서도 만들 수 있는지 실험해서 나온 술'}]},
+
+{kr:'겸향',hz:'兼香',c:'#A2611F',
+ gb:'GB/T 23547',
+ spec:'장향 방식과 농향 방식을 따로 만들어 섞는다<br>중간 맛을 의도적으로 만든 향형',
+ fl:'장향의 구수함 위에 농향의 단맛이 얹힌다',
+ ch:'중간 맛이 우연히 생긴 게 아니라 일부러 만든 것',
+ it:[
+ {id:'baiyunbian',n:'백운변 12년',h:'白雲邊 12',sp:'42° · 후베이 쑹쯔',p:'≈¥180',pt:'소매',est:1,
+  b:{s:'flask',b:'#DFEAF0',g:1,c:'#1C5A9A',l:'#1C5A9A',em:'circle'},
+  d:'이름은 이백의 시에서 따왔다. 겸향이라는 분류를 만들 때 기준이 된 술'},
+ {id:'jiugui',n:'주귀주',h:'酒鬼酒',sp:'52° / 54° · 후난 지서우 · 복욱향 GB/T 10781.11',tag:'독립 향형',p:'≈¥300',pt:'소매',est:1,
+  b:{s:'sack',b:'#E3DACA',c:'#755636',l:'#755636',em:'diamond'},
+  d:'장향·농향·청향이 한 병에 섞여 있다. 이 복욱향(馥郁香)은 2021년 국가표준이 따로 생긴 독립 향형이고, 여기서는 섞임의 성격 때문에 겸향 옆에 두었다. 화가 황융위가 디자인한 자루 모양 병으로 유명하다'}]},
+
+{kr:'농향',hz:'濃香',c:'#8A6410',
+ gb:'GB/T 10781.1',
+ spec:'누룩 50–60℃ · 진흙 발효조를 대대로 계속 사용<br>발효 45–90일 · 발효조를 절대 버리지 않는다',
+ fl:'파인애플 · 바나나 · 꿀 · 캐러멜 · 젖은 흙',
+ ch:'향의 핵심 성분은 카프로산에틸 · 발효조가 오래됐을수록 좋은 술이 나온다',
+ it:[
+ {id:'wuliangye',n:'우량예 보통주',h:'五粮液 普五',sp:'52° · 쓰촨 이빈',p:'¥840',pt:'도매',
+  b:{s:'crystal',b:'#E2EDF3',g:1,c:'#BB3529',l:'#BB3529',em:'shield'},
+  d:'수수·쌀·찹쌀·밀·옥수수 다섯 곡물을 섞는다. 원래 이름은 잡량주였는데 1909년에 바꿨다. 농향 중 향이 가장 복잡하다'},
+ {id:'guojiao',n:'국교 1573',h:'國窖 1573',sp:'52° · 쓰촨 루저우',p:'¥835',pt:'도매',
+  b:{s:'crystal',b:'#EAE5D8',g:1,c:'#8A2620',l:'#8A2620',em:'shield'},
+  d:'1573년에 만든 진흙 발효조를 지금까지 쓰고 있다. 수수 한 가지만 쓰는 농향의 최고급'},
+ {id:'tequ',n:'노주노교 특곡',h:'瀘州老窖 特曲',sp:'52° · 쓰촨 루저우',p:'≈¥250',pt:'소매',est:1,
+  b:{s:'tall',b:'#E2EAF0',g:1,c:'#1C4A80',l:'#1C4A80',em:'circle'},
+  d:'국교 1573과 같은 회사 제품이지만 등급이 낮은 발효조를 쓴다. 쓰촨식 농향의 표준 맛'},
+ {id:'shuijingfang',n:'수정방 정대',h:'水井坊 井台',sp:'52° · 쓰촨 청두',p:'≈¥550',pt:'소매',est:1,
+  b:{s:'tall',b:'#E9E1D0',c:'#846A2C',l:'#846A2C',em:'diamond'},
+  d:'1998년 발굴된 명·청대 양조장 터 위에 세워진 증류소. 쓰촨 농향 중에서는 부드러운 편이다'},
+ {id:'jiannanchun',n:'검남춘 수정검',h:'劍南春 水晶劍',sp:'52° · 쓰촨 몐주',p:'¥385',pt:'도매',
+  b:{s:'crystal',b:'#E0EAF1',g:1,c:'#C9A227',l:'#28497A',em:'shield'},
+  d:'당나라 궁중에 올렸던 술의 후손. 단맛과 꽃향이 앞서고 흙 냄새는 약하다'},
+ {id:'gujing20',n:'고정공주 고20',h:'古井貢 古20',sp:'52° · 안후이 보저우',p:'≈¥400',pt:'도매',est:1,
+  b:{s:'tall',b:'#D8E1EB',g:1,c:'#17395F',l:'#17395F',em:'circle'},
+  d:'조조가 황제에게 바쳤다는 술의 후손이라고 한다. 쓰촨 것보다 담백하다'},
+ {id:'m6',n:'양허 몽지람 M6+',h:'夢之藍 M6+',sp:'52° · 550ml · 장쑤 쑤첸 (45° · 40.8°도 있다)',p:'≈¥600',pt:'도매',est:1,tag:'농향 최하단',
+  b:{s:'tall',b:'#28477E',c:'#D6BE76',l:'#D6BE76',t:'rgba(18,32,66,.8)',em:'diamond'},
+  d:'양허가 내세우는 면유형(綿柔型). 자극을 줄이고 목 넘김을 부드럽게 다듬은 스타일이라 농향 중에서 청향에 가장 가깝다'}]},
+
+{kr:'봉향',hz:'鳳香',c:'#6E6B24',
+ gb:'GB/T 14867',
+ spec:'흙 발효조를 쓰지만 벽 흙을 매년 새로 바른다<br>싸리 바구니에 종이·피·석회를 발라 만든 통 「주해(酒海)」에서 숙성<br>그래서 농향과 청향의 중간에 앉는다',
+ fl:'농향의 윤곽에 청향의 끝맛',
+ ch:'농향과 청향 사이를 공정으로 만들어낸 사례',
+ it:[
+ {id:'xifeng',n:'서봉주',h:'西鳳酒',sp:'45–52° · 산시 바오지',p:'≈¥300',pt:'소매',est:1,
+  b:{s:'squat',b:'#F1ECDE',c:'#B02A24',l:'#B02A24',em:'circle'},
+  d:'처음엔 농향으로 묶였다가 나중에 별도 향형으로 인정받았다. 숨 쉬는 통 주해에서 익히는 것이 다른 향형에 없는 공정이다'}]},
+
+{kr:'청향',hz:'淸香',c:'#2F7350',
+ gb:'GB/T 10781.2',
+ spec:'누룩 45–50℃ · 땅에 묻은 도자기 항아리(흙과 차단)<br>발효 21–28일 · 회차마다 재료를 완전히 새로 시작',
+ fl:'사과 · 배 · 생쌀 · 미네랄 · 알코올 직타',
+ ch:'향의 핵심 성분은 아세트산에틸 · 향이 단순해서 결함이 그대로 드러난다',
+ it:[
+ {id:'fen30',n:'청화분주 30 부흥판',h:'青花汾 30 復興版',sp:'53° · 산시 펀양',p:'≈¥900',pt:'소매',est:1,
+  b:{s:'tall',b:'#EBF2F7',c:'#26589A',l:'#26589A',em:'circle',nb:1},
+  d:'1998년 산시 가짜술 사건으로 브랜드가 무너진 뒤, 고급 시장에 다시 올라가려고 내놓은 제품'},
+ {id:'fen20',n:'청화분주 20년',h:'青花汾 20',sp:'53° · 산시 펀양',p:'≈¥350',pt:'도매',est:1,
+  b:{s:'tall',b:'#EEF4F9',c:'#26589A',l:'#26589A',em:'circle'},
+  d:'청향의 정통. 산지인 싱화춘은 두목의 시에 나오는 바로 그 마을이다'},
+ {id:'bofen',n:'보분',h:'黃蓋玻汾',sp:'53° · 475ml · 산시 펀양',p:'≈¥55',pt:'소매',est:1,
+  b:{s:'flask',b:'#DFE9E0',g:1,c:'#BB3529',l:'#BB3529'},
+  d:'값에 비해 품질이 가장 좋은 입문용. 청향이 어떤 맛인지 가장 싸게 확인할 수 있다'},
+ {id:'baofeng',n:'보펑주',h:'寶豐酒',sp:'54° · 허난 핑딩산',p:'≈¥100',pt:'소매',est:1,
+  b:{s:'flask',b:'#E3EBE2',g:1,c:'#2A6545',l:'#2A6545',em:'circle'},
+  d:'분주와 거의 같은 계열인데 값은 훨씬 싸다'},
+ {id:'niulanshan',n:'뉴란산 백우이',h:'牛欄山 陳釀 · 白牛二',sp:'42° · 베이징 순이 · 조향백주',p:'≈¥20',pt:'소매',est:1,tag:'순곡 아님',
+  b:{s:'flask',b:'#E0E9EF',g:1,c:'#1C5A9A',l:'#1C5A9A'},
+  d:'중국에서 가장 많이 팔리는 술로 꼽힌다. 다만 주정과 향료를 쓰기 때문에 2022년 새 국가표준부터는 곡물만으로 빚은 백주가 아니라 조향백주(調香白酒)로 분류된다. 청향 계열의 맛을 가장 싸게 흉내 낸 술로 보면 된다'},
+ {id:'hongxing',n:'홍성 이과두주',h:'紅星二鍋頭',sp:'56° · 베이징',p:'≈¥30',pt:'소매',est:1,tag:'축 최하단',
+  b:{s:'flask',b:'#E2EBF0',g:1,c:'#BB3529',l:'#BB3529',em:'diamond'},
+  d:'이름은 두 번째 솥이라는 뜻. 증류할 때 처음과 끝을 버리고 중간만 받는다는 의미다. 1949년 건국 기념으로 처음 나왔다'}]}
+];
+
+var OFF=[
+ {id:'dongjiu',n:'동주',h:'董酒',sp:'54° · 구이저우 쭌이 · 약향',p:'≈¥400',pt:'소매',est:1,
+  b:{s:'squat',b:'#F4F0E4',c:'#2A6545',l:'#2A6545',em:'circle'},
+  d:'한약재 130여 종을 누룩에 넣는다. 만드는 법이 국가 기밀로 지정된 유일한 백주다'},
+ {id:'sanhua',n:'계림삼화주',h:'桂林三花酒',sp:'52° · 광시 구이린 · 미향 GB/T 10781.3',p:'≈¥40',pt:'소매',est:1,
+  b:{s:'flask',b:'#EBE4D0',g:1,c:'#C9A227',l:'#C9A227',t:'rgba(50,35,5,.78)',em:'circle'},
+  d:'수수가 아니라 쌀로 만든다. 흔들면 거품이 세 겹으로 인다고 해서 삼화(三花)라 부른다'},
+ {id:'jingzhi',n:'징즈백건',h:'景芝白乾',sp:'46° · 산둥 안추 · 지마향 GB/T 20824',p:'≈¥150',pt:'소매',est:1,
+  b:{s:'tall',b:'#F2EEE2',c:'#17395F',l:'#17395F',em:'shield'},
+  d:'볶은 참깨와 견과 향이 난다. 장향 방식을 일부 빌려 왔지만 계통은 다르다'}
+];
+
+/* ═════════ 실제 병 사진 ═════════
+   assets/bottles/<id>.webp 로 저장소에 들어 있는 것만 여기 적는다. 값은 사진 출처. */
+var PH={};
+var BY={};
+
+/* ═════════ 렌더 ═════════ */
+function row(x){
+  BY[x.id]=x;
+  var ph=PH[x.id];
+  return '<div class="it'+(ph?' hasph':'')+'">'+
+    '<div class="knob"></div>'+
+    '<button type="button" class="bot" data-id="'+x.id+'" aria-label="'+x.n+' 크게 보기">'+bottle(x.b,46)+
+      (ph?'<img class="ph" loading="lazy" width="72" height="72" src="assets/bottles/'+x.id+'.webp" alt="'+x.n+' 실제 병">':'')+
+    '</button>'+
+    '<div class="nm"><b>'+x.n+(x.tag?'<span class="tag">'+x.tag+'</span>':'')+'</b><em>('+x.h+')</em></div>'+
+    '<div class="pr'+(x.est?' est':'')+'">'+x.p+'<s>'+x.pt+'</s></div>'+
+    '<div class="sp">'+x.sp+'</div>'+
+    '<div class="nt">'+x.d+'</div>'+
+  '</div>';
+}
+var out='',line='';
+Z.forEach(function(z){
+  out+='<section class="zone" data-kr="'+z.kr+'" data-hz="'+z.hz+'" data-c="'+z.c+'" '+
+       'data-sp="'+z.spec.split('<br>')[0]+'" style="--c:'+z.c+'">'+
+    '<div class="zband"><div class="zt"><b>'+z.kr+'</b><em>'+z.hz+'</em><u>'+z.it.length+'종</u></div>'+
+    '<div class="zs">'+z.spec+(z.gb?'<br><span class="gb">뒷라벨 '+z.gb+'</span>':'')+'</div>'+
+    '<div class="zf">'+z.fl+'<em>'+z.ch+'</em></div></div>'+
+    '<div class="items">'+z.it.map(row).join('')+'</div>'+
+  '</section>';
+  z.it.forEach(function(x){ line+=bottle(x.b,'100%'); });
+});
+document.getElementById('app').innerHTML=out;
+document.getElementById('lineup').innerHTML=line;
+document.getElementById('off').innerHTML=
+  '<h2>축 바깥<em>原料軸</em></h2>'+
+  '<p class="sub">누룩 온도로 설명되지 않는 향형. 원료나 첨가물이 맛을 결정해서 장향–농향–청향 선 위에 놓을 수 없다.</p>'+
+  '<div class="items">'+OFF.map(row).join('')+'</div>'+
+  '<p class="more">국가표준 향형은 여기 실은 것 말고도 <b>특향</b>(四特酒, 장시), <b>치향</b>(玉冰燒, 광둥), '+
+  '<b>노백간향</b>(衡水老白干, 허베이)이 더 있다. 장향·농향·청향·미향·봉향·겸향·약향·지마향·복욱향과 합쳐 흔히 12대 향형이라 부른다.</p>';
+
+/* 사진이 하나라도 있으면 일러스트/사진 전환 단추를 보인다 */
+(function(){
+  var n=Object.keys(PH).length; if(!n) return;
+  document.body.classList.add('has-photos');
+  document.getElementById('phnote').textContent=' · 실제 병 사진은 '+n+'종, 출처는 병을 눌러 확인';
+  var a=document.getElementById('m-ill'), b=document.getElementById('m-ph');
+  function set(photo){ document.body.classList.toggle('photo',photo);
+    a.setAttribute('aria-pressed',String(!photo)); b.setAttribute('aria-pressed',String(photo)); }
+  a.addEventListener('click',function(){set(false)}); b.addEventListener('click',function(){set(true)});
+})();
+
+/* 병을 누르면 크게 보기 */
+(function(){
+  var dlg=document.getElementById('zoom'), pic=document.getElementById('zpic'), tx=document.getElementById('ztx');
+  if(!dlg.showModal) return;
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest&&e.target.closest('.bot'); if(!btn) return;
+    var x=BY[btn.getAttribute('data-id')]; if(!x) return;
+    var ph=PH[x.id];
+    pic.innerHTML=ph?'<img src="assets/bottles/'+x.id+'.webp" alt="'+x.n+' 실제 병">':bottle(x.b,120);
+    tx.innerHTML='<b>'+x.n+'</b><em>'+x.h+'</em><div class="sp">'+x.sp+' · '+x.p+' ('+x.pt+')</div><p>'+x.d+'</p>'+
+      (ph?'<div class="src">사진 출처: '+ph+'</div>':'<div class="src">직접 그린 일러스트</div>');
+    dlg.showModal();
+  });
+  document.getElementById('zx').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+})();
+
+(function(){
+  var mask=document.getElementById('mask'),hz=document.getElementById('nowhz'),dv=document.getElementById('nowdrv');
+  var zones=[].slice.call(document.querySelectorAll('.zone'));
+  function tick(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    var p=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;
+    mask.style.transform='scaleX('+(1-p)+')';
+    var cur=zones[0];
+    for(var i=0;i<zones.length;i++){ if(zones[i].getBoundingClientRect().top<100) cur=zones[i]; }
+    if(hz.getAttribute('data-cur')!==cur.dataset.kr){
+      hz.setAttribute('data-cur',cur.dataset.kr);
+      hz.innerHTML=cur.dataset.kr+'<i>'+cur.dataset.hz+'</i>';
+      hz.style.color=cur.dataset.c;
+      dv.textContent=cur.dataset.sp;
+    }
+  }
+  addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);tick();
+})();
+</script>
+</body>
+</html>

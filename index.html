@@ -135,6 +135,13 @@
   .col span{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--ink-3);margin:4px 0 10px}
   .col ul{margin:0;padding:0;list-style:none;font-size:.86rem;color:var(--ink-2);display:flex;flex-direction:column;gap:5px}
   .col li strong{color:var(--ink)}
+  .tri.five{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;align-content:center}
+  .tri.five .rail{grid-column:1/-1;height:10px;border-radius:5px;
+    background:linear-gradient(90deg,#33170A,#9A3B18 16%,#C4831F 40%,#C0B04A 58%,#5FA377 80%,#B7D8C2)}
+  .tri.five .col{padding:12px 10px 14px}
+  .tri.five .col b{font-size:.92rem}
+  .tri.five .col b i{font-style:normal;font-family:var(--serif);font-weight:700;color:var(--ink-3);font-size:.82rem;margin-left:2px}
+  .tri.five .col ul{font-size:.82rem}
   .col li.new{background:var(--amber-soft);border-radius:6px;padding:4px 7px;margin:0 -7px;color:var(--ink)}
 
   /* ── 판도 ── */
@@ -191,6 +198,7 @@
     .wrap{padding:0 16px}
     .top nav a:nth-child(n+3){display:none}
     .pair,.files,.tri{grid-template-columns:1fr}
+    .tri.five{grid-template-columns:repeat(2,minmax(0,1fr))}
     .sh .hint{margin-left:0;flex-basis:100%}
     .body,.feat .body,.org .body{padding:22px 20px 24px}
     .stat{padding:18px 16px 20px}
@@ -207,6 +215,7 @@
   <nav aria-label="바로가기">
     <a href="genealogy/beer-genealogy.html">통합 계보도</a>
     <a href="origin/korea-import-beer.html">수입맥주 원산지</a>
+    <a href="baijiu/index.html">백주</a>
     <a href="genealogy/jp-infographic.html">일본</a>
     <a href="genealogy/kr-infographic.html">한국</a>
     <a href="#share">판도</a>
@@ -368,8 +377,29 @@
   </a>
 </section>
 
+<section id="baijiu">
+  <div class="sh"><span class="no">03</span><h2>백주 향형 스펙트럼</h2><span class="hint">주류학개론 · 백주 · 24종</span></div>
+  <a class="card org" href="baijiu/index.html">
+    <div class="body">
+      <p class="tag">醬香 → 兼香 → 濃香 → 鳳香 → 淸香</p>
+      <h3>장향에서 청향까지,<br>한 줄로 세운 백주</h3>
+      <p class="tx">향형은 취향이 아니라 공정의 함수다. <b>누룩 온도가 내려가고, 발효조가 흙에서 멀어지고, 향기 성분이 단순해지는</b> 순서로
+      24종을 세로축 하나에 배열했다. 뒷라벨의 국가표준 번호로 향형을 확인하는 법도 함께 적었다.</p>
+      <span class="go">백주 스펙트럼 보기</span>
+    </div>
+    <div class="tri five">
+      <div class="rail" aria-hidden="true"></div>
+      <div class="col" style="--c:#9A3B18"><b>장향 <i>醬香</i></b><span>누룩 60–65℃</span><ul><li>마오타이</li><li>청화랑</li></ul></div>
+      <div class="col" style="--c:#A2611F"><b>겸향 <i>兼香</i></b><span>장향 + 농향</span><ul><li>백운변</li><li>주귀주</li></ul></div>
+      <div class="col" style="--c:#8A6410"><b>농향 <i>濃香</i></b><span>누룩 50–60℃</span><ul><li>우량예</li><li>국교 1573</li></ul></div>
+      <div class="col" style="--c:#6E6B24"><b>봉향 <i>鳳香</i></b><span>농향과 청향 사이</span><ul><li>서봉주</li></ul></div>
+      <div class="col" style="--c:#2F7350"><b>청향 <i>淸香</i></b><span>누룩 45–50℃</span><ul><li>분주</li><li>이과두주</li></ul></div>
+    </div>
+  </a>
+</section>
+
 <section id="share">
-  <div class="sh"><span class="no">03</span><h2>오늘의 판도</h2><span class="hint">계보의 끝에서 각 회사가 차지한 자리 · 근사치</span></div>
+  <div class="sh"><span class="no">04</span><h2>오늘의 판도</h2><span class="hint">계보의 끝에서 각 회사가 차지한 자리 · 근사치</span></div>
   <div class="duo">
     <div class="panel">
       <h3>일본</h3>
@@ -406,7 +436,7 @@
 </section>
 
 <section id="dl">
-  <div class="sh"><span class="no">04</span><h2>내려받기 · 읽는 법</h2><span class="hint">그림 파일에는 제작처 표기가 들어 있다</span></div>
+  <div class="sh"><span class="no">05</span><h2>내려받기 · 읽는 법</h2><span class="hint">그림 파일에는 제작처 표기가 들어 있다</span></div>
   <div class="two">
     <div class="files">
       <a class="file" href="genealogy/png/일본_한국_맥주_계보_통합.png"><span class="ext">PNG</span><span><b>일본·한국 통합</b><small>전체 페이지 · 2×</small></span></a>
