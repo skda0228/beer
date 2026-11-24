@@ -2,6 +2,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>한국 맥주 90년 계보</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@700;900&display=swap">
 <style>
   :root{
     --ground:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D1F; --ink-2:#4A5157; --ink-3:#8A9098;
@@ -13,7 +16,6 @@
   body{margin:0;background:var(--ground);color:var(--ink);
     font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
     line-height:1.6;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 18px 72px}
   header{padding:52px 0 26px}
   h1{margin:0;font-size:clamp(1.8rem,4.6vw,2.9rem);font-weight:850;letter-spacing:-.04em;line-height:1.14;text-wrap:balance}
   .sub{margin:14px 0 0;max-width:56ch;color:var(--ink-2);font-size:1.02rem;text-wrap:pretty}
@@ -33,29 +35,87 @@
   .fh{fill:var(--hite)} .fb{fill:var(--ob)} .fj{fill:var(--jinro)}
   .ft{fill:var(--lotte)} .fg{fill:var(--jp)}
   .disc{fill:var(--panel);stroke-width:5}
-  .yr{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:19px;font-weight:800;fill:var(--ink);font-variant-numeric:tabular-nums}
+  .yr{font-family:var(--mono);font-size:19px;font-weight:800;fill:var(--ink);font-variant-numeric:tabular-nums}
   .grid{stroke:var(--rule);stroke-width:1.5;stroke-dasharray:2 7}
   .hd{font-size:19.4px;font-weight:800;fill:var(--ink)}
   .bd{font-size:15.1px;font-weight:500;fill:var(--ink-2)}
   .nm{font-size:16.9px;font-weight:800}
-  .shp{font-size:16.5px;font-weight:800;font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+  .shp{font-size:16.5px;font-weight:800;font-family:var(--mono);font-variant-numeric:tabular-nums}
   .pr{font-weight:800;fill:var(--new)}
   .shn{font-size:12.7px;font-weight:600;fill:var(--ink-3)}
-  .axn{font-size:13.3px;fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace}
-  .lab{margin:0 0 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;
+  .axn{font-size:13.3px;fill:var(--ink-3);font-family:var(--mono)}
+  .lab{margin:0 0 12px;font-family:var(--mono);font-size:.8rem;
     font-weight:800;letter-spacing:.2em;color:var(--ink)}
   .labfoot{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
-    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem;letter-spacing:.14em;color:var(--ink-3)}
+    font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;color:var(--ink-3)}
   .labfoot b{font-weight:800;letter-spacing:.2em;color:var(--ink)}
-  .svglab{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:.18em;fill:var(--ink)}
+  .svglab{font-family:var(--mono);font-weight:800;letter-spacing:.18em;fill:var(--ink)}
+
+  /* ── 사이트 공통 틀 ── */
+  :root{
+    --ground:#F7F6F1; --ink:#17191B; --ink-2:#474E54; --ink-3:#868C93; --rule:#E2DFD6;
+    --amber:#E9A320; --amber-soft:#FFF3CF; --amber-line:#F0DFA8; --amber-ink:#7A5200;
+    --serif:"Noto Serif KR","Nanum Myeongjo","Batang",serif;
+    --sans:"IBM Plex Sans KR","Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  body{font-family:var(--sans)}
+  svg text{font-family:var(--sans)}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+  .sitebar{position:sticky;top:0;z-index:30;background:rgba(247,246,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+  .sitebar-in{max-width:1240px;margin:0 auto;padding:0 28px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .sb-home{font-family:var(--mono);font-weight:700;font-size:.84rem;letter-spacing:.2em;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .sb-home i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--amber);margin-right:10px}
+  .sb-nav{display:flex;gap:4px;overflow-x:auto}
+  .sb-nav a{font-size:.88rem;font-weight:600;text-decoration:none;color:var(--ink-2);padding:7px 12px;border-radius:999px;white-space:nowrap}
+  .sb-nav a:hover,.sb-nav a:focus-visible{background:#fff;color:var(--ink);outline:none;box-shadow:inset 0 0 0 1px var(--rule)}
+  .sb-nav a[aria-current]{background:var(--ink);color:#fff}
+  .phero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 48px;align-items:end;padding:48px 0 34px}
+  .ph-kicker{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.18em;color:var(--ink-3);margin:0 0 16px}
+  .phero h1{margin:0;font-family:var(--serif);font-weight:900;font-size:clamp(2rem,4.4vw,3.4rem);letter-spacing:-.035em;line-height:1.14;text-wrap:balance}
+  .phero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--amber) 62%,var(--amber) 92%,transparent 92%)}
+  .ph-sub{margin:18px 0 0;max-width:36em;color:var(--ink-2);font-size:1.04rem;text-wrap:pretty}
+  .ph-sub b{color:var(--ink)}
+  .ph-facts{margin:0;display:grid;grid-template-columns:1fr 1fr;background:var(--amber-soft);border:1px solid var(--amber-line);border-radius:14px;overflow:hidden}
+  .ph-facts div{padding:16px 18px 18px;border-top:1px solid var(--amber-line);border-left:1px solid var(--amber-line);min-width:0}
+  .ph-facts div:nth-child(-n+2){border-top:0}
+  .ph-facts div:nth-child(odd){border-left:0}
+  .ph-facts dt{font-family:var(--serif);font-weight:900;font-size:1.9rem;line-height:1;letter-spacing:-.03em;white-space:nowrap}
+  .ph-facts dt small{font-family:var(--sans);font-size:.85rem;font-weight:700;color:var(--amber-ink);margin-left:5px;letter-spacing:0}
+  .ph-facts dd{margin:8px 0 0;font-size:.86rem;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
+  .ph-facts dd b{color:var(--ink)}
+  figure{border-radius:14px}
+  .pager{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+  .pg{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:14px;padding:18px 20px 20px;
+    transition:transform .16s ease,border-color .16s ease}
+  .pg:hover,.pg:focus-visible{border-color:var(--ink);transform:translateY(-2px);outline:none}
+  .pg span{display:block;font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--ink-3)}
+  .pg b{display:block;margin-top:5px;font-family:var(--serif);font-weight:900;font-size:1.15rem;letter-spacing:-.02em}
+  .pg b::after{content:" →"}
+  .sitefoot{margin-top:64px;border-top:2px solid var(--ink);padding:24px 0 56px;display:flex;justify-content:space-between;gap:12px 40px;flex-wrap:wrap;font-size:.86rem;color:var(--ink-3)}
+  .sitefoot b{font-family:var(--mono);font-size:.84rem;letter-spacing:.2em;color:var(--ink)}
+  .sitefoot a{color:inherit}
+  @media (max-width:900px){ .phero{grid-template-columns:1fr;padding:32px 0 24px} .pager{grid-template-columns:1fr} }
+  @media (max-width:640px){ .wrap{padding:0 16px} .sitebar-in{padding:0 16px} .sb-nav a:nth-child(n+3){display:none} }
 </style>
 
+<div class="sitebar"><div class="sitebar-in">
+  <a class="sb-home" href="../index.html"><i></i>SK YOPPARATTE LAB</a>
+  <nav class="sb-nav" aria-label="바로가기"><a href="beer-genealogy.html">통합 계보도</a><a href="../origin/korea-import-beer.html">수입맥주 원산지</a><a href="jp-infographic.html">일본</a><a href="kr-infographic.html" aria-current="page">한국</a></nav>
+</div></div>
 <div class="wrap">
-<header>
-  <p class="lab">SK YOPPARATTE LAB</p>
-  <h1>한국 맥주 90년 계보도<br>평행선과 엇갈린 교차</h1>
-  <p class="sub">1933년 <b>조선맥주</b>와 <b>소화기린맥주</b>—서로 다른 일본 자본에서 출발한 두 축은 90년간 한 번도 만나지 않는다.
-  움직이는 것은 중간에 끼어든 제3의 선뿐이다.</p>
+<header class="phero">
+  <div>
+    <p class="ph-kicker">KOREA · 1933–2026</p>
+    <h1>한국 맥주 90년 계보도<br><em>평행선</em>과 엇갈린 교차</h1>
+    <p class="ph-sub">1933년 <b>조선맥주</b>와 <b>소화기린맥주</b> — 서로 다른 일본 자본에서 출발한 두 축은 90년간 한 번도 만나지 않는다. 움직이는 것은 중간에 끼어든 제3의 선뿐이다.</p>
+  </div>
+  <dl class="ph-facts">
+    <div><dt>1933<small>설립</small></dt><dd>8월 <b>조선맥주</b>, 12월 <b>소화기린맥주</b>. 넉 달 차이로 태어난 두 축</dd></div>
+    <div><dt>1996<small>역전</small></dt><dd>하이트가 OB를 제치고 <b>40년 만에 1위</b>가 바뀐다</dd></div>
+    <div><dt>1999<small>교차</small></dt><dd><b>카스</b>는 진로쿠어스를 인수한 OB로 넘어간다</dd></div>
+    <div><dt>2005<small>교차</small></dt><dd>소주 본체 <b>진로</b>는 반대편 하이트로 넘어간다</dd></div>
+  </dl>
 </header>
 <figure><div class="canvas">
 <svg viewBox="0 -46 1590 2332" role="img" aria-label="한국 맥주 계보도. 1933년 조선맥주와 소화기린맥주가 서로 다른 일본 자본으로 설립되고, 1948년 소화기린은 동양맥주로 바뀌며 상표 OB가 등장한 뒤 1995년 사명까지 OB맥주가 된다. 조선맥주는 1952년 크라운을 출시한다. 두 선은 90년간 만나지 않는다. 1992년 진로쿠어스가 세워져 1994년 카스를 내지만 1999년 카스는 OB로, 2005년 진로 자신은 하이트로 넘어가며 두 선이 교차한다. 롯데는 2014년 클라우드로 진입한다.">
@@ -178,7 +238,7 @@
 <text class="bd" x="1210" y="1270">진로 부도로 매물이 된 맥주 부문을 OB가 인수.</text>
 <text class="bd" x="1210" y="1291"><tspan class="pr">카스</tspan>는 이때부터 지금까지 OB 제품이다.</text>
 <circle class="disc" cx="640" cy="1325" r="20" stroke="var(--ob)"/>
-<text class="bd" x="676" y="1331" style="font-weight:700;fill:var(--ob)">← <tspan class="pr">카스</tspan> 편입 (현재까지 OB 제품)</text>
+<text class="bd" x="676" y="1331" style="font-weight:700;fill:var(--ob)">← <tspan class="pr">카스</tspan> 편입 (현재 OB 제품)</text>
 
 <circle class="disc" cx="870" cy="1385" r="24" stroke="var(--jinro)" stroke-width="4"/>
 <g transform="translate(870,1385)"><path d="M12 0 h-20 M-2 -8 l-10 8 10 8" fill="none" stroke="var(--jinro)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
@@ -258,5 +318,13 @@
 두 선은 끝까지 닿지 않는다. 움직이는 것은 <span style="color:var(--jinro);font-weight:700">진로</span> 선뿐이다 —
 1992년 맥주에 뛰어들어 <b>카스</b>를 낳았지만, 진로그룹이 부도나며 <b>둘이 정반대로 갈라진다</b> — 맥주 브랜드 <b>카스</b>는 1999년 오른쪽 <b>OB</b>로(그 뒤 지금까지 OB 제품), 소주 본체 <b>진로</b>는 2005년 왼쪽 <b>하이트</b>로.
 </figcaption>
-</figure><div class="labfoot"><b>SK YOPPARATTE LAB</b> · 2026 · Google Drive 「주류학개론 / 맥주」 자료 기준</div>
+</figure><nav class="pager" aria-label="다른 페이지">
+  <a class="pg" href="jp-infographic.html"><span>이전 · JAPAN 1870–2026</span><b>일본 계보도</b></a>
+  <a class="pg" href="beer-genealogy.html"><span>일본 → 한국 한 장으로</span><b>통합 계보도</b></a>
+  <a class="pg" href="../origin/korea-import-beer.html"><span>2026.11 기준</span><b>수입맥주 원산지</b></a>
+</nav>
+<footer class="sitefoot">
+  <span><b>SK YOPPARATTE LAB</b> 제작 · 2026</span>
+  <span>Google Drive 「주류학개론 / 맥주」 자료 기준 · 소스는 <a href="https://github.com/skda0228/beer">github.com/skda0228/beer</a></span>
+</footer>
 </div>

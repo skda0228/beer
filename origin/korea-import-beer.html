@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>수입맥주, 실제로 어디서 만드나 — 국내 라이선스 생산 vs 직수입</title>
 <meta name="description" content="국내 유통 수입맥주 브랜드를 국내 라이선스 생산·본국 직수입·제3국 생산으로 분류하고, 근거와 확인 수준을 함께 표기했다. 2026년 11월 기준.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@700;900&display=swap">
 <style>
   :root{
     --ground:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D1F; --ink-2:#4A5157; --ink-3:#8A9098;
@@ -99,20 +102,79 @@
     font-size:.88rem;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.28)}
   .fab:hover{background:#000}
   .bottomnav{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px}
+
+  /* ── 사이트 공통 틀 ── */
+  :root{
+    --ground:#F7F6F1; --ink:#17191B; --ink-2:#474E54; --ink-3:#868C93; --rule:#E2DFD6;
+    --amber:#E9A320; --amber-soft:#FFF3CF; --amber-line:#F0DFA8; --amber-ink:#7A5200;
+    --serif:"Noto Serif KR","Nanum Myeongjo","Batang",serif;
+    --sans:"IBM Plex Sans KR","Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  body{font-family:var(--sans)}
+  .wrap{max-width:1240px;padding:0 28px 0}
+  .sitebar{position:sticky;top:0;z-index:30;background:rgba(247,246,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+  .sitebar-in{max-width:1240px;margin:0 auto;padding:0 28px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .sb-home{font-family:var(--mono);font-weight:700;font-size:.84rem;letter-spacing:.2em;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .sb-home i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--amber);margin-right:10px}
+  .sb-nav{display:flex;gap:4px;overflow-x:auto}
+  .sb-nav a{font-size:.88rem;font-weight:600;text-decoration:none;color:var(--ink-2);padding:7px 12px;border-radius:999px;white-space:nowrap}
+  .sb-nav a:hover,.sb-nav a:focus-visible{background:#fff;color:var(--ink);outline:none;box-shadow:inset 0 0 0 1px var(--rule)}
+  .sb-nav a[aria-current]{background:var(--ink);color:#fff}
+  header.phero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 48px;align-items:end;padding:40px 0 36px;border-bottom:0}
+  .ph-kicker{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.18em;color:var(--ink-3);margin:22px 0 16px}
+  .phero h1{margin:0;font-family:var(--serif);font-weight:900;font-size:clamp(2rem,4.4vw,3.4rem);letter-spacing:-.035em;line-height:1.14;text-wrap:balance}
+  .phero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--amber) 62%,var(--amber) 92%,transparent 92%)}
+  .phero .sub{margin:18px 0 0;max-width:36em;font-size:1.04rem}
+  .phero .sub b{color:var(--ink)}
+  .ph-facts{margin:0;display:grid;grid-template-columns:1fr 1fr;background:var(--amber-soft);border:1px solid var(--amber-line);border-radius:14px;overflow:hidden}
+  .ph-facts div{padding:16px 18px 18px;border-top:1px solid var(--amber-line);border-left:1px solid var(--amber-line);min-width:0}
+  .ph-facts div:nth-child(-n+2){border-top:0}
+  .ph-facts div:nth-child(odd){border-left:0}
+  .ph-facts dt{font-family:var(--serif);font-weight:900;font-size:1.9rem;line-height:1;letter-spacing:-.03em;white-space:nowrap}
+  .ph-facts dt small{font-family:var(--sans);font-size:.85rem;font-weight:700;color:var(--amber-ink);margin-left:5px;letter-spacing:0}
+  .ph-facts dd{margin:8px 0 0;font-size:.86rem;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
+  .ph-facts dd b{color:var(--ink)}
+  h2{font-family:var(--serif);font-weight:900;border-left:0;padding-left:0;border-top:2px solid var(--ink);padding-top:14px;margin-top:72px}
+  h2 .num{font-family:var(--mono)}
+  h3{font-family:var(--sans)}
+  .kicker,.lab,.labname,.brand .who,.tl .d{font-family:var(--mono)}
+  .panel,.ovc,.tbl{border-radius:14px}
+  .brand{border-radius:10px}
+  .note{max-width:none;border-radius:10px}
+  .lead{max-width:46em}
+  @media (min-width:1000px){ .grid:not(.two){grid-template-columns:1fr 1fr} ol.src{columns:2;column-gap:44px} ol.src li{break-inside:avoid} }
+  @media (min-width:760px){ .grid > .brand:last-child:nth-child(odd){grid-column:1/-1} }
+  header.phero + h2{margin-top:20px}
+  .sitefoot{margin-top:56px;border-top:2px solid var(--ink);padding:24px 0 56px;display:flex;justify-content:space-between;gap:12px 40px;flex-wrap:wrap;font-size:.86rem;color:var(--ink-3)}
+  .sitefoot b{font-family:var(--mono);font-size:.84rem;letter-spacing:.2em;color:var(--ink)}
+  @media (max-width:900px){ header.phero{grid-template-columns:1fr;padding:28px 0 24px} }
+  @media (max-width:640px){ .wrap{padding:0 16px} .sitebar-in{padding:0 16px} .sb-nav a:nth-child(n+3){display:none} }
 </style>
 </head>
 <body id="top">
 <a class="fab" href="../index.html" aria-label="맥주 아카이브로 돌아가기">← 아카이브</a>
+<div class="sitebar"><div class="sitebar-in">
+  <a class="sb-home" href="../index.html"><i></i>SK YOPPARATTE LAB</a>
+  <nav class="sb-nav" aria-label="바로가기"><a href="../genealogy/beer-genealogy.html">통합 계보도</a><a href="korea-import-beer.html" aria-current="page">수입맥주 원산지</a><a href="../genealogy/jp-infographic.html">일본</a><a href="../genealogy/kr-infographic.html">한국</a></nav>
+</div></div>
 <div class="wrap">
 
-<header>
-  <a class="homebtn" href="../index.html">← 맥주 아카이브로 돌아가기</a>
-  <p class="lab" style="margin-top:22px">SK YOPPARATTE LAB</p>
-  <p class="kicker">주류학개론 · 맥주 · 2026.11 기준</p>
-  <h1>수입맥주, 실제로 어디서 만드나</h1>
-  <p class="sub">매대의 '수입맥주'는 세 갈래다. <b>국내 공장에서 라이선스로 빚는 것</b>,
+<header class="phero">
+  <div>
+    <a class="homebtn" href="../index.html">← 맥주 아카이브로 돌아가기</a>
+    <p class="ph-kicker">주류학개론 · 맥주 · 2026.11 기준</p>
+    <h1>수입맥주, 실제로<br><em>어디서 만드나</em></h1>
+    <p class="sub">매대의 '수입맥주'는 세 갈래다. <b>국내 공장에서 라이선스로 빚는 것</b>,
   <b>본국 양조장에서 들여오는 것</b>, 그리고 <b>본국이 아닌 제3국 공장에서 만들어 들여오는 것</b>.
   같은 브랜드라도 캔·병·생맥주에 따라 갈래가 갈리기도 한다. 항목마다 근거의 확인 수준을 함께 적었다.</p>
+  </div>
+  <dl class="ph-facts">
+    <div><dt>3<small>갈래</small></dt><dd><b>국내 라이선스</b> · 해외 완제품 수입 · 제3국 생산 수입</dd></div>
+    <div><dt>2026.10<small>전주</small></dt><dd><b>기린 이치방 시보리 캔</b>을 하이트진로 전주공장이 만들기 시작</dd></div>
+    <div><dt>12.31<small>종료</small></dt><dd>필스너 우르켈·코젤, 기존 수입사 판매 종료 예정. 재수입은 미정</dd></div>
+    <div><dt>2020<small>종량세</small></dt><dd>맥주 주세가 바뀐 뒤 <b>국내 생산</b>으로 옮겨 오는 흐름</dd></div>
+  </dl>
 </header>
 
 <h2><span class="num">00 · 총론</span>세 갈래로 나누면</h2>
@@ -302,9 +364,10 @@
   <a class="homebtn" href="#top">↑ 맨 위로</a>
 </div>
 
-<footer>
-  <span class="labname">SK YOPPARATTE LAB</span> 제작 · 2026.11.16 작성<br>
-  생산지는 계약과 세제에 따라 수시로 바뀐다. 최종 판단은 언제나 손에 든 제품의 한글 표시사항으로 한다.
+<footer class="sitefoot">
+  <span><b>SK YOPPARATTE LAB</b> 제작 · 2026.11.16 작성</span>
+  <span>
+  생산지는 계약과 세제에 따라 수시로 바뀐다. 최종 판단은 언제나 손에 든 제품의 한글 표시사항으로 한다.</span>
 </footer>
 
 </div>
